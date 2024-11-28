@@ -1,0 +1,14 @@
+.p-button:focus.fdbtn, .p-button:focus.clrbtn {
+  box-shadow: unset;
+}
+
+.p-button.p-button-text:not(:disabled):hover.fdbtn, .p-button.p-button-text:not(:disabled):hover.clrbtn {
+  background: transparent;
+}
+
+.clrbtn {
+  transition: transform .5s;
+  transition-delay: .2s;
+}
+
+.clrbtn:hover {transform: rotate(360deg);}
