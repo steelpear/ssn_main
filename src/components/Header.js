@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Menubar } from 'primereact/menubar'
 import { Dialog } from 'primereact/dialog'
@@ -8,16 +9,28 @@ import { FeedbackForm } from '../components/FeedbackForm'
 import { Oswald, Roboto, Art } from '../styles/fonts'
 
 export const Header = () => {
+  const router = useRouter()
   const [feedbackDialog, setFeedbackDialog] = useState(false)
   const menuItems = [
-    { label: 'Главная' },
-    { label: 'Туры по России' },
+    {
+      label: 'Главная',
+      command: () => { router.push('/') }
+    },
+    {
+      label: 'Туры по России',
+      command: () => { router.push('/tours') }
+    },
     { label: 'Сборы и корпоративные туры' },
     { label: 'Круизы' },
     { label: 'Как оплатить' },
     { label: 'Отзывы' },
-    { label: 'О компании' },
-    { label: 'Контакты' }
+    { 
+      label: 'О компании',
+      command: () => { router.push('/about') } },
+    {
+      label: 'Контакты',
+      command: () => { router.push('/contacts') }
+    }
   ]
 
   useEffect(() => {

@@ -1,7 +1,7 @@
-import Head from "next/head" 
+import Head from "next/head"
 import { MainLayout } from '../components/MainLayout'
 
-export default function Home() {
+export default function Tours() {
   return (
     <>
       <Head>
@@ -13,9 +13,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800'>
-          Main Page
-        </main>
+        <div className='pl-4 pt-4 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
       </MainLayout>
     </>
   ) 

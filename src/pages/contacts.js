@@ -1,7 +1,9 @@
 import Head from "next/head" 
 import { MainLayout } from '../components/MainLayout'
+import { YandexMaps } from '../components/YandexMaps'
+import { Roboto } from '../styles/fonts'
 
-export default function Home() {
+export default function Contacts() {
   return (
     <>
       <Head>
@@ -13,8 +15,13 @@ export default function Home() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800'>
-          Main Page
+        <main className='fadein animation-duration-800 pb-4'>
+          <div className={`${Roboto.className} text-700 text-xl font-semibold mb-5`}>
+            <p><i className='pi pi-phone mr-2' /><a className='no-underline' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
+            <p><i className='pi pi-at mr-2' /><a className='no-underline' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
+            <p><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
+          </div>
+          <YandexMaps center={[44.692609, 37.779309]} zoom={15} height={450} />
         </main>
       </MainLayout>
     </>

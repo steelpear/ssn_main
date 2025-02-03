@@ -1,7 +1,7 @@
 import Head from "next/head" 
 import { MainLayout } from '../components/MainLayout'
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800'>
-          Main Page
+          About
         </main>
       </MainLayout>
     </>

@@ -12,7 +12,7 @@ export const YandexMaps = ({...props}) => {
             controls: []
           }}
           width='100%'
-          height='300px'
+          height={props.height}
         >
           <Placemark
             defaultGeometry={props.center}
