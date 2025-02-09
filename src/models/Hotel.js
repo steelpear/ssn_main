@@ -1,12 +1,13 @@
 import { Schema, model, models } from 'mongoose'
 
 const Hotel = new Schema({
-  img: String,
+  img: Array,
   name: String,
   url: String,
   description: String,
   price: String,
-  info: String,
+  dprice: String,
+  label: String,
   type: String,
   city: String,
   rating: String,

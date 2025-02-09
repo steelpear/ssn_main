@@ -19,18 +19,15 @@ export default function Admin() {
       <AdminLayout>
       <main className='p-6'>
         <div className='grid'>
-          {data && data.map(item => {
-            return (
-              <div className="col-3" key={item._id}>
-                <Card className='pb-0 border-solid border-400 border-1 cursor-pointer' onClick={() => router.push(`/admin-${item.name}`)}>
+          {data && data.map(item => (
+              <div className="col-3" key={item.info.uuid}>
+                <Card className={`pb-0 border-solid border-400 border-1 ${item.name != 'popular' && 'cursor-pointer'}`} onClick={() => item.name != 'popular' && router.push(`/admin-${item.name}`)}>
                   <p className='m-0 text-lg text-center'>{item.name}</p>
                 </Card>
-              </div>
-            )
-          })}
-        </div>
-      </main>
-    </AdminLayout>
+              </div>))}
+          </div>
+        </main>
+      </AdminLayout>
     </>
   )
 }
