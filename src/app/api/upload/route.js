@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs/promises'
+import { nanoid } from 'nanoid'
 
 export async function POST(req) {
   try {
-    const date = new Date()
-    const prefix = ('0' + date.getDate()).slice(-2) + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + date.getFullYear() + '_' + ('0' + date.getHours()).slice(-2) + '-' + ('0' + date.getMinutes()).slice(-2)
+    const prefix = nanoid()
     const formData = await req.formData()
     const file = formData.get('file')
     const arrayBuffer = await file.arrayBuffer()

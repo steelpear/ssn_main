@@ -1,5 +1,6 @@
 import Head from "next/head" 
 import { MainLayout } from '../components/MainLayout'
+import { Top3 } from '../components/Top3'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <MainLayout>
         <main className='fadein animation-duration-800'>
           Main Page
+          <Top3 best='so' />
         </main>
       </MainLayout>
     </>
