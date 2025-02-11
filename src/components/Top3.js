@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Image } from 'primereact/image'
 import { Tag } from 'primereact/tag'
 import { Chip } from 'primereact/chip'
@@ -8,6 +8,7 @@ import { Divider } from 'primereact/divider'
 import { Card } from 'primereact/card'
 
 export const Top3 = ({...params}) => {
+  const router = useRouter()
   const [hotels, setHotels] = useState(null)
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export const Top3 = ({...params}) => {
                     <div className='text-sm font-medium'>от {item.price} ₽</div>
                     <div className='text-xs'>{item.dprice}</div>
                   </div>
-                  <Link href={item.url} className='text-xs'>Подробней</Link>
+                  <p className='text-xs text-blue-600 font-medium cursor-pointer underline' onClick={() => router.push(`/hotel/${item._id}`)}>Подробней</p>
                 </div>
               </div>
             </div>
