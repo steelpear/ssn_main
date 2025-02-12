@@ -32,6 +32,7 @@ export default function Hotels() {
     slug: '',
     url: '',
     address: '',
+    coord: '',
     description: '',
     price: '',
     dprice: '',
@@ -266,6 +267,7 @@ export default function Hotels() {
                 </div>
                 <form>
                   <div className='flex align-items-center grid w-full mt-1 px-2'>
+                    <InputText name='coord' type='text' className='p-inputtext-sm mr-3' placeholder='Координаты' value={hotel.coord} onChange={(e) => handleChange(e)} />
                     <div>
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
                       <input type='file' name='file' ref={inputFile} onChange={() => uploadImage()} className='p-button p-button-outlined p-button-sm mb-2' disabled={!hotel.name} />
@@ -317,7 +319,8 @@ export default function Hotels() {
                   </div>
                 </div>
                 <form>
-                  <div className='flex align-items-center grid w-full mt-1 px-2'>
+                  <div className='flex align-items-center grid w-full mt-1 mb-2 px-2'>
+                    <InputText name='coord' type='text' className='p-inputtext-sm mr-3' placeholder='Координаты' value={hotel.coord} onChange={(e) => handleChange(e)} />
                     <div>
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
                       <input type='file' name='file' ref={inputFile} onChange={uploadImage} className='p-button p-button-outlined p-button-sm mb-2' disabled={!hotel.name} />

@@ -21,7 +21,7 @@ export default function Contacts() {
             <p><i className='pi pi-at mr-2' /><a className='no-underline' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
             <p><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
           </div>
-          <YandexMaps center={[44.692609, 37.779309]} zoom={15} height={450} />
+          <YandexMaps center={'44.692609, 37.779309'} label='ПРО100-ТУР' zoom={15} height={450} />
         </main>
       </MainLayout>
     </>

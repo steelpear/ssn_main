@@ -2,8 +2,10 @@ import {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 import Head from "next/head" 
 import { MainLayout } from '../../components/MainLayout'
+import { YandexMaps } from '../../components/YandexMaps'
 import { Galleria } from 'primereact/galleria'
 import { Rating } from 'primereact/rating'
+import { Chip } from 'primereact/chip'
 import { ScrollPanel } from 'primereact/scrollpanel'
 
 export default function Hotel() {
@@ -24,7 +26,7 @@ export default function Hotel() {
         body: JSON.stringify({id})
       })
       const response = await res.json()
-      setImages(response.img)
+      setImages(response ? response.img : [])
       setHotel(response)
     }
     getHotel()
@@ -58,11 +60,15 @@ const thumbnailTemplate = (item) => {
           <div className='grid gap-2'>
             <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular style={{ maxWidth: '640px' }} showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} />
             <div className='col pt-0'>
-              <div>{hotel.dprice}&ensp;<span className='text-2xl font-medium'>{hotel.price}</span><span>&nbsp;₽</span></div>
-              <ScrollPanel style={{ width: '100%', height: '500px' }}>
+              <div className='surface-100 border-1 border-200 border-round-md py-1 px-2 inline-flex align-items-center'><i className='pi pi-tag' style={{ fontSize: '1.3rem' }} />&nbsp;{hotel.dprice}&ensp;<span className='text-xl font-medium'>{hotel.price}</span><span>&nbsp;₽</span></div>
+              <div className='mt-2'>{hotel.utp && hotel.utp.map((e, i) => (<Chip key={i} label={e} pt={{ label: {className: 'text-xs p-0 m-1'}, root: {style: {background: '#DDD6FE', margin: '5px 5px 5px 0', padding: '0 6px'} }}} />))}</div>
+              <ScrollPanel style={{ width: '100%', height: '435px' }}>
                 <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: hotel.description }} />
               </ScrollPanel>
             </div>
+          </div>
+          <div className='my-3'>
+            <YandexMaps center={hotel.coord} label={hotel.name} zoom={15} height={250} />
           </div>
         </main>
       </MainLayout>

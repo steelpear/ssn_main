@@ -44,7 +44,7 @@ export const Top3 = ({...params}) => {
                   <Tag severity="success" value={`${item.rating} из 5`} className='mr-3' />
                   <Rating value={item.stars} stars={item.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '1rem' }}}} />
                 </div>
-                <div>{item.utp.map(e => (<Chip label={e} pt={{ label: {className: 'text-xs p-0 m-1'}, root: {style: {background: '#DDD6FE', margin: '5px 1px 1px 1px', padding: '0 6px'} }}} />))}</div>
+                <div>{item.utp.map((e, i) => (<Chip key={i} label={e} pt={{ label: {className: 'text-xs p-0 m-1'}, root: {style: {background: '#DDD6FE', margin: '5px 1px 1px 1px', padding: '0 6px'} }}} />))}</div>
                 <Divider className='my-2' />
                 <div className='flex align-items-center justify-content-between'>
                   <div className='surface-200 border-round-md px-2 py-1'>

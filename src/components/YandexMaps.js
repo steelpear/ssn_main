@@ -1,13 +1,14 @@
 import { YMaps, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps'
 
 export const YandexMaps = ({...props}) => {
+  const coords = props.center ? props.center.split(',') : '44.692609, 37.779309'.split(',')
 
   return (
     <div className='w-full shadow-4'>
       <YMaps>
         <Map
           defaultState={{
-            center: props.center,
+            center: coords,
             zoom: props.zoom,
             controls: []
           }}
@@ -15,9 +16,9 @@ export const YandexMaps = ({...props}) => {
           height={props.height}
         >
           <Placemark
-            defaultGeometry={props.center}
+            defaultGeometry={coords}
             properties={{
-              iconCaption: 'ПРО100-ТУР'
+              iconCaption: props.label
             }}
           />
           <ZoomControl options={{float:'right'}} />
