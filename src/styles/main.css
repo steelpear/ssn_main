@@ -1,3 +1,5 @@
+.footer-wrap {background-color:#054C89;}
+
 .p-button:focus.fdbtn, .p-button:focus.clrbtn {
   box-shadow: unset;
 }
@@ -13,4 +15,4 @@
 
 .clrbtn:hover {transform: rotate(360deg);}
 
-/* .desc p {margin-top: 0px;} */
+.pop-direction-item:hover {opacity: .9;}

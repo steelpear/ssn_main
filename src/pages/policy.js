@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { NoSSR } from '@kwooshung/react-no-ssr'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { MainLayout } from '../components/MainLayout'
 
@@ -184,9 +183,9 @@ export default function Policy() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} />
+        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
         <main className='fadein animation-duration-800'>
-          <NoSSR><p dangerouslySetInnerHTML={{ __html: content }}></p></NoSSR>
+          <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </main>
       </MainLayout>
     </>

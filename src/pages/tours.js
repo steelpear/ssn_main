@@ -1,7 +1,11 @@
-import Head from "next/head"
+import Head from 'next/head'
+import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 
 export default function Tours() {
+
+  useScript('static/partner.fire.js')
+
   return (
     <>
       <Head>

@@ -1,4 +1,4 @@
-import "primereact/resources/themes/tailwind-light/theme.css"
+import 'primereact/resources/themes/tailwind-light/theme.css'
 import { PrimeReactProvider } from 'primereact/api'
 import 'primereact/resources/primereact.css'
 import 'primeicons/primeicons.css'
