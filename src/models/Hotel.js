@@ -3,6 +3,7 @@ import { Schema, model, models } from 'mongoose'
 const Hotel = new Schema({
   img: Array,
   name: String,
+  simple_name: String,
   slug: String,
   url: String,
   address: String,

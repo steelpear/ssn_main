@@ -21,10 +21,10 @@ export default function Gelendzhik() {
       <MainLayout>
         <main className='fadein animation-duration-800'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center my-4'>Курорт Геленджик</div>
-          <img src='/gelendzhik.jpg' alt='Курорт Геленджик' width='100%' height={450} />
+          <div className='text-3xl text-700 font-medium text-center my-5'>Курорт Геленджик</div>
+          <img src='/gelendzhik.jpg' alt='Курорт Геленджик' width='100%' height={450} className='shadow-2 border-round-sm' />
           <div className='text-lg my-3'>
-            Геленджик:  жемчужина Черноморского побережья!  Уникальное сочетание горных пейзажей и морского побережья, чистые пляжи, развитая инфраструктура и множество развлечений.  Идеальное место для отдыха всей семьей или романтического путешествия.
+            <span className='font-medium'>Геленджик</span>:  жемчужина Черноморского побережья!  Уникальное сочетание горных пейзажей и морского побережья, чистые пляжи, развитая инфраструктура и множество развлечений.  Идеальное место для отдыха всей семьей или романтического путешествия.
           </div>
           <Top3 best='ge' />
         </main>

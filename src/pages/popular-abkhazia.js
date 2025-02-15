@@ -21,10 +21,10 @@ export default function Abkhazia() {
       <MainLayout>
         <main className='fadein animation-duration-800'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center my-4'>Курорты Абхазии</div>
-          <img src='/abkhazia.jpg' alt='Курорты Абхазии' width='100%' height={450} />
+          <div className='text-3xl text-700 font-medium text-center my-5'>Курорты Абхазии</div>
+          <img src='/abkhazia.jpg' alt='Курорты Абхазии' width='100%' height={450} className='shadow-2 border-round-sm' />
           <div className='text-lg my-3'>
-            Откройте для себя волшебную Абхазию!  Уникальная природа, гостеприимные жители,  древние достопримечательности и чистейшее Черное море ждут вас.  Выбирайте свой идеальный курорт в Абхазии – от шумных городов до уютных поселков.
+            <span className='font-medium'>Абхазия</span>: отдых в стране души! Откройте для себя красоту и гостеприимство Абхазии!  Уникальная природа,  чистейшее Черное море,  величественные горы,  древние крепости и уютные курортные городки – все это ждет вас.  Отдых в Абхазии – это возможность насладиться спокойствием,  прикоснуться к истории и почувствовать неповторимый колорит этой гостеприимной страны.
           </div>
           <Top3 best='ab' />
         </main>

@@ -3,6 +3,11 @@ import Head from 'next/head'
 import useSWR, { useSWRConfig } from 'swr'
 import slug from 'slug'
 import { AdminLayout } from '../components/AdminLayout'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
+import { IconField } from 'primereact/iconfield'
+import { InputIcon } from 'primereact/inputicon'
+import { FilterMatchMode } from 'primereact/api'
 import { Loader } from '../components/Loader'
 import { types } from '../components/types'
 import { best } from '../components/best'
@@ -26,9 +31,12 @@ export default function Hotels() {
   const [addDialog, setAddDialog] = useState(false)
   const [editDialog, setEditDialog] = useState(false)
   const [images, setImages] = useState([])
+  const [filters, setFilters] = useState({'global': { value: null, matchMode: FilterMatchMode.CONTAINS }})
+  const [globalFilterValue, setGlobalFilterValue] = useState('')
   const [hotel, setHotel] = useState({
     img: [],
     name: '',
+    simple_name: '',
     slug: '',
     url: '',
     address: '',
@@ -46,9 +54,34 @@ export default function Hotels() {
     public: true
   })
 
-  const { data: hotels } = useSWR('/api/hotels/getallhotels', fetcher, { revalidateOnFocus: false })
+  const { data: hotels, isLoading } = useSWR('/api/hotels/getallhotels', fetcher, { revalidateOnFocus: false })
 
   const { mutate } = useSWRConfig()
+
+  const onGlobalFilterChange = (e) => {
+    const value = e.target.value
+    let _filters = { ...filters }
+    _filters['global'].value = value
+    setFilters(_filters)
+    setGlobalFilterValue(value)
+  }
+
+  const initFilters = () => {
+    setFilters({'global': { value: null, matchMode: FilterMatchMode.CONTAINS }})
+    setGlobalFilterValue('')
+  }
+
+  const headerTemplate = () => {
+    return (
+      <div className='flex align-items-center justify-content-end'>
+        <IconField iconPosition="left">
+          <InputIcon className="pi pi-search pt-1" />
+          <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Поиск" className='w-full md:w-16rem pr-5' />
+          <InputIcon className="pi pi-times cursor-pointer -ml-4 pt-1" onClick={() => initFilters()} />
+        </IconField>
+      </div>
+    )
+  }
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -213,32 +246,35 @@ export default function Hotels() {
       <AdminLayout>
         <main className='p-6'>
           <Button label='Добавить отель' icon='pi pi-plus' severity='secondary' outlined onClick={() => setAddDialog(true)} />
-          <div className='mt-5'>
-            {hotels && hotels.map((item, index) => {
-              return (
-                <div className='flex align-items-center justify-content-between border-bottom-1 border-300' key={item._id}>
-                  <div className={`flex align-items-center gap-3 ${!item.public && 'line-through'}`}>
-                    <div>{index + 1}</div>
-                    <div>{item.name}</div>
-                    <div>{item.city}</div>
-                    <div><a href={item.url} target='_blank' className='text-blue-600'>{item.url}</a></div>
-                  </div>
-                  <div className='flex align-items-center justify-content-between'>
-                    <Button icon='pi pi-pencil' rounded text severity='secondary' aria-label='Edit' onClick={() => openEditDialog(item)}/>
-                    <Button icon='pi pi-trash' rounded text severity='danger' aria-label='Delete' onClick={() => deleteHotel(item._id)} />
-                  </div>
-                </div>
-              )})}
+          <div className="mt-3">
+            <DataTable value={hotels} loading={isLoading} size='small' dataKey='_id' stripedRows removableSort paginator responsiveLayout='scroll' paginatorTemplate='CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown' currentPageReportTemplate='Строки {first} - {last} из {totalRecords}' rows={20} rowsPerPageOptions={[20,50,hotels ? hotels.length : 0]} filters={filters} globalFilterFields={['name', 'city', 'url']} header={headerTemplate} emptyMessage='Даных нет' style={{fontSize:14}} tableStyle={{ minWidth: '50rem' }}>
+              <Column header='#' headerStyle={{width: '2.5rem'}} body={(data, options) => <div className='ml-1 text-sm'>{options.rowIndex + 1}</div>} />
+              <Column header='Название' field='name' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.name}</div>} />
+              <Column header='Город' field='city' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.city}</div>} />
+              <Column header='Ссылка' field='url' body={data => <a href={data.url} target='_blank' className={`${!data.public && 'line-through'}`} style={{textDecoration: 'none'}}>{data.url}</a>} />
+              <Column body={(data, options) => (
+                <div className='flex align-items-center justify-content-between'>
+                  <Button icon='pi pi-pencil' rounded text severity='secondary' aria-label='Edit' onClick={() => openEditDialog(data)}/>
+                  <Button icon='pi pi-trash' rounded text severity='danger' aria-label='Delete' onClick={() => deleteHotel(data._id)} />
+                </div>)} />
+            </DataTable>
           </div>
           {/* Добавить отель */}
           <Dialog header={<div><i className='pi pi-building-columns mr-3' style={{ fontSize: '1.5rem' }} />Добавить отель</div>} visible={addDialog} maximized draggable={false} onHide={() => {if (!addDialog) return; setAddDialog(false); }} footer={footerContent}>
-            <div className='grid w-full px-4 py-1'>
+            <div className='grid w-full px-3 py-1'>
               <div className='col flex flex-column gap-2'>
                 <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название отеля' value={hotel.name} onChange={(e) => handleNameChange(e)} />
                 <div className='text-xs -mt-2'>{hotel.slug}</div>
                 <InputText name='url' type='text' className='w-full p-inputtext-sm' placeholder='URL' value={hotel.url} onChange={(e) => handleChange(e)} />
                 <InputText name='address' type='text' className='w-full p-inputtext-sm' placeholder='Адрес' value={hotel.address} onChange={(e) => handleChange(e)} />
-                <InputText name='label' type='text' className='w-full p-inputtext-sm' placeholder='Ярлык на главной фотографии' value={hotel.label} onChange={(e) => handleChange(e)} />
+                <div className='grid w-full flex align-items-center'>
+                  <div className='col'>
+                    <InputText name='label' type='text' className='w-full p-inputtext-sm' placeholder='Ярлык на главной фотографии' value={hotel.label} onChange={(e) => handleChange(e)} />
+                  </div>
+                  <div className='col'>
+                    <InputText name='simple_name' type='text' className='w-full p-inputtext-sm' placeholder='Краткое название' value={hotel.simple_name} onChange={(e) => handleChange(e)} />
+                  </div>
+                </div>                
                 <Chips name='utp' value={hotel.utp} onChange={(e) => handleChange(e)} max={3} placeholder='UTP' className='w-full block p-inputtext-sm' />
                 <div className='grid w-full flex align-items-center'>
                   <div className='col'>
@@ -272,7 +308,7 @@ export default function Hotels() {
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
                       <input type='file' name='file' ref={inputFile} onChange={() => uploadImage()} className='p-button p-button-outlined p-button-sm mb-2' disabled={!hotel.name} />
                     </div>
-                    <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-2' onClick={() => clearImagesList()} />
+                    <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-1' onClick={() => clearImagesList()} />
                   </div>
                 </form>
                 {renderImagesList()}
@@ -285,13 +321,20 @@ export default function Hotels() {
           {/* Добавить отель */}
           {/* Редактировать отель */}
           <Dialog header={<div><i className='pi pi-building-columns mr-3' style={{ fontSize: '1.5rem' }} />Редактировать отель</div>} visible={editDialog} maximized draggable={false} onHide={() => {if (!editDialog) return; setEditDialog(false); }} footer={footerEditContent}>
-            <div className='grid w-full px-4 py-1'>
+            <div className='grid w-full px-3 py-1'>
               <div className='col flex flex-column gap-2'>
                 <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название отеля' value={hotel.name} onChange={(e) => handleNameChange(e)} />
                 <div className='text-xs -mt-2'>{hotel.slug}</div>
                 <InputText name='url' type='text' className='w-full p-inputtext-sm' placeholder='URL' value={hotel.url} onChange={(e) => handleChange(e)} />
                 <InputText name='address' type='text' className='w-full p-inputtext-sm' placeholder='Адрес' value={hotel.address} onChange={(e) => handleChange(e)} />
-                <InputText name='label' type='text' className='w-full p-inputtext-sm' placeholder='Ярлык на главной фотографии' value={hotel.label} onChange={(e) => handleChange(e)} />
+                <div className='grid w-full flex align-items-center'>
+                  <div className='col'>
+                    <InputText name='label' type='text' className='w-full p-inputtext-sm' placeholder='Ярлык на главной фотографии' value={hotel.label} onChange={(e) => handleChange(e)} />
+                  </div>
+                  <div className='col'>
+                    <InputText name='simple_name' type='text' className='w-full p-inputtext-sm' placeholder='Краткое название' value={hotel.simple_name} onChange={(e) => handleChange(e)} />
+                  </div>
+                </div>
                 <Chips name='utp' value={hotel.utp} onChange={(e) => handleChange(e)} max={3} placeholder='UTP' className='w-full block p-inputtext-sm' />
                 <div className='grid w-full flex align-items-center'>
                   <div className='col'>
@@ -325,7 +368,7 @@ export default function Hotels() {
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
                       <input type='file' name='file' ref={inputFile} onChange={uploadImage} className='p-button p-button-outlined p-button-sm mb-2' disabled={!hotel.name} />
                     </div>
-                    <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-2' onClick={() => clearImagesList()} />
+                    <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-1' onClick={() => clearImagesList()} />
                   </div>
                 </form>
                 {renderImagesList()}

@@ -13,6 +13,11 @@
   transition-delay: .2s;
 }
 
+.pop-direction-item {
+  transition: transform .3s;
+  transition-delay: .2s;
+}
+
 .clrbtn:hover {transform: rotate(360deg);}
 
-.pop-direction-item:hover {opacity: .9;}
+.pop-direction-item:hover {transform: scale(.98);}

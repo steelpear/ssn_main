@@ -21,10 +21,10 @@ export default function Crimea() {
       <MainLayout>
         <main className='fadein animation-duration-800'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center my-4'>Курорты Крыма</div>
-          <img src='/crimea.jpg' alt='Курорты Крыма' width='100%' height={450} />
+          <div className='text-3xl text-700 font-medium text-center my-5'>Курорты Крыма</div>
+          <img src='/crimea.jpg' alt='Курорты Крыма' width='100%' height={450} className='shadow-2 border-round-sm' />
           <div className='text-lg my-3'>
-            Отдых и лечение в Крыму:  выбор санаториев и отелей на любой вкус!  Сочетайте комфортный отдых на берегу моря с оздоровительными процедурами в лучших санаториях Крыма.  Широкий выбор курортных отелей и санаториев с различным уровнем комфорта и ценами.
+            <span className='font-medium'>Крым</span>: жемчужина отдыха у моря! Откройте для себя волшебство Крыма!  Многообразие курортов – от фешенебельных Ялты и Алушты до уютных Коктебеля и Судака – подарит незабываемые впечатления.  Чистейшие пляжи, величественные горы, исторические достопримечательности и гостеприимные жители ждут вас!  Выбирайте свой идеальный курорт и наслаждайтесь отдыхом на берегу Черного моря!
           </div>
           <Top3 best='cr' />
         </main>

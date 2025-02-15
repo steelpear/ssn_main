@@ -38,7 +38,7 @@ export const Top3 = ({...params}) => {
                 <div className='px-2'>
                   <div className='flex'>
                     <div className='text-xs'>{item.type}, </div>
-                    <div className='text-xs'>{item.city}</div>
+                    <div className='text-xs'>&nbsp;{item.city}</div>
                   </div>
                   <div className='text-sm font-medium mb-2'>{item.name}</div>
                   <div className='flex align-items-center'>
@@ -52,7 +52,7 @@ export const Top3 = ({...params}) => {
                       <div className='text-sm font-medium'>от {item.price} ₽</div>
                       <div className='text-xs'>{item.dprice}</div>
                     </div>
-                    <p className='text-xs text-blue-600 font-medium cursor-pointer underline' onClick={() => router.push(`/hotel/${item._id}`)}>Подробней</p>
+                    <p className='text-sm text-blue-600 font-medium cursor-pointer underline' onClick={() => router.push(`/hotel/${item._id}?p=${params.best}`)}>Подробнее</p>
                   </div>
                 </div>
               </div>

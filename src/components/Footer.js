@@ -1,6 +1,7 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
+import { EventBus } from '../components/EventBus'
 import { Dialog } from 'primereact/dialog'
 import { FeedbackForm } from '../components/FeedbackForm'
 import { Roboto } from '../styles/fonts'
@@ -8,6 +9,11 @@ import { Roboto } from '../styles/fonts'
 export const Footer = () => {
   const router = useRouter()
   const [feedbackDialog, setFeedbackDialog] = useState(false)
+
+  useEffect(() => {
+    EventBus.$on('closeaction', () => setFeedbackDialog(false))
+    return () => {EventBus.$off('closeaction')}
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={`${Roboto.className} h-auto p-6 text-white footer-wrap`}>

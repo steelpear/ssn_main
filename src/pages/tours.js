@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
+import { ActionFormSection } from '../components/ActionFormSection'
 
 export default function Tours() {
 
@@ -17,7 +18,9 @@ export default function Tours() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <div className='pl-4 pt-4 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
+      <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
+        <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
+        <ActionFormSection />
       </MainLayout>
     </>
   ) 
