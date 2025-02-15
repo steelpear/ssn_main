@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 import { Top3 } from '../components/Top3'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Crimea() {
+
+  useScript('static/partner.fire.js')
+
   const items = [{ label: 'Курорты Крыма' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
@@ -27,6 +31,7 @@ export default function Crimea() {
             <span className='font-medium'>Крым</span>: жемчужина отдыха у моря! Откройте для себя волшебство Крыма!  Многообразие курортов – от фешенебельных Ялты и Алушты до уютных Коктебеля и Судака – подарит незабываемые впечатления.  Чистейшие пляжи, величественные горы, исторические достопримечательности и гостеприимные жители ждут вас!  Выбирайте свой идеальный курорт и наслаждайтесь отдыхом на берегу Черного моря!
           </div>
           <Top3 best='cr' />
+          <div className='s-partnership mb-4' style={{display:'none'}}>Klk8JR9%2FKXsFaS0LTwVzTuU%2BrBM4vU5BqN1G4XOGWjk%3D</div>
         </main>
       </MainLayout>
     </>

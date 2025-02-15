@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 import { Top3 } from '../components/Top3'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Abkhazia() {
+
+  useScript('static/partner.fire.js')
+
   const items = [{ label: 'Курорты Абхазии' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
@@ -27,6 +31,7 @@ export default function Abkhazia() {
             <span className='font-medium'>Абхазия</span>: отдых в стране души! Откройте для себя красоту и гостеприимство Абхазии!  Уникальная природа,  чистейшее Черное море,  величественные горы,  древние крепости и уютные курортные городки – все это ждет вас.  Отдых в Абхазии – это возможность насладиться спокойствием,  прикоснуться к истории и почувствовать неповторимый колорит этой гостеприимной страны.
           </div>
           <Top3 best='ab' />
+          <div className='s-partnership mb-4' style={{display:'none'}}>ZZJ0RdJKxrpk38g5NLr1b%2FadDZrd0dc4JJe9TecpvjM%3D</div>
         </main>
       </MainLayout>
     </>

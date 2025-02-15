@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 import { Top3 } from '../components/Top3'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Gelendzhik() {
+
+  useScript('static/partner.fire.js')
+
   const items = [{ label: 'Курорт Геленджик' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
@@ -27,6 +31,7 @@ export default function Gelendzhik() {
             <span className='font-medium'>Геленджик</span>:  жемчужина Черноморского побережья!  Уникальное сочетание горных пейзажей и морского побережья, чистые пляжи, развитая инфраструктура и множество развлечений.  Идеальное место для отдыха всей семьей или романтического путешествия.
           </div>
           <Top3 best='ge' />
+          <div className='s-partnership mb-4' style={{display:'none'}}>CPOoKc1NPdRnYmdUtf6IjJWq94joKgYxFUYMaVWfwEI%3D</div>
         </main>
       </MainLayout>
     </>

@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 import { Top3 } from '../components/Top3'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Anapa() {
+
+  useScript('static/partner.fire.js')
+
   const items = [{ label: 'Семейный отдых в Анапе' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
@@ -27,6 +31,7 @@ export default function Anapa() {
             <span className='font-medium'>Анапа</span>: незабываемый семейный отдых! Солнечные пляжи, теплое море,  развлечения для детей и взрослых – все это ждет вас в Анапе!  Идеальное место для семейного отдыха с малышами и подростками.  Выбирайте комфортабельное жилье,  отправляйтесь на экскурсии, наслаждайтесь морскими прогулками и создавайте незабываемые воспоминания вместе с семьей!
           </div>
           <Top3 best='an' />
+          <div className='s-partnership mb-4' style={{display:'none'}}>JOrYSgJM4w8RwNVmjHb%2B4TqjiVRY1msnFGXX7VEBmx8%3D</div>
         </main>
       </MainLayout>
     </>

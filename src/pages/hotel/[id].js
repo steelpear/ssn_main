@@ -39,7 +39,7 @@ export default function Hotel() {
       if (p === 'so') {return {label: 'Отдых в Сочи', url: '/popular-sochi'}}
       else if (p === 'an') {return {label: 'Семейный отдых в Анапе', url: '/popular-anapa'}}
       else if (p === 'ge') {return {label: 'Курорт Геленджик', url: '/popular-gelendzhik'}}
-      else if (p === 'cr') {return 'Курорты Крыма'}
+      else if (p === 'cr') {return {label: 'Курорты Крыма', url: '/popular-crimea'}}
       else {return {label: 'Курорты Абхазии', url: '/popular-abkhazia'}}
     }
     getHotel()

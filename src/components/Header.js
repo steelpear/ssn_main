@@ -6,7 +6,7 @@ import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
 import { EventBus } from '../components/EventBus'
 import { FeedbackForm } from '../components/FeedbackForm'
-import { Oswald, Roboto, Art } from '../styles/fonts'
+import { Roboto, Montserrat } from '../styles/fonts'
 
 export const Header = () => {
   const router = useRouter()
@@ -40,12 +40,18 @@ export const Header = () => {
 
   return (
     <>
-      <div className='flex flex-column md:flex-row justify-content-between align-items-center px-4 py-2'>
-        <Link href='/'><img src='/main-site-logo.png' alt='logo' className='w-11rem' /></Link>
-        <div className={`${Art.className} text-700 text-4xl text-center uppercase font-semibold`}>Спортивные сборы и турниры</div>
-        <div className='pr-2 text-center'>
-          <div><i className='pi pi-phone mr-2' style={{fontSize:'1.3rem'}} /><a className='no-underline text-700 text-xl font-medium' href='tel:+79886698337'><span className={Oswald.className}>+7 (988) 669-83-37</span></a></div>
-          <div className='flex gap-2 align-items-center justify-content-start mt-2'>
+      <div className='grid flex flex-column md:flex-row justify-content-between align-items-center px-6 pt-3'>
+        <div className='col-4 flex align-items-center'>
+          <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' className='w-2' /></Link>
+          <div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div>
+        </div>
+        <div className='col-4 text-center'>
+          <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
+          <a className='no-underline text-700 text-lg font-semibold' href='tel:+79886698337'><span className={Montserrat.className}>+7 (988) 669-83-37</span></a>
+        </div>
+        <div className='col-4'>
+          <div className='flex gap-2 align-items-center justify-content-end'>
+            <div className={`${Montserrat.className} font-medium text-md`}>Заказать звонок</div>
             <Button
               rounded
               text

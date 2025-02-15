@@ -247,11 +247,12 @@ export default function Hotels() {
         <main className='p-6'>
           <Button label='Добавить отель' icon='pi pi-plus' severity='secondary' outlined onClick={() => setAddDialog(true)} />
           <div className="mt-3">
-            <DataTable value={hotels} loading={isLoading} size='small' dataKey='_id' stripedRows removableSort paginator responsiveLayout='scroll' paginatorTemplate='CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown' currentPageReportTemplate='Строки {first} - {last} из {totalRecords}' rows={20} rowsPerPageOptions={[20,50,hotels ? hotels.length : 0]} filters={filters} globalFilterFields={['name', 'city', 'url']} header={headerTemplate} emptyMessage='Даных нет' style={{fontSize:14}} tableStyle={{ minWidth: '50rem' }}>
-              <Column header='#' headerStyle={{width: '2.5rem'}} body={(data, options) => <div className='ml-1 text-sm'>{options.rowIndex + 1}</div>} />
+            <DataTable value={hotels} loading={isLoading} size='small' dataKey='_id' stripedRows removableSort paginator responsiveLayout='scroll' paginatorTemplate='CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown' currentPageReportTemplate='Строки {first} - {last} из {totalRecords}' rows={20} rowsPerPageOptions={[20,50,hotels ? hotels.length : 0]} filters={filters} globalFilterFields={['name', 'city', 'url', 'type']} header={headerTemplate} emptyMessage='Данных нет' style={{fontSize:14}} tableStyle={{ minWidth: '50rem' }}>
+              <Column header='#' body={(data, options) => <div>{options.rowIndex + 1}</div>} />
               <Column header='Название' field='name' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.name}</div>} />
               <Column header='Город' field='city' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.city}</div>} />
-              <Column header='Ссылка' field='url' body={data => <a href={data.url} target='_blank' className={`${!data.public && 'line-through'}`} style={{textDecoration: 'none'}}>{data.url}</a>} />
+              {/* <Column header='Тип' field='type' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.type}</div>} /> */}
+              <Column header='Ссылка' field='url' body={data => <a href={data.url} target='_blank' className={`no-underline block ${!data.public && 'line-through'}`} style={{overflowWrap: 'break-word'}}>{data.url}</a>} />
               <Column body={(data, options) => (
                 <div className='flex align-items-center justify-content-between'>
                   <Button icon='pi pi-pencil' rounded text severity='secondary' aria-label='Edit' onClick={() => openEditDialog(data)}/>
