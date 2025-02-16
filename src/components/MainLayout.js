@@ -10,7 +10,7 @@ export function MainLayout({ children }) {
     <div  className='relative w-full'>
       <Script src='https://script.click-chat.ru/chat.js?wid=ae9850ec-f277-4ead-b094-4be22b38ea2b' />
       <Header />
-      <main className={`${Roboto.className} py-2 px-8 w-full`}>
+      <main className={`${Roboto.className} py-2 px-7 w-full`}>
         {children}
       </main>
       <Footer />

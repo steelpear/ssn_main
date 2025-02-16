@@ -15,9 +15,9 @@
 
 .pop-direction-item {
   transition: transform .3s;
-  transition-delay: .2s;
+  transition-delay: .1s;
 }
 
 .clrbtn:hover {transform: rotate(360deg);}
 
-.pop-direction-item:hover {transform: scale(.98);}
+.pop-direction-item:hover {transform: scale(.99);}

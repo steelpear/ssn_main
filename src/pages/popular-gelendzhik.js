@@ -31,7 +31,7 @@ export default function Gelendzhik() {
             <span className='font-medium'>Геленджик</span>:  жемчужина Черноморского побережья!  Уникальное сочетание горных пейзажей и морского побережья, чистые пляжи, развитая инфраструктура и множество развлечений.  Идеальное место для отдыха всей семьей или романтического путешествия.
           </div>
           <Top3 best='ge' />
-          <div className='s-partnership mb-4' style={{display:'none'}}>CPOoKc1NPdRnYmdUtf6IjJWq94joKgYxFUYMaVWfwEI%3D</div>
+          <div className='s-partnership mb-4' style={{display:'none'}}>zZpLcIi4fsDChvptL2VtMKBeTZf9aGKdzWaPmlykFNw%3D</div>
         </main>
       </MainLayout>
     </>

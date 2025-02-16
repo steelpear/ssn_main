@@ -31,7 +31,7 @@ export default function Crimea() {
             <span className='font-medium'>Крым</span>: жемчужина отдыха у моря! Откройте для себя волшебство Крыма!  Многообразие курортов – от фешенебельных Ялты и Алушты до уютных Коктебеля и Судака – подарит незабываемые впечатления.  Чистейшие пляжи, величественные горы, исторические достопримечательности и гостеприимные жители ждут вас!  Выбирайте свой идеальный курорт и наслаждайтесь отдыхом на берегу Черного моря!
           </div>
           <Top3 best='cr' />
-          <div className='s-partnership mb-4' style={{display:'none'}}>Klk8JR9%2FKXsFaS0LTwVzTuU%2BrBM4vU5BqN1G4XOGWjk%3D</div>
+          <div className='s-partnership mb-4' style={{display:'none'}}>jx9tyNsvV6LNedhcztMWjq2UATGNVCdM%2BDSFHsxbNbA%3D</div>
         </main>
       </MainLayout>
     </>

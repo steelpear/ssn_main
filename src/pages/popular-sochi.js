@@ -31,7 +31,7 @@ export default function Sochi() {
             <span className='font-medium'>Сочи</span> – жемчужина Черноморского побережья!  Ждут вас роскошные отели, песчаные пляжи, горные пейзажи, уникальные достопримечательности и незабываемые развлечения. Отдых в Сочи подходит как для семейного отдыха, так и для романтического путешествия или активного отдыха.  Выбирайте свой идеальный тур!
           </div>
           <Top3 best='so' />
-          <div className='s-partnership mb-4' style={{display:'none'}}>KTg31BZRlaF6uJ6zB%2BhHQWjUKYzb%2B2rBAo2TcTbWels%3D</div>
+          <div className='s-partnership mb-4' style={{display:'none'}}>Yxn4iWwUgh0rRKKsmDb%2BGVaEaMDJEIm6Imgnk22e5qA%3D</div>
         </main>
       </MainLayout>
     </>

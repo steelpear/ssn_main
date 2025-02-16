@@ -31,7 +31,7 @@ export default function Anapa() {
             <span className='font-medium'>Анапа</span>: незабываемый семейный отдых! Солнечные пляжи, теплое море,  развлечения для детей и взрослых – все это ждет вас в Анапе!  Идеальное место для семейного отдыха с малышами и подростками.  Выбирайте комфортабельное жилье,  отправляйтесь на экскурсии, наслаждайтесь морскими прогулками и создавайте незабываемые воспоминания вместе с семьей!
           </div>
           <Top3 best='an' />
-          <div className='s-partnership mb-4' style={{display:'none'}}>JOrYSgJM4w8RwNVmjHb%2B4TqjiVRY1msnFGXX7VEBmx8%3D</div>
+          <div className='s-partnership mb-4' style={{display:'none'}}>gZywdgP8UdNi6hwL1KCvaoPtMC6l6k6ix1EyfdMVoDw%3D</div>
         </main>
       </MainLayout>
     </>
