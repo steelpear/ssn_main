@@ -1,8 +1,13 @@
-import Head from "next/head" 
+import Head from 'next/head'
+import Link from 'next/link'
+import { BreadCrumb } from 'primereact/breadcrumb'
 import { MainLayout } from '../components/MainLayout'
 import { YandexMaps } from '../components/YandexMaps'
 
 export default function Contacts() {
+  const items = [{ label: 'Контакты' }]
+  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+
   return (
     <>
       <Head>
@@ -14,6 +19,7 @@ export default function Contacts() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
+        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
         <main className='fadein animation-duration-800 py-4'>
           <div className='text-700 text-xl font-semibold mb-5'>
             <div className='text-800 text-3xl font-semibold mb-5'>Контакты</div>

@@ -46,7 +46,7 @@ const itemTemplate = (item) => (
 
   return (
     <main>
-      <Card title='Популярные направления' className='w-full my-5 shadow-2'>
+      <Card title='Популярные направления' className='w-full my-5 shadow-2' pt={{ title: {className: 'ml-5'}}}>
         <Carousel value={directions} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} circular pt={{ 
           previousButton: {style: {
             background: 'rgb(214, 51, 132)',

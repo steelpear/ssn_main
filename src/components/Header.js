@@ -22,7 +22,10 @@ export const Header = () => {
     },
     { label: 'Сборы и корпоративные туры' },
     { label: 'Круизы' },
-    { label: 'Как оплатить' },
+    { 
+      label: 'Как оплатить',
+      command: () => { router.push('/payment') } 
+    },
     { label: 'Отзывы' },
     { 
       label: 'О компании',

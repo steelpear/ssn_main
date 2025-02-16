@@ -46,9 +46,9 @@ export const Reviews = () => {
   }
 
   return (
-    <Card title='Отзывы наших клиентов' className='w-full my-5 shadow-2'>
+    <Card title='Отзывы наших клиентов' className='w-full my-5 shadow-2' pt={{ title: {className: 'ml-7'}}}>
       <Carousel value={reviews} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} itemTemplate={reviewTemplate} showIndicators={false} className='z-5' />
-      <div className='flex align-items-center px-2 mt-3'>
+      <div className='flex align-items-center px-7 mt-3'>
         <i className='pi pi-info-circle mr-3' style={{ fontSize: '2rem' }}></i>
         <div>
           <div className='text-sm'>Оставьте отзыв о компании <span className='text-800 font-semibold'>«ПРО100-ТУР»</span> на одном из сайтов: <a className='text-blue-700 font-semibold' href='https://yandex.ru/profile/173269021933?utm_source=telegram&utm_medium=social&utm_campaign=share' target='_blank'>Яндекс</a>, <a className='text-blue-700 font-semibold' href='https://go.2gis.com/mr1rg' target='_blank'>2ГИС</a></div>
