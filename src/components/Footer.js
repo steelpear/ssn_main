@@ -26,7 +26,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className='col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4 lg:text-center'>
-          <Link href='/'><img src='/bird-white.png' alt='logo' className='w-12rem py-2' /></Link>
+          <Link href='/'><img src='/bird-white.png' alt='logo' className='w-5 py-2' /></Link>
         </div>
         <div className='col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4 pl-0 md:pl-8'>
           <div className='text-lg'>
