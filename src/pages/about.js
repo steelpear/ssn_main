@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { MainLayout } from '../components/MainLayout'
 import { TransportLogos } from '../components/TransportLogos'
+import { Partners } from '../components/Partners'
 
 export default function About() {
   const items = [{ label: 'О компании' }]
@@ -31,6 +32,8 @@ export default function About() {
           <div className='text-lg text-800 mb-7'>
             <p>Мы очень тщательно выбираем себе партнеров и работаем только с лучшими, это компании проверенные временем, такие как:</p>
             <TransportLogos />
+            <div className='text-800 text-center text-2xl font-semibold my-5'>Наши партнёры</div>
+            <Partners />
           </div>
         </main>
       </MainLayout>
