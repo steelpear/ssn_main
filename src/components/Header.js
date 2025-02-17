@@ -26,7 +26,10 @@ export const Header = () => {
       label: 'Как оплатить',
       command: () => { router.push('/payment') } 
     },
-    { label: 'Отзывы' },
+    { 
+      label: 'Отзывы',
+      command: () => { router.push('/reviews') } 
+    },
     { 
       label: 'О компании',
       command: () => { router.push('/about') } },

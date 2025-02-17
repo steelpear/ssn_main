@@ -1,6 +1,6 @@
 import Head from "next/head" 
 import { MainLayout } from '../components/MainLayout'
-import { Reviews } from '../components/Reviews'
+import { Reviewz } from '../components/Reviewz'
 import useScript from '../useScript'
 import { PopularDirections } from '../components/PopularDirections'
 import { ActionFormSection } from '../components/ActionFormSection'
@@ -25,9 +25,9 @@ export default function Home() {
           <div className='text-xl text-800 font-normal mb-4'>На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений.  Используйте удобный поиск по направлениям, датам и бюджету.  Узнайте о горящих турах и специальных предложениях!</div>
           <PopularDirections />
           <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
-          <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
+          <div className='pt-4 mb-3 ml-2 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
           <ActionFormSection />
-          <Reviews />
+          <Reviewz />
         </main>
       </MainLayout>
     </>
