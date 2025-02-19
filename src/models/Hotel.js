@@ -9,6 +9,7 @@ const Hotel = new Schema({
   address: String,
   coord: String,
   description: String,
+  actions: String,
   price: String,
   dprice: String,
   label: String,

@@ -209,13 +209,13 @@ const addReview = async () => {
                   <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Имя' value={review.name} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className='col px-0'>
-                  <InputText name='city' type='text' className='w-full p-inputtext-sm' placeholder='Город' value={review.city} onChange={(e) => handleChange(e)} />
+                  <InputText name='city' type='text' className='w-full p-inputtext-sm' placeholder='Где отдыхали' value={review.city} onChange={(e) => handleChange(e)} />
                 </div>
               </div>
               <InputTextarea name='text' className='w-full p-inputtext-sm' placeholder='Текст отзыва' value={review.text} onChange={(e) => handleChange(e)} rows={5} cols={30} />
               <div className='w-full flex gap-2 align-items-center'>
                 <div className='col px-0'>
-                  <InputText name='date' type='text' className='w-full p-inputtext-sm' placeholder='Дата' value={review.date} onChange={(e) => handleChange(e)} />
+                  <InputText name='date' type='text' className='w-full p-inputtext-sm' placeholder='Когда отдыхали' value={review.date} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className='col px-0'>
                   <Rating name='rating' value={review.rating} onChange={(e) => handleChange(e)} />
@@ -238,13 +238,13 @@ const addReview = async () => {
                   <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Имя' value={review.name} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className='col px-0'>
-                  <InputText name='city' type='text' className='w-full p-inputtext-sm' placeholder='Город' value={review.city} onChange={(e) => handleChange(e)} />
+                  <InputText name='city' type='text' className='w-full p-inputtext-sm' placeholder='Где отдыхали' value={review.city} onChange={(e) => handleChange(e)} />
                 </div>
               </div>
               <InputTextarea name='text' className='w-full p-inputtext-sm' placeholder='Текст отзыва' value={review.text} onChange={(e) => handleChange(e)} rows={5} cols={30} />
               <div className='w-full flex gap-2 align-items-center'>
                 <div className='col px-0'>
-                  <InputText name='date' type='text' className='w-full p-inputtext-sm' placeholder='Дата' value={review.date} onChange={(e) => handleChange(e)} />
+                  <InputText name='date' type='text' className='w-full p-inputtext-sm' placeholder='Когда отдыхали' value={review.date} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className='col px-0'>
                   <Rating name='rating' value={review.rating} onChange={(e) => handleChange(e)} />

@@ -22,10 +22,12 @@ export default function Tours() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
-        <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>P%2BUxRaBwF3WUU%2FeLE%2F3iB%2B5jYRBw6pHFmfbeLwHkFlo%3D</div>
-        <ActionFormSection />
+        <main className='px-7'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
+          <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
+          <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>P%2BUxRaBwF3WUU%2FeLE%2F3iB%2B5jYRBw6pHFmfbeLwHkFlo%3D</div>
+          <ActionFormSection px={0} />
+        </main>
       </MainLayout>
     </>
   ) 

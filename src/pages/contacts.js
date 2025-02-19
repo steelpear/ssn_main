@@ -19,8 +19,8 @@ export default function Contacts() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <main className='fadein animation-duration-800 py-4 mb-4'>
+        <main className='fadein animation-duration-800 py-4 mb-4 px-7'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-700 text-xl font-semibold mb-6'>
             <div className='text-800 text-3xl font-semibold mb-5'>Контакты</div>
             <div>Туристическая компания «ПРО100-ТУР»</div>

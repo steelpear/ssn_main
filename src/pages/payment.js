@@ -19,8 +19,8 @@ export default function Payment() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <main className='fadein animation-duration-800 py-4'>
+        <main className='fadein animation-duration-800 py-4 px-7'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-800 text-lg mb-5'>
             <div className='text-800 text-3xl font-semibold'>Условия оплаты</div>
             <p>Оплата принимается наличным и безналичным платежом в российских рублях или платежной картой:, VISA, VISA Electron, Master Card, Maestro.</p>

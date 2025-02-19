@@ -12,10 +12,10 @@ export const Header = () => {
   const router = useRouter()
   const [feedbackDialog, setFeedbackDialog] = useState(false)
   const menuItems = [
-    {
-      label: 'Главная',
-      command: () => { router.push('/') }
-    },
+    // {
+    //   label: 'Главная',
+    //   command: () => { router.push('/') }
+    // },
     {
       label: 'Туры по России',
       command: () => { router.push('/tours') }
@@ -48,8 +48,8 @@ export const Header = () => {
     <>
       <div className='grid flex flex-column md:flex-row justify-content-between align-items-center px-6 pt-3'>
         <div className='col-4 flex align-items-center'>
-          <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' className='w-2' /></Link>
-          <div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div>
+          <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' className='w-2' />
+          <div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div></Link>
         </div>
         <div className='col-4 text-center'>
           <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />

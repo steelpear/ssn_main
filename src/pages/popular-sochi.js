@@ -23,7 +23,7 @@ export default function Sochi() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800'>
+        <main className='fadein animation-duration-800 px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center my-5'>Отдых в Сочи</div>
           <img src='/sochi.jpg' alt='Отдых в Сочи' width='100%' height={450} className='shadow-2 border-round-sm' />

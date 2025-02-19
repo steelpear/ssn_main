@@ -42,6 +42,7 @@ export default function Hotels() {
     address: '',
     coord: '',
     description: '',
+    actions: '',
     price: '',
     dprice: '',
     label: '',
@@ -96,6 +97,12 @@ export default function Hotels() {
         'description': value
     }))}
 
+    const handleActionsChange = value => {
+      setHotel(prevState => ({
+          ...prevState,
+          'actions': value
+    }))}
+
   const handlePublicChange = value => {
     setHotel(prevState => ({
         ...prevState,
@@ -124,15 +131,52 @@ export default function Hotels() {
     </div>
   )
 
-  const renderEditorHeader = () => {
-    return (
-      <span className='ql-formats'>
-          <button className='ql-bold' aria-label='Bold'></button>
-          <button className='ql-italic' aria-label='Italic'></button>
-          <button className='ql-underline' aria-label='Underline'></button>
-      </span>
-    )
-  }
+  const renderEditorHeader = () => (
+    <span className='ql-formats'>
+      <button className='ql-bold' aria-label='Bold' />
+      <button className='ql-italic' aria-label='Italic' />
+      <button className='ql-underline' aria-label='Underline' />
+      <button className='ql-strike' aria-label='Strike' />
+      <button className='ql-blockquote' aria-label='Blockquote' />
+      <select class='ql-background'>
+        <option value=''></option>
+        <option value='red'></option>
+        <option value='blue'></option>
+        <option value='white'></option>
+        <option value='black'></option>
+        <option value='orange'></option>
+        <option value='green'></option>
+      </select>
+      <select class='ql-color'>
+        <option value=''></option>
+        <option value='red'></option>
+        <option value='blue'></option>
+        <option value='white'></option>
+        <option value='black'></option>
+        <option value='orange'></option>
+        <option value='green'></option>
+      </select>
+      <select class='ql-header'>
+        <option value=''></option>
+        <option value='1'></option>
+        <option value='2'></option>
+        <option value='3'></option>
+        <option value='4'></option>
+        <option value='5'></option>
+        <option value='6'></option>
+      </select>
+      <button className='ql-image' aria-label='Image' />
+      <button className='ql-video' aria-label='Video' />
+      <button className='ql-link' aria-label='Link' />
+      <button className='ql-list' value='ordered' aria-label='List' />
+      <button className='ql-list' value='bullet' aria-label='List' />
+      <select class='ql-align'>
+        <option value=''></option>
+        <option value='center'></option>
+        <option value='right'></option>
+        <option value='justify'></option>
+      </select>
+    </span>)
 
   const editorHeader = renderEditorHeader()
 
@@ -315,7 +359,8 @@ export default function Hotels() {
                 {renderImagesList()}
               </div>
               <div className='col'>
-                <Editor value={hotel.description} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '215px' }} placeholder='Описание' />
+                <Editor value={hotel.description} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Описание' />
+                <Editor value={hotel.actions} onTextChange={(e) => handleActionsChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Акции' className='mt-2' />
               </div>
             </div>
           </Dialog>
@@ -376,6 +421,7 @@ export default function Hotels() {
               </div>
               <div className='col'>
                 <Editor value={hotel.description} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '215px' }} placeholder='Описание' />
+                <Editor value={hotel.actions} onTextChange={(e) => handleActionsChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Акции' className='mt-2' />
                 <div className='flex align-items-center mt-2'>
                   <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={hotel.public} />
                   <label htmlFor='public' className='ml-2'>Опубликован</label>

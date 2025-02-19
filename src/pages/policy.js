@@ -184,7 +184,7 @@ export default function Policy() {
       </Head>
       <MainLayout>
         <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <main className='fadein animation-duration-800'>
+        <main className='fadein animation-duration-800 px-7'>
           <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </main>
       </MainLayout>

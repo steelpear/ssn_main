@@ -19,9 +19,11 @@ export default function Reviews() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <div className='text-3xl text-700 font-medium mt-4'>Отзывы наших клиентов</div>
-        <ActionFormSection />
+        <main className='px-7'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
+          <div className='text-3xl text-700 font-medium mt-4'>Отзывы наших клиентов</div>
+          <ActionFormSection px={0} />
+        </main>
       </MainLayout>
     </>
   ) 

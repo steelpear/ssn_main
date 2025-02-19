@@ -20,8 +20,8 @@ export default function About() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-        <main className='fadein animation-duration-800'>
+        <main className='fadein animation-duration-800 px-7'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-800 text-3xl font-semibold my-5'>О компании</div>
           <div className='text-lg text-800 mb-6'>
             <p>Туристическая компания «ПРО100-ТУР» предлагает услуги по бронированию путевок на лечение и отдых в санатории, курортные отели, пансионаты, базы отдыха, морские и речные круизы, а также детские лагеря, спортивные и творческие групповые сборы.</p>

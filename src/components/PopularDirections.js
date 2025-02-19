@@ -44,7 +44,7 @@ const itemTemplate = (item) => (
   )
 
   return (
-    <main className='my-6'>
+    <main className='my-6 px-7'>
       <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные направления</div>
       <Carousel value={directions} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} page={3} circular pt={{ 
         previousButton: {style: {
