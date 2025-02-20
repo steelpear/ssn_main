@@ -2,7 +2,7 @@ import connectDB from '../../../middleware/mongodb'
 import Review from '../../../models/Review'
 
 const handler = async (req, res) => {
-  const response = await Review.find().sort({public: -1})
+  const response = await Review.find().sort({_id:-1})
   res.json(response)
 }
 

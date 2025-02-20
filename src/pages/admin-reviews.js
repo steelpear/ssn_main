@@ -231,7 +231,7 @@ const addReview = async () => {
           </Dialog>
           {/* Добавить отзыв */}
           {/* Редактировать отзыв */}
-           <Dialog header={<div><i className='pi pi-comment mr-3' style={{ fontSize: '1.5rem' }} />Редактировать отзыв</div>} visible={editDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!addDialog) return; setEditDialog(false); }} footer={footerEditContent}>
+           <Dialog header={<div><i className='pi pi-comment mr-3' style={{ fontSize: '1.5rem' }} />Редактировать отзыв</div>} visible={editDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!editDialog) return; setEditDialog(false); }} footer={footerEditContent}>
             <div className='grid w-full py-3'>
               <div className='w-full flex gap-2 align-items-center'>
                 <div className='col px-0'>

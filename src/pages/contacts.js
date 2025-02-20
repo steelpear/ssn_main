@@ -19,10 +19,10 @@ export default function Contacts() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 py-4 mb-4 px-7'>
+        <main className='fadein animation-duration-800 pb-4 mb-4 px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-700 text-xl font-semibold mb-6'>
-            <div className='text-800 text-3xl font-semibold mb-5'>Контакты</div>
+            <div className='text-800 text-3xl font-semibold my-5'>Контакты</div>
             <div>Туристическая компания «ПРО100-ТУР»</div>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
             <p><i className='pi pi-at mr-2' /><a className='no-underline' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
