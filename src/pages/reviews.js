@@ -59,7 +59,7 @@ export default function Reviews() {
       </Head>
       <MainLayout>
         <main>
-          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none ml-7'}}} />
           <div className='text-center text-3xl text-700 font-medium mt-4 mb-6'>Отзывы наших клиентов</div>
           <div className='grid gap-3 justify-content-center'>
             {reviews && reviews.map(review => reviewTemplate(review))}

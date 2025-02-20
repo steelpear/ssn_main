@@ -14,9 +14,9 @@ const mailer = async (req, res) => {
       }
     })
     const mailOptions = {
-      from: 'Заявка с сайта pro100tur.ru <steelpear@yandex.ru>',
+      from: 'Новый отзыв на сайте pro100tur.ru <steelpear@yandex.ru>',
       to: mailConfig.to,
-      subject: 'pro100tur.ru',
+      subject: 'Требуется модерация отзыва',
       text: req.body.text
     }
     transporter.sendMail(mailOptions, (error, info) => {

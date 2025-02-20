@@ -81,6 +81,19 @@ export const Reviewz = () => {
     setAddDialog(true)
   }
 
+  const mailer = async () => {
+    try {
+      await fetch('/api/reviews/mailer', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify({text: `
+          ${review.name}
+          ${review.text}
+        `})
+      }) 
+    } catch (error) {console.log(error)}
+  }
+
   const sendReview = async () => {
     event.preventDefault()
     const res = await fetch('/api/reviews/addreview', {
@@ -89,7 +102,7 @@ export const Reviewz = () => {
       body: JSON.stringify(review)
     })
     const response = await res.json()
-    if (response) {toast.current.show({severity:'success', summary: 'Отзыв добавлен', detail:'Спасибо, отзыв будет добавлен после модерации', life: 3000})}
+    if (response) {mailer(); toast.current.show({severity:'success', summary: 'Отзыв отправлен', detail:'Спасибо, отзыв будет добавлен после модерации', life: 3000})}
     else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
     setAddDialog(false)
     setReview({
