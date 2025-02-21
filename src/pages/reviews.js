@@ -39,12 +39,12 @@ export default function Reviews() {
 
   const reviewTemplate = (review) => (
     <div key={review._id} className='m-2 px-2 md:px-4 py-3 border-round-2xl shadow-3 bg-white w-5'>
-      <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '243px' }}>
-        <div className='mb-2 text-base font-medium'>{review.name}</div>
+      <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '250px' }}>
+        <div className='mb-2 text-lg font-medium'>{review.name}</div>
         <div className='text-sm mb-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-        <div className='text-base font-light'>{review.text}</div>
+        <div className='text-lg font-light'>{review.text}</div>
       </div>
-      <div className='text-center cursor-pointer mt-3 text-blue-700' onClick={() => openMoreDialog(review)}>Читать полностью</div>
+      <div className='text-center text-lg font-medium cursor-pointer mt-3 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
     </div>)
 
   return (

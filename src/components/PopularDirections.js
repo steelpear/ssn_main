@@ -34,12 +34,14 @@ export const PopularDirections = () => {
   ]
 
 const itemTemplate = (item) => (
-  <div className='relative'>
-    <div className='mx-2 shadow-2 cursor-pointer pop-direction-item border-round-2xl' onClick={() => router.push(item.path)}>
-      <img src={item.img} alt={item.name} className='w-full' style={{borderRadius:'1rem 1rem 0 0'}} />
-      <div className={`${Montserrat.className} text-sm font-medium border-top-1 border-pink-300 text-white p-3 -mt-1`} style={{borderRadius:'0 0 1rem 1rem', background: '#D63384'}}>{item.description}</div>
+  <div className='pt-2'>
+    <div className='relative pop-direction-item'>
+      <div className='mx-2 shadow-2 cursor-pointer border-round-2xl' onClick={() => router.push(item.path)}>
+        <img src={item.img} alt={item.name} className='w-full' style={{borderRadius:'1rem 1rem 0 0'}} />
+        <div className={`${Montserrat.className} text-sm font-medium border-top-1 border-pink-300 text-white p-3 -mt-1`} style={{borderRadius:'0 0 1rem 1rem', background: '#D63384'}}>{item.description}</div>
+      </div>
+      <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 ml-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: '#D63384'}}>{item.name}</div>
     </div>
-    <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 ml-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: '#D63384'}}>{item.name}</div>
   </div>
   )
 

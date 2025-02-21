@@ -20,4 +20,5 @@
 
 .clrbtn:hover {transform: rotate(360deg);}
 
-.pop-direction-item:hover {transform: scale(.99);}
+/* .pop-direction-item:hover {transform: scale(.99);} */
+.pop-direction-item:hover {transform: translateY(-6px);}

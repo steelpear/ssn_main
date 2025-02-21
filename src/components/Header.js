@@ -78,7 +78,7 @@ export const Header = () => {
       <Menubar
         model={menuItems}
         pt={{ 
-          root: { className: 'flex justify-content-center p-0 border-noround border-transparent my-2'},
+          root: { className: 'flex justify-content-center p-0 border-noround border-transparent my-2 shadow-1'},
           label: {className: `${Roboto.className} text-lg font-medium`},
           content: { className: 'border-noround' }
         }}
