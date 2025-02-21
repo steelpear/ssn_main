@@ -9,18 +9,16 @@ import { IconField } from 'primereact/iconfield'
 import { InputIcon } from 'primereact/inputicon'
 import { FilterMatchMode } from 'primereact/api'
 import { Loader } from '../components/Loader'
-import { types } from '../components/types'
-import { best } from '../components/best'
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import { Toast } from 'primereact/toast'
 import { InputText } from 'primereact/inputtext'
-import { Dropdown } from 'primereact/dropdown'
+import { InputTextarea } from 'primereact/inputtextarea'
 import { Chips } from 'primereact/chips'
 import { Image } from 'primereact/image'
-import { Rating } from 'primereact/rating'
 import { Checkbox } from 'primereact/checkbox'
 import { Editor } from 'primereact/editor'
+import { TabView, TabPanel } from 'primereact/tabview'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -38,12 +36,13 @@ export default function Tours() {
     name: '',
     slug: '',
     description: '',
-    Important: '',
-    included: '',
+    important: '',
     price: '',
     dprice: '',
     program: '',
+    placement: '',
     region: '',
+    duration: '',
     booking: '',
     utp: [],
     public: true
@@ -85,16 +84,10 @@ export default function Tours() {
         [name]: value
     }))}
 
-  const handleEditorChange = value => {
+  const handleEditorChange = (name, value) => {
     setTour(prevState => ({
         ...prevState,
-        'description': value
-    }))}
-
-    const handleActionsChange = value => {
-      setTour(prevState => ({
-          ...prevState,
-          'actions': value
+        [name]: value
     }))}
 
   const handlePublicChange = value => {
@@ -214,12 +207,13 @@ export default function Tours() {
       name: '',
       slug: '',
       description: '',
-      Important: '',
-      included: '',
+      important: '',
       price: '',
       dprice: '',
       program: '',
+      placement: '',
       region: '',
+      duration: '',
       booking: '',
       utp: [],
       public: true
@@ -245,12 +239,13 @@ export default function Tours() {
         name: '',
         slug: '',
         description: '',
-        Important: '',
-        included: '',
+        important: '',
         price: '',
         dprice: '',
         program: '',
+        placement: '',
         region: '',
+        duration: '',
         booking: '',
         utp: [],
         public: true
@@ -324,23 +319,31 @@ export default function Tours() {
             </DataTable>
           </div>
           {/* Добавить тур */}
-          <Dialog header={<div><i className='pi pi-building-columns mr-3' style={{ fontSize: '1.5rem' }} />Добавить тур</div>} visible={addDialog} maximized draggable={false} onHide={() => {if (!addDialog) return; setAddDialog(false); }} footer={footerContent}>
-            <div className='grid w-full px-3 py-1'>
-              <div className='col flex flex-column gap-2'>
+          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Добавить тур</div>} visible={addDialog} maximized draggable={false} onHide={() => {if (!addDialog) return; setAddDialog(false); }} footer={footerContent}>
+            <div className='grid no-gutter w-full px-3 py-1'>
+              <div className='col-5 flex flex-column gap-2'>
                 <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название тура' value={tour.name} onChange={(e) => handleNameChange(e)} />
                 <div className='text-xs -mt-2'>{tour.slug}</div>
-                <Chips name='utp' value={tour.utp} onChange={(e) => handleChange(e)} max={3} placeholder='UTP' className='w-full block p-inputtext-sm' />
-                <div className='grid w-full'>
-                  <div className='col'>
-                    <InputText name='price' keyfilter='money' className='w-full p-inputtext-sm' placeholder='Цена' value={tour.price} onChange={(e) => handleChange(e)} />
+                <Chips name='utp' value={tour.utp} onChange={(e) => handleChange(e)} max={6} placeholder='УТП' className='w-full block p-inputtext-sm' />
+                <div className='flex gap-2 w-full align-items-center'>
+                  <div className='col p-0'>
+                    <InputText name='region' type='text' className='w-full p-inputtext-sm' placeholder='Регион' value={tour.region} onChange={(e) => handleChange(e)} />
                   </div>
-                  <div className='col'>
-                    <InputText name='dprice' type='text' className='w-full p-inputtext-sm' placeholder='Пояснение' value={tour.dprice} onChange={(e) => handleChange(e)} />
+                  <div className='col p-0'>
+                    <InputText name='duration' type='text' className='w-full p-inputtext-sm' placeholder='Длительность' value={tour.duration} onChange={(e) => handleChange(e)} />
                   </div>
                 </div>
+                <div className='flex gap-2 w-full align-items-center'>
+                  <div className='col p-0'>
+                    <InputText name='price' keyfilter='money' className='w-full p-inputtext-sm' placeholder='Цена' value={tour.price} onChange={(e) => handleChange(e)} />
+                  </div>
+                  <div className='col p-0'>
+                    <InputText name='dprice' type='text' className='w-full p-inputtext-sm' placeholder='Пояснение к цене' value={tour.dprice} onChange={(e) => handleChange(e)} />
+                  </div>
+                </div>
+                <InputTextarea name='booking' type='text' className='w-full p-inputtext-sm' placeholder='Условия бронирования' value={tour.booking} onChange={(e) => handleChange(e)} rows={5} cols={30} />
                 <form>
                   <div className='flex align-items-center grid w-full mt-1 px-2'>
-                    {/* <InputText name='coord' type='text' className='p-inputtext-sm mr-3' placeholder='Координаты' value={tour.coord} onChange={(e) => handleChange(e)} /> */}
                     <div>
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
                       <input type='file' name='file' ref={inputFile} onChange={() => uploadImage()} className='p-button p-button-outlined p-button-sm mb-2' disabled={!tour.name} />
@@ -350,77 +353,82 @@ export default function Tours() {
                 </form>
                 {renderImagesList()}
               </div>
-              <div className='col'>
-                <Editor value={tour.description} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Описание' />
-                {/* <Editor value={tour.actions} onTextChange={(e) => handleActionsChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Акции' className='mt-2' /> */}
+              <div className='col-7 p-0'>
+                <TabView pt={{ navContainer: {className: 'px-2'}, panelContainer: {className: 'px-0'}}}>
+                  <TabPanel header='Описание'>
+                    <Editor value={tour.description} onTextChange={(e) => handleEditorChange('description', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Описание' />
+                  </TabPanel>
+                  <TabPanel header='Программа'>
+                    <Editor value={tour.program} onTextChange={(e) => handleEditorChange('program', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Программа' />
+                  </TabPanel>
+                  <TabPanel header='Размещение'>
+                    <Editor value={tour.placement} onTextChange={(e) => handleEditorChange('placement', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Размещение' />
+                  </TabPanel>
+                  <TabPanel header='Важное'>
+                    <Editor value={tour.important} onTextChange={(e) => handleEditorChange('important', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Важное' />
+                  </TabPanel>
+                </TabView>
               </div>
             </div>
           </Dialog>
           {/* Добавить тур */}
           {/* Редактировать тур */}
-          {/* <Dialog header={<div><i className='pi pi-building-columns mr-3' style={{ fontSize: '1.5rem' }} />Редактировать отель</div>} visible={editDialog} maximized draggable={false} onHide={() => {if (!editDialog) return; setEditDialog(false); }} footer={footerEditContent}>
-            <div className='grid w-full px-3 py-1'>
-              <div className='col flex flex-column gap-2'>
-                <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название отеля' value={tour.name} onChange={(e) => handleNameChange(e)} />
+          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Редактировать тур</div>} visible={editDialog} maximized draggable={false} onHide={() => {if (!editDialog) return; setEditDialog(false); }} footer={footerEditContent}>
+            <div className='grid no-gutter w-full px-3 py-1'>
+              <div className='col-5 flex flex-column gap-2'>
+                <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название тура' value={tour.name} onChange={(e) => handleNameChange(e)} />
                 <div className='text-xs -mt-2'>{tour.slug}</div>
-                <InputText name='url' type='text' className='w-full p-inputtext-sm' placeholder='URL' value={tour.url} onChange={(e) => handleChange(e)} />
-                <InputText name='address' type='text' className='w-full p-inputtext-sm' placeholder='Адрес' value={tour.address} onChange={(e) => handleChange(e)} />
-                <div className='grid w-full flex align-items-center'>
-                  <div className='col'>
-                    <InputText name='label' type='text' className='w-full p-inputtext-sm' placeholder='Ярлык на главной фотографии' value={tour.label} onChange={(e) => handleChange(e)} />
+                <Chips name='utp' value={tour.utp} onChange={(e) => handleChange(e)} max={6} placeholder='УТП' className='w-full block p-inputtext-sm' />
+                <div className='flex gap-2 w-full align-items-center'>
+                  <div className='col p-0'>
+                    <InputText name='region' type='text' className='w-full p-inputtext-sm' placeholder='Регион' value={tour.region} onChange={(e) => handleChange(e)} />
                   </div>
-                  <div className='col'>
-                    <InputText name='simple_name' type='text' className='w-full p-inputtext-sm' placeholder='Краткое название' value={tour.simple_name} onChange={(e) => handleChange(e)} />
-                  </div>
-                </div>
-                <Chips name='utp' value={tour.utp} onChange={(e) => handleChange(e)} max={3} placeholder='UTP' className='w-full block p-inputtext-sm' />
-                <div className='grid w-full flex align-items-center'>
-                  <div className='col'>
-                    <InputText name='city' type='text' className='w-full p-inputtext-sm' placeholder='Город' value={tour.city} onChange={(e) => handleChange(e)} />
-                  </div>
-                  <div className='col'>
-                    <Dropdown name='type' value={tour.type} onChange={(e) => handleChange(e)} options={types} placeholder='Тип' className='w-full p-inputtext-sm' checkmark={true}  highlightOnSelect={false} showClear />
-                  </div>
-                  <div className='col'>
-                    <Dropdown name='best' value={tour.best} onChange={(e) => handleChange(e)} options={best} optionLabel='name' placeholder='ТОП-3' className='w-full p-inputtext-sm' checkmark={true}  highlightOnSelect={false} />
-                  </div>
-                  <div className='col'>
-                    <Rating name='stars' value={tour.stars} onChange={(e) => handleChange(e)} />
+                  <div className='col p-0'>
+                    <InputText name='duration' type='text' className='w-full p-inputtext-sm' placeholder='Длительность' value={tour.duration} onChange={(e) => handleChange(e)} />
                   </div>
                 </div>
-                <div className='grid w-full'>
-                  <div className='col'>
+                <div className='flex gap-2 w-full align-items-center'>
+                  <div className='col p-0'>
                     <InputText name='price' keyfilter='money' className='w-full p-inputtext-sm' placeholder='Цена' value={tour.price} onChange={(e) => handleChange(e)} />
                   </div>
-                  <div className='col'>
-                    <InputText name='dprice' type='text' className='w-full p-inputtext-sm' placeholder='Пояснение' value={tour.dprice} onChange={(e) => handleChange(e)} />
-                  </div>
-                  <div className='col'>
-                    <InputText name='rating' keyfilter='num' type='text' className='w-full p-inputtext-sm' placeholder='Рейтинг' value={tour.rating} onChange={(e) => handleChange(e)} />
+                  <div className='col p-0'>
+                    <InputText name='dprice' type='text' className='w-full p-inputtext-sm' placeholder='Пояснение к цене' value={tour.dprice} onChange={(e) => handleChange(e)} />
                   </div>
                 </div>
+                <InputTextarea name='booking' type='text' className='w-full p-inputtext-sm' placeholder='Условия бронирования' value={tour.booking} onChange={(e) => handleChange(e)} rows={5} cols={30} />
                 <form>
-                  <div className='flex align-items-center grid w-full mt-1 mb-2 px-2'>
-                    <InputText name='coord' type='text' className='p-inputtext-sm mr-3' placeholder='Координаты' value={tour.coord} onChange={(e) => handleChange(e)} />
+                  <div className='flex align-items-center grid w-full mt-1 px-2'>
                     <div>
                       <label className='block -mt-2 text-xs'>Загрузить изображение</label>
-                      <input type='file' name='file' ref={inputFile} onChange={uploadImage} className='p-button p-button-outlined p-button-sm mb-2' disabled={!tour.name} />
+                      <input type='file' name='file' ref={inputFile} onChange={() => uploadImage()} className='p-button p-button-outlined p-button-sm mb-2' disabled={!tour.name} />
                     </div>
                     <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-1' onClick={() => clearImagesList()} />
                   </div>
                 </form>
                 {renderImagesList()}
               </div>
-              <div className='col'>
-                <Editor value={tour.description} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '215px' }} placeholder='Описание' />
-                <Editor value={tour.actions} onTextChange={(e) => handleActionsChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Акции' className='mt-2' />
-                <div className='flex align-items-center mt-2'>
+              <div className='col-7 p-0'>
+                <TabView pt={{ navContainer: {className: 'px-2'}, panelContainer: {className: 'px-0'}}}>
+                  <TabPanel header='Описание'>
+                    <Editor value={tour.description} onTextChange={(e) => handleEditorChange('description', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Описание' />
+                  </TabPanel>
+                  <TabPanel header='Программа'>
+                    <Editor value={tour.program} onTextChange={(e) => handleEditorChange('program', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Программа' />
+                  </TabPanel>
+                  <TabPanel header='Размещение'>
+                    <Editor value={tour.placement} onTextChange={(e) => handleEditorChange('placement', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Размещение' />
+                  </TabPanel>
+                  <TabPanel header='Важное'>
+                    <Editor value={tour.important} onTextChange={(e) => handleEditorChange('important', e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Важное' />
+                  </TabPanel>
+                </TabView>
+                <div className='flex align-items-center mt-2 ml-1'>
                   <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={tour.public} />
                   <label htmlFor='public' className='ml-2'>Опубликован</label>
                 </div>
               </div>
             </div>
-          </Dialog> */}
+          </Dialog>
           {/* Редактировать тур */}
         </main>
       </AdminLayout>
