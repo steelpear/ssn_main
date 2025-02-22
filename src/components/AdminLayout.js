@@ -18,6 +18,7 @@ export function AdminLayout({ children }) {
         <p className='hover:text-blue-700 w-full cursor-pointer' onClick={() => router.push('/admin-hotels')} style={{color: router.route === '/admin-hotels' && 'blue'}}><i className='pi pi-list-check mr-3' />Отели</p>
         <p className='hover:text-blue-700 w-full cursor-pointer' onClick={() => router.push('/admin-reviews')} style={{color: router.route === '/admin-reviews' && 'blue'}}><i className='pi pi-comment mr-3' />Отзывы</p>
         <p className='hover:text-blue-700 w-full cursor-pointer' onClick={() => router.push('/admin-tours')} style={{color: router.route === '/admin-tours' && 'blue'}}><i className='pi pi-globe mr-3' />Туры</p>
+        <p className='hover:text-blue-700 w-full cursor-pointer' onClick={() => router.push('/admin-setoftours')} style={{color: router.route === '/admin-setoftours' && 'blue'}}><i className='pi pi-check-square mr-3' />Группы туров</p>
         <Divider />
       </Sidebar>
       <Button icon='pi pi-bars' severity='secondary' rounded text onClick={() => setVisibleSide(true)} />
@@ -28,7 +29,7 @@ export function AdminLayout({ children }) {
   const ToolBarCenterContent = (
     <div className='flex align-items-center'>
       <i className='pi pi-cog' style={{ fontSize: '1.5rem' }} />
-      <div className='ml-3 text-xl'>Панель управления {router.route === '/admin' && <span> / Главная</span>}{router.route === '/admin-hotels' && <span> / Отели</span>}{router.route === '/admin-reviews' && <span> / Отзывы</span>}{router.route === '/admin-tours' && <span> / Туры</span>}</div>
+      <div className='ml-3 text-xl'>Панель управления {router.route === '/admin' && <span> / Главная</span>}{router.route === '/admin-hotels' && <span> / Отели</span>}{router.route === '/admin-reviews' && <span> / Отзывы</span>}{router.route === '/admin-tours' && <span> / Туры</span>}{router.route === '/admin-setoftours' && <span> / Группы туров</span>}</div>
     </div>
   )
 

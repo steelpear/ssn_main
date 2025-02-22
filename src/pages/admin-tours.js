@@ -106,14 +106,14 @@ export default function Tours() {
 
   const footerContent = (
     <div>
-      <Button label='Отмена' icon='pi pi-times' onClick={() => setAddDialog(false)} className='p-button-text' />
+      <Button label='Отмена' icon='pi pi-times' onClick={() => closeDialog()} className='p-button-text' />
       <Button label='Добавить' icon='pi pi-plus' loading={loading} onClick={() => addTour()} autoFocus disabled={!tour.name} />
     </div>
   )
 
   const footerEditContent = (
     <div>
-      <Button label='Отмена' icon='pi pi-times' onClick={() => closeEditDialog()} className='p-button-text' />
+      <Button label='Отмена' icon='pi pi-times' onClick={() => closeDialog()} className='p-button-text' />
       <Button label='Сохранить' icon='pi pi-save' loading={loading} onClick={() => editTour()} />
     </div>
   )
@@ -200,24 +200,10 @@ export default function Tours() {
     setEditDialog(true)
   }
 
-  const closeEditDialog = () => {
+  const closeDialog = () => {
     setEditDialog(false)
-    setTour({
-      img: [],
-      name: '',
-      slug: '',
-      description: '',
-      important: '',
-      price: '',
-      dprice: '',
-      program: '',
-      placement: '',
-      region: '',
-      duration: '',
-      booking: '',
-      utp: [],
-      public: true
-    })
+    setAddDialog(false)
+    setTour({})
     setImages([])
   }
 
