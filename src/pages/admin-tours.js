@@ -305,7 +305,7 @@ export default function Tours() {
             </DataTable>
           </div>
           {/* Добавить тур */}
-          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Добавить тур</div>} visible={addDialog} maximized draggable={false} onHide={() => {if (!addDialog) return; setAddDialog(false); }} footer={footerContent}>
+          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Добавить тур</div>} visible={addDialog} maximized draggable={false} onHide={() => {if (!addDialog) return; closeDialog(); }} footer={footerContent}>
             <div className='grid no-gutter w-full px-3 py-1'>
               <div className='col-5 flex flex-column gap-2'>
                 <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название тура' value={tour.name} onChange={(e) => handleNameChange(e)} />
@@ -359,7 +359,7 @@ export default function Tours() {
           </Dialog>
           {/* Добавить тур */}
           {/* Редактировать тур */}
-          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Редактировать тур</div>} visible={editDialog} maximized draggable={false} onHide={() => {if (!editDialog) return; setEditDialog(false); }} footer={footerEditContent}>
+          <Dialog header={<div><i className='pi pi-globe mr-3' style={{ fontSize: '1.5rem' }} />Редактировать тур</div>} visible={editDialog} maximized draggable={false} onHide={() => {if (!editDialog) return; closeDialog(); }} footer={footerEditContent}>
             <div className='grid no-gutter w-full px-3 py-1'>
               <div className='col-5 flex flex-column gap-2'>
                 <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название тура' value={tour.name} onChange={(e) => handleNameChange(e)} />

@@ -7,6 +7,7 @@ import { YandexMaps } from '../../components/YandexMaps'
 import { ActionFormSection } from '../../components/ActionFormSection'
 import { Galleria } from 'primereact/galleria'
 import { Chip } from 'primereact/chip'
+import { Accordion, AccordionTab } from 'primereact/accordion'
 import { ScrollPanel } from 'primereact/scrollpanel'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
@@ -65,10 +66,31 @@ export default function Tour() {
       <MainLayout>
         <main className='fadein animation-duration-800 px-7'>
           {/* <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} /> */}
-          <div className='text-center text-2xl font-semibold text-800 mr-2'>{tour.name}</div>
+          <div className='text-center text-2xl font-semibold text-800 mr-2 my-6'>{tour.name}</div>
           <div className='grid gap-2'>
-            <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular style={{ maxWidth: '640px' }} showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} />
+            <div className='col-5'>
+              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular style={{ maxWidth: '640px' }} showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} />
+            </div>
+            <div className='col-6'>
+              <ScrollPanel style={{ width: '100%', height: '440px' }}>
+                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.description }} />
+              </ScrollPanel>
+            </div>
           </div>
+          <Accordion multiple className='mt-4'>
+            {tour.program && <AccordionTab header='Программа тура'>
+                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.program }} />
+              </AccordionTab>}
+            {tour.placement && <AccordionTab header='Размещение'>
+                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.placement }} />
+              </AccordionTab>}
+            {tour.important && <AccordionTab header='Важно знать'>
+                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.important }} />
+              </AccordionTab>}
+            {tour.booking && <AccordionTab header='Условия бронирования'>
+                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.booking }} />
+              </AccordionTab>}
+            </Accordion>
           <ActionFormSection px={0} />
         </main>
       </MainLayout>

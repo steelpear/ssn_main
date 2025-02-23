@@ -40,7 +40,7 @@ const itemTemplate = (item) => (
         <img src={item.img} alt={item.name} className='w-full' style={{borderRadius:'1rem 1rem 0 0'}} />
         <div className={`${Montserrat.className} text-sm font-medium border-top-1 border-pink-300 text-white p-3 -mt-1`} style={{borderRadius:'0 0 1rem 1rem', background: '#D63384'}}>{item.description}</div>
       </div>
-      <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 ml-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: '#D63384'}}>{item.name}</div>
+      <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 mx-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: '#D63384'}}>{item.name}</div>
     </div>
   </div>
   )
@@ -48,7 +48,7 @@ const itemTemplate = (item) => (
   return (
     <main className='my-6 px-7'>
       <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные направления</div>
-      <Carousel value={directions} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} page={3} circular pt={{ 
+      <Carousel value={directions} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} page={0} circular pt={{ 
         previousButton: {style: {
           background: 'rgb(214, 51, 132)',
           color: 'white',

@@ -89,8 +89,8 @@ export default function SetOfTours() {
     const handleToursChange = value => {
       setSelectedTours(value)
       setSet(prevState => ({
-          ...prevState,
-          'tours': value[0]._id
+        ...prevState,
+        'tours': value
       }))}
 
   const footerContent = (
@@ -144,11 +144,13 @@ export default function SetOfTours() {
 
   const openEditDialog = (set) => {
     setSet(set)
+    setSelectedTours(set.tours)
     setEditDialog(true)
   }
 
   const closeEditDialog = () => {
     setEditDialog(false)
+    setSelectedTours(null)
     setSet({
       img: '',
       name: '',
@@ -249,7 +251,7 @@ export default function SetOfTours() {
             </DataTable>
           </div>
           {/* Добавить группу */}
-          <Dialog header={<div><i className='pi pi-check-square mr-3' style={{ fontSize: '1.5rem' }} />Добавить группу</div>} visible={addDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!addDialog) return; setAddDialog(false); }} footer={footerContent}>
+          <Dialog header={<div><i className='pi pi-check-square mr-3' style={{ fontSize: '1.5rem' }} />Добавить группу</div>} visible={addDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!addDialog) return; closeAddDialog(); }} footer={footerContent}>
             <div className='grid gap-3 w-full py-3'>
               <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название группы' value={set.name} onChange={(e) => handleNameChange(e)} />
               <div className='text-xs -mt-2'>{set.slug}</div>
@@ -266,7 +268,7 @@ export default function SetOfTours() {
           </Dialog>
           {/* Добавить группу */}
           {/* Редактировать группу */}
-           <Dialog header={<div><i className='pi pi-check-square mr-3' style={{ fontSize: '1.5rem' }} />Редактировать группу</div>} visible={editDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!editDialog) return; closeAddDialog(); }} footer={footerEditContent}>
+           <Dialog header={<div><i className='pi pi-check-square mr-3' style={{ fontSize: '1.5rem' }} />Редактировать группу</div>} visible={editDialog} style={{ width: '50vw' }} maximizable draggable={false} onHide={() => {if (!editDialog) return; closeEditDialog(); }} footer={footerEditContent}>
            <div className='grid gap-3 w-full py-3'>
               <InputText name='name' type='text' className='w-full p-inputtext-sm' placeholder='Название группы' value={set.name} onChange={(e) => handleNameChange(e)} />
               <div className='text-xs -mt-2'>{set.slug}</div>
