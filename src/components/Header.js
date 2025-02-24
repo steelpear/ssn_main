@@ -20,7 +20,10 @@ export const Header = () => {
       label: 'Туры по России',
       command: () => { router.push('/tours') }
     },
-    { label: 'Сборы и корпоративные туры' },
+    { 
+      label: 'Сборы и корпоративные туры',
+      command: () => { window.open('https://sport-sbor-tour.ru/', '_blank') } 
+    },
     { label: 'Круизы' },
     { 
       label: 'Как оплатить',

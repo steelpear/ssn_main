@@ -1,15 +1,12 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Head from "next/head" 
 import { MainLayout } from '../../components/MainLayout'
-import { YandexMaps } from '../../components/YandexMaps'
 import { ActionFormSection } from '../../components/ActionFormSection'
 import { Galleria } from 'primereact/galleria'
-import { Chip } from 'primereact/chip'
 import { Accordion, AccordionTab } from 'primereact/accordion'
 import { ScrollPanel } from 'primereact/scrollpanel'
-import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Tour() {
   const router = useRouter()
@@ -45,13 +42,9 @@ export default function Tour() {
     getTour()
   },[id])
 
-  const itemTemplate = (item) => {
-    return <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />;
-}
+  const itemTemplate = (item) => {return <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />}
 
-  const thumbnailTemplate = (item) => {
-    return <img src={item} alt='Image' style={{ display: 'block', width: '100px' }} />;
-  }
+  const thumbnailTemplate = (item) => {return <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />}
 
   return (
     <>
@@ -69,7 +62,7 @@ export default function Tour() {
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6'>{tour.name}</div>
           <div className='grid gap-2'>
             <div className='col-5'>
-              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular style={{ maxWidth: '640px' }} showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} />
+              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
             </div>
             <div className='col-6'>
               <ScrollPanel style={{ width: '100%', height: '440px' }}>
