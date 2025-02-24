@@ -1,10 +1,9 @@
-import {useEffect, useState} from 'react'
+import { useState} from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Menubar } from 'primereact/menubar'
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
-import { EventBus } from '../components/EventBus'
 import { FeedbackForm } from '../components/FeedbackForm'
 import { Roboto, Montserrat } from '../styles/fonts'
 
@@ -12,10 +11,6 @@ export const Header = () => {
   const router = useRouter()
   const [feedbackDialog, setFeedbackDialog] = useState(false)
   const menuItems = [
-    // {
-    //   label: 'Главная',
-    //   command: () => { router.push('/') }
-    // },
     {
       label: 'Туры по России',
       command: () => { router.push('/tours') }
@@ -24,7 +19,7 @@ export const Header = () => {
       label: 'Сборы и корпоративные туры',
       command: () => { window.open('https://sport-sbor-tour.ru/', '_blank') } 
     },
-    { label: 'Круизы' },
+    // { label: 'Круизы' },
     { 
       label: 'Как оплатить',
       command: () => { router.push('/payment') } 
@@ -41,11 +36,6 @@ export const Header = () => {
       command: () => { router.push('/contacts') }
     }
   ]
-
-  useEffect(() => {
-    EventBus.$on('closeaction', () => setFeedbackDialog(false))
-    return () => {EventBus.$off('closeaction')}
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -91,7 +81,10 @@ export const Header = () => {
         style={{ width: '30vw' }}
         dismissableMask={true}
         onHide={() => {if (!feedbackDialog) return; setFeedbackDialog(false);}}
-        content={() => <FeedbackForm />}
+        content={() => (<>
+          <Button icon="pi pi-times" rounded text size="large" aria-label="Cancel" className='absolute right-0 -mr-2 xl:-mr-5 -mt-4 xl:-mt-5 clrbtn' style={{color: 'whitesmoke'}} onClick={() => setFeedbackDialog(false)} />
+          <FeedbackForm />
+        </>)}
       />
     </>
   )

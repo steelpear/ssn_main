@@ -1,19 +1,12 @@
-import {useEffect, useState} from 'react'
-import {useRouter} from 'next/router'
+import { useState} from 'react'
 import Link from 'next/link'
-import { EventBus } from '../components/EventBus'
 import { Dialog } from 'primereact/dialog'
+import { Button } from 'primereact/button'
 import { FeedbackForm } from '../components/FeedbackForm'
 import { Roboto } from '../styles/fonts'
 
 export const Footer = () => {
-  const router = useRouter()
   const [feedbackDialog, setFeedbackDialog] = useState(false)
-
-  useEffect(() => {
-    EventBus.$on('closeaction', () => setFeedbackDialog(false))
-    return () => {EventBus.$off('closeaction')}
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={`${Roboto.className} h-auto p-6 text-white footer-wrap`}>
@@ -45,9 +38,13 @@ export const Footer = () => {
         </div>
         <Dialog
           visible={feedbackDialog}
+          style={{ width: '30vw' }}
           dismissableMask={true}
           onHide={() => {if (!feedbackDialog) return; setFeedbackDialog(false);}}
-          content={() => <FeedbackForm />}
+          content={() => (<>
+            <Button icon="pi pi-times" rounded text size="large" aria-label="Cancel" className='absolute right-0 -mr-2 xl:-mr-5 -mt-4 xl:-mt-5 clrbtn' style={{color: 'whitesmoke'}} onClick={() => setFeedbackDialog(false)} />
+            <FeedbackForm />
+          </>)}
         />
       </div>
     </div>

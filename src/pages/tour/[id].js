@@ -30,15 +30,7 @@ export default function Tour() {
       const response = await res.json()
       setImages(response ? response.img : [])
       setTour(response ? response : [])
-      // setCrumbs(response ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response.simple_name ? response.simple_name : response.name }] : [])
     }
-    // const page = () => {
-    //   if (p === 'so') {return {label: 'Отдых в Сочи', url: '/popular-sochi'}}
-    //   else if (p === 'an') {return {label: 'Семейный отдых в Анапе', url: '/popular-anapa'}}
-    //   else if (p === 'ge') {return {label: 'Курорт Геленджик', url: '/popular-gelendzhik'}}
-    //   else if (p === 'cr') {return {label: 'Курорты Крыма', url: '/popular-crimea'}}
-    //   else {return {label: 'Курорты Абхазии', url: '/popular-abkhazia'}}
-    // }
     getTour()
   },[id])
 
@@ -58,7 +50,6 @@ export default function Tour() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 px-7'>
-          {/* <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} /> */}
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6'>{tour.name}</div>
           <div className='grid gap-2'>
             <div className='col-5'>

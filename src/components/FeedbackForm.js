@@ -39,8 +39,8 @@ export const FeedbackForm = () => {
   }
 
   return (
-    <>
-      <Button icon="pi pi-times" rounded text size="large" aria-label="Cancel" className='absolute right-0 -mr-2 xl:-mr-5 -mt-4 xl:-mt-5 clrbtn' style={{color: 'whitesmoke'}} onClick={() => EventBus.$emit('closeaction')} />
+    <div style={{ width: '30vw' }}>
+      {/* <Button icon="pi pi-times" rounded text size="large" aria-label="Cancel" className='absolute right-0 -mr-2 xl:-mr-5 -mt-4 xl:-mt-5 clrbtn' style={{color: 'whitesmoke'}} onClick={() => EventBus.$emit('closeaction')} /> */}
       <form onSubmit={mailer}>
         <Card title={<div className={`${Roboto.className} text-2xl text-center text-700 font-medium`}>Оставить заявку</div>} subTitle={<div className='text-center -mt-1'>Мы обязательно свяжемся с Вами</div>} className='px-0'>
           <div className='flex flex-column gap-5 bg-white'>
@@ -83,7 +83,7 @@ export const FeedbackForm = () => {
           <Toast ref={emailToast} position="top-center" />
         </Card>
       </form>
-    </>
+    </div>
   )
 }
    
