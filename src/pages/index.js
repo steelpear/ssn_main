@@ -22,8 +22,7 @@ export default function Home() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800'>
-          <div className="text-center text-700 text-3xl font-semibold my-6">ПРО100-ТУР - Ваш идеальный отдых – от мечты до реальности!</div>
-          <div className='text-xl text-800 font-normal mb-4 px-7'>На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений.  Используйте удобный поиск по направлениям, датам и бюджету.  Узнайте о горящих турах и специальных предложениях!</div>
+          <div className='text-xl text-800 font-normal my-4 px-4 lg:px-7'>На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений.  Используйте удобный поиск по направлениям, датам и бюджету.  Узнайте о горящих турах и специальных предложениях!</div>
           <ToursPanel />
           <PopularDirections />
           <section className='px-7'>

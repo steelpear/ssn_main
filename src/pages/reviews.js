@@ -38,7 +38,7 @@ export default function Reviews() {
 </div>)
 
   const reviewTemplate = (review) => (
-    <div key={review._id} className='m-2 px-2 md:px-4 py-3 border-round-2xl shadow-3 bg-white w-5'>
+    <div key={review._id} className='col lg:col-5 px-2 py-3 border-round-2xl shadow-3 bg-white'>
       <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '250px' }}>
         <div className='mb-2 text-lg font-medium'>{review.name}</div>
         <div className='text-sm mb-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
@@ -58,15 +58,15 @@ export default function Reviews() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main>
+        <main className='px-4 md:px-5 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none ml-7'}}} />
           <div className='text-center text-3xl text-700 font-medium mt-4 mb-6'>Отзывы наших клиентов</div>
-          <div className='grid gap-3 justify-content-center'>
+          <div className='flex flex-column lg:flex-row flex-wrap gap-4 justify-content-center'>
             {reviews && reviews.map(review => reviewTemplate(review))}
           </div>
           <div className='text-center text-3xl text-700 font-medium my-4'>Оставить отзыв</div>
           <ReviewzBar />
-          <Dialog visible={moreDialog} style={{ width: '50vw' }} footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
+          <Dialog visible={moreDialog} className='w-11 lg:w-7' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
             <Divider />
             <div className='flex align-items-center justify-content-between my-3 px-2'>
               <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />

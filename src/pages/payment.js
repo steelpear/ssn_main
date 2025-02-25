@@ -19,7 +19,7 @@ export default function Payment() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 pb-4 px-7'>
+        <main className='fadein animation-duration-800 pb-4 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-800 text-lg mb-5'>
             <div className='text-800 text-3xl font-semibold my-5'>Условия оплаты</div>

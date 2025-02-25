@@ -47,7 +47,7 @@ export default function Group() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-7 pb-5'>
+        <main className='fadein animation-duration-800 px-4 lg:px-7 pb-5'>
           <div className='text-center text-3xl font-semibold text-800 mr-2 my-6'>{group && group.name}</div>
           <div className='grid gap-4 justify-content-center'>
             {tours && tours.map(item => itemTemplate(item))}

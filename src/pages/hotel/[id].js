@@ -64,7 +64,7 @@ export default function Hotel() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-7'>
+        <main className='fadein animation-duration-800 px-4 lg:px-7'>
           <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='flex align-items-center justify-content-center mt-3'>
             <div className='text-center text-2xl font-semibold text-800 mr-2'>{hotel.name}</div>

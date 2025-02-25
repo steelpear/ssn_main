@@ -49,7 +49,7 @@ export default function Tour() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-7'>
+        <main className='fadein animation-duration-800 px-4 lg:px-7'>
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6'>{tour.name}</div>
           <div className='grid gap-2'>
             <div className='col-5'>

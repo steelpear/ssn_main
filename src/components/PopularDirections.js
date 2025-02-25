@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { Carousel } from 'primereact/carousel'
 import { directions } from '../components/directions'
 import { Montserrat } from '../styles/fonts'
@@ -33,7 +33,7 @@ export const PopularDirections = () => {
     }
   ]
 
-const itemTemplate = (item) => (
+const itemTemplate = item => (
   <div className='pt-2'>
     <div className='relative pop-direction-item'>
       <div className='mx-2 shadow-2 cursor-pointer border-round-2xl' onClick={() => router.push(item.path)}>
@@ -42,11 +42,10 @@ const itemTemplate = (item) => (
       </div>
       <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 mx-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: '#D63384'}}>{item.name}</div>
     </div>
-  </div>
-  )
+  </div>)
 
   return (
-    <main className='my-6 px-7'>
+    <main className='my-6 px-4 lg:px-7'>
       <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные направления</div>
       <Carousel value={directions} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} page={0} circular pt={{ 
         previousButton: {style: {

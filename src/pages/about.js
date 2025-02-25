@@ -20,7 +20,7 @@ export default function About() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-7'>
+        <main className='fadein animation-duration-800 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-800 text-3xl font-semibold my-5'>О компании</div>
           <div className='text-lg text-800 mb-6'>
