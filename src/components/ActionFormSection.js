@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { ActionForm } from '../components/ActionForm'
 import { Button } from 'primereact/button'
-import { Oswald, Pacifico, Montserrat } from '../styles/fonts'
+import { Oswald, Pacifico, Prosto } from '../styles/fonts'
         
 export const ActionFormSection = () => {
   return (
-    <main className='px-4 lg:px-7'>
+    <main className='px-4 md:px-5 lg:px-7'>
       <div className='relative w-full bg-left-bottom bg-cover bg-no-repeat px-3 md:px-5 py-4 md:py-6 my-4 border-round-2xl shadow-4' style={{background: 'linear-gradient(90deg, #004470 0, #0072bc 20%, #0072bc 80%, #004470)'}}>
         <div className='grid grid-nogutter w-full flex justify-content-center'>
           <div className="col-12 sm:col-12 md:col-5 lg:col-5 xl:col-5">
@@ -13,12 +13,12 @@ export const ActionFormSection = () => {
           </div>
           <div className="col-12 sm:col-12 md:col-7 lg:col-7 xl:col-7 pl-0 sm:pl-3 md:pl-6 h-full">
             <div className='w-full'>
-              <div className={`${Montserrat.className} text-2xl font-semibold text-white mt-3 md:mt-0 mb-4`}>Оставьте сообщение и мы вам перезвоним</div>
-              <div className='flex align-items-end justify-content-center md:justify-content-end'>
+              <div className={`${Prosto.className} text-2xl font-medium text-white mt-3 md:mt-0 mb-4`} style={{textShadow: '0px 0px 3px grey'}}>Оставьте сообщение и мы вам перезвоним</div>
+              <div className='flex align-items-end justify-content-center md:justify-content-end mr-0 md:mr-8'>
                 <div>
-                  <div className='flex align-items-center gap-3'>
-                    <Button label="WhatsApp" icon="pi pi-whatsapp" raised className='border-round-lg border-none' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
-                    <Button label="Telegram" icon="pi pi-send" raised className='border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
+                  <div className='flex flex-column md:flex-row align-items-center gap-3'>
+                    <Button label="WhatsApp" icon="pi pi-whatsapp" raised className='w-full border-round-lg border-none' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
+                    <Button label="Telegram" icon="pi pi-send" raised className='w-full border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
                   </div>
                   <Image src="/arrow.svg" alt="arrow" width={55} height={150} className='hidden md:block absolute -ml-7 -mt-5' />
                   <div className='relative flex align-items-center gap-3 mt-2'>
