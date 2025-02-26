@@ -66,7 +66,7 @@ export default function Reviews() {
           </div>
           <div className='text-center text-3xl text-700 font-medium my-4'>Оставить отзыв</div>
           <ReviewzBar />
-          <Dialog visible={moreDialog} className='w-11 lg:w-6' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
+          <Dialog visible={moreDialog} dismissableMask={true} className='w-11 lg:w-6' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
             <Divider />
             <div className='flex align-items-center justify-content-between my-3 px-2'>
               <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />

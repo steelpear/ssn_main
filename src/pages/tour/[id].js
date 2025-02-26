@@ -15,9 +15,23 @@ export default function Tour() {
   const [images, setImages] = useState(null)
   const [crumbs, setCrumbs] = useState([])
   const responsiveOptions = [
-    {breakpoint: '991px', numVisible: 4},
-    {breakpoint: '767px', numVisible: 3},
-    {breakpoint: '575px', numVisible: 1}]
+    {
+        breakpoint: '1024px',
+        numVisible: 5
+    },
+    {
+        breakpoint: '960px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+  ]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
   useEffect(() => {
@@ -34,9 +48,9 @@ export default function Tour() {
     getTour()
   },[id])
 
-  const itemTemplate = (item) => {return <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />}
+  const itemTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 
-  const thumbnailTemplate = (item) => {return <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />}
+  const thumbnailTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 
   return (
     <>
@@ -49,19 +63,19 @@ export default function Tour() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-4 lg:px-7'>
-          <div className='text-center text-2xl font-semibold text-800 mr-2 my-6'>{tour.name}</div>
-          <div className='grid gap-2'>
-            <div className='col-5'>
-              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} circular showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
+        <main className='fadein animation-duration-800 w-full'>
+          <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-7'>{tour.name}</div>
+          <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-7'>
+            <div className='col'>
+              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }} circular showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
             </div>
-            <div className='col-6'>
+            <div className='col'>
               <ScrollPanel style={{ width: '100%', height: '440px' }}>
                 <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.description }} />
               </ScrollPanel>
             </div>
           </div>
-          <Accordion multiple className='mt-4'>
+          <Accordion multiple className='mt-4 px-3 lg:px-7'>
             {tour.program && <AccordionTab header='Программа тура'>
                 <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.program }} />
               </AccordionTab>}
@@ -75,7 +89,7 @@ export default function Tour() {
                 <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.booking }} />
               </AccordionTab>}
             </Accordion>
-          <ActionFormSection px={0} />
+          <ActionFormSection />
         </main>
       </MainLayout>
     </>

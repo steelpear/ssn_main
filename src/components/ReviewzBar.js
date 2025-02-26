@@ -61,9 +61,9 @@ export const ReviewzBar = () => {
 
   return (
     <main className='w-full flex justify-content-center' style={{backgroundColor: '#F5F6F9'}}>
-      <form className='w-6' onSubmit={sendReview}>
-        <div className='grid gap-4 my-4 py-4'>
-          <div className='w-full flex gap-3 align-items-center'>
+      <form className='w-12 md:w-10 lg:w-8' onSubmit={sendReview}>
+        <div className='grid gap-4 px-4 lg:px-7 my-4 py-4'>
+          <div className='w-full flex flex-column lg:flex-row gap-3 align-items-center'>
             <div className='col px-0'>
               <FloatLabel>
                 <InputText id='name' name='name' type='text' className='w-full p-inputtext-lg border-round-2xl' value={review.name} onChange={(e) => handleChange(e)} required />
@@ -77,14 +77,14 @@ export const ReviewzBar = () => {
               </FloatLabel>
             </div>
           </div>
-          <div className='w-full flex gap-2 align-items-center'>
+          <div className='w-full flex flex-column lg:flex-row gap-2 align-items-center'>
             <div className='col px-0'>
               <FloatLabel>
                 <InputText id='date' name='date' type='text' className='w-full p-inputtext-lg border-round-2xl' value={review.date} onChange={(e) => handleChange(e)} />
                 <label htmlFor='date'>Когда отдыхали</label>
               </FloatLabel>
             </div>
-            <div className='col px-0 ml-4'>
+            <div className='col px-0 ml-0 lg:ml-4'>
               <Rating name='rating' value={review.rating} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} offIcon={<img src='/star-outlined.svg' alt='Star' width='24px' height='24px' />} onChange={(e) => handleChange(e)} />
             </div>
           </div>

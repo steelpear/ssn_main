@@ -31,7 +31,7 @@ export default function Group() {
   },[slug])
 
   const itemTemplate = (item) => (
-    <div key={item._id} className='p-2 w-5'>
+    <div key={item._id} className='col-11 lg:col-5 p-2' style={{alignSelf: 'center'}}>
       <img src={item.img[0]} alt={item.name} className='w-full shadow-4 cursor-pointer' style={{borderRadius:'1rem'}} onClick={() => router.push(`/tour/${item._id}`)}/>
       <div className='text-center text-xl font-medium cursor-pointer my-3 text-blue-800' onClick={() => router.push(`/tour/${item._id}`)}>{item.name}</div>
     </div>)
@@ -49,7 +49,7 @@ export default function Group() {
       <MainLayout>
         <main className='fadein animation-duration-800 px-4 lg:px-7 pb-5'>
           <div className='text-center text-3xl font-semibold text-800 mr-2 my-6'>{group && group.name}</div>
-          <div className='grid gap-4 justify-content-center'>
+          <div className='flex flex-column lg:flex-row gap-2 lg:gap-4 justify-content-center'>
             {tours && tours.map(item => itemTemplate(item))}
           </div>
         </main>

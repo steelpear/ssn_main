@@ -59,7 +59,7 @@ export const ToursPanel = () => {
       </div>)
 
     return (sets && sets.length > 0 ? 
-      <main className='my-6 px-4 lg:px-7'>
+      <main className='my-6 px-2 lg:px-7'>
         <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные туры</div>
         <Carousel value={sets} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} page={0} circular pt={{ 
           previousButton: {style: {
@@ -80,7 +80,7 @@ export const ToursPanel = () => {
             width: '50px',
             height: '50px'
           }},
-          container: {className: itemClass}
+          // container: {className: itemClass}
         }} />
       </main> : <></>)
   }

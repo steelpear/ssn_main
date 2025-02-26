@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { ActionForm } from '../components/ActionForm'
 import { Button } from 'primereact/button'
-import { Oswald, Pacifico, Prosto } from '../styles/fonts'
+import { Oswald, Pacifico, Montserrat } from '../styles/fonts'
         
 export const ActionFormSection = () => {
   return (
@@ -13,12 +13,12 @@ export const ActionFormSection = () => {
           </div>
           <div className="col-12 sm:col-12 md:col-7 lg:col-7 xl:col-7 pl-0 sm:pl-3 md:pl-6 h-full">
             <div className='w-full'>
-              <div className={`${Prosto.className} text-2xl font-medium text-white mt-3 md:mt-0 mb-4`} style={{textShadow: '0px 0px 3px grey'}}>Оставьте сообщение и мы вам перезвоним</div>
+              <div className={`${Montserrat.className} text-2xl font-semibold text-white mt-3 md:mt-0 mb-4`}>Оставьте сообщение и мы вам перезвоним</div>
               <div className='flex align-items-end justify-content-center md:justify-content-end'>
                 <div>
                   <div className='flex align-items-center gap-3'>
-                    <Button label="Написать в WhatsApp" icon="pi pi-whatsapp" raised className='border-round-lg border-none' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
-                    <Button label="Написать в Telegram" icon="pi pi-send" raised className='border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
+                    <Button label="WhatsApp" icon="pi pi-whatsapp" raised className='border-round-lg border-none' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
+                    <Button label="Telegram" icon="pi pi-send" raised className='border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
                   </div>
                   <Image src="/arrow.svg" alt="arrow" width={55} height={150} className='hidden md:block absolute -ml-7 -mt-5' />
                   <div className='relative flex align-items-center gap-3 mt-2'>

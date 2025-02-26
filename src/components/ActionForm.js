@@ -44,7 +44,7 @@ export const ActionForm = () => {
           <InputTextarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder='Комментарий' rows={3} className='p-inputtext-lg border-round-lg w-full' />
         </div>
       </div>
-      <Button label='Отправить' icon={isLoading ? 'pi pi-spin pi-sync' : 'pi pi-check'} size='large' raised type='submit' className='border-round-lg mt-2 w-full py-3' style={{background: '#FF8400', borderColor: '#FF931E'}} />
+      <Button label='Отправить' icon={isLoading ? 'pi pi-spin pi-sync' : 'pi pi-send'} size='large' raised type='submit' className='border-round-lg mt-2 w-full py-3' style={{background: '#FF8400', borderColor: '#FF931E'}} />
       <Toast ref={emailToast} position="top-center" />
     </form>
   )

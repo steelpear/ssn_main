@@ -26,7 +26,7 @@ export default function Sochi() {
         <main className='fadein animation-duration-800 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center my-5'>Отдых в Сочи</div>
-          <img src='/sochi.jpg' alt='Отдых в Сочи' width='100%' height={450} className='shadow-2 border-round-sm' />
+          <img src='/sochi.jpg' alt='Отдых в Сочи' width='100%' height={'100%'} className='shadow-2 border-round-sm' />
           <div className='text-lg my-3'>
             <span className='font-medium'>Сочи</span> – жемчужина Черноморского побережья!  Ждут вас роскошные отели, песчаные пляжи, горные пейзажи, уникальные достопримечательности и незабываемые развлечения. Отдых в Сочи подходит как для семейного отдыха, так и для романтического путешествия или активного отдыха.  Выбирайте свой идеальный тур!
           </div>
