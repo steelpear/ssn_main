@@ -134,7 +134,7 @@ export const Reviewz = () => {
   return (
     <main className='mt-6 px-4 lg:px-7 pt-5 pb-7 w-full' style={{backgroundColor: '#F5F6F9'}}>
       <div className='text-3xl text-700 font-medium ml-3 my-4 flex align-items-center justify-content-between'>
-        <div>Отзывы наших клиентов</div>
+        <div className='text-xl lg:text-3xl'>Отзывы наших клиентов</div>
         <div className='grid gap-3 mr-3'>
           <Button label='Все отзывы' severity='secondary' outlined pt={{ root: {className: 'border-round-xl px-4'}, label: {className: 'text-800'} }} onClick={() => router.push('/reviews')} />
           <Button label='Оставить отзыв' pt={{ root: {className: 'border-round-xl px-4', style: {backgroundColor: '#FF8400', borderColor: '#FF8400'}} }} onClick={() => openAddDialog()} />
