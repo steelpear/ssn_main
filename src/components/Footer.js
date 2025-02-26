@@ -56,7 +56,7 @@ export const Footer = () => {
         <div className='col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4 pl-0 md:pl-8'>
           <div className='text-lg'>
             <div className='mb-3'>
-              <a className='no-underline text-white' href='https://sport-sbor-tour.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>
+              <a className='no-underline text-white' href='https://pro100tur.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>
             </div>
             <div className='cursor-pointer text-white my-2' onClick={() => setFeedbackDialog(true)}><i className='pi pi-bell mr-2' />Заказать обратный звонок</div>
             <div className='flex align-items-center mt-3 mb-2'>
