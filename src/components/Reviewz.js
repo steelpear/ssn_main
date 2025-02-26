@@ -122,7 +122,7 @@ export const Reviewz = () => {
   </div>)
 
   const reviewTemplate = (review) => (
-      <div className='m-2 px-2 md:px-4 py-3 border-round-2xl shadow-3 bg-white'>
+      <div className='m-2 px-3 lg:px-4 py-3 border-round-2xl shadow-3 bg-white'>
         <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '250px' }}>
           <div className='mb-2 text-base font-medium'>{review.name}</div>
           <div className='text-sm mb-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
@@ -142,7 +142,7 @@ export const Reviewz = () => {
       </div>
       {reviews && <Carousel value={reviews} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={reviewTemplate} showIndicators={false} showNavigators={false} className='z-5' />}
       {/* Показать полностью */}
-      <Dialog visible={moreDialog} className='w-11 lg:w-7' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
+      <Dialog visible={moreDialog} className='w-11 lg:w-6' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
         <Divider />
         <div className='flex align-items-center justify-content-between my-3 px-2'>
           <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />
@@ -151,7 +151,7 @@ export const Reviewz = () => {
         <div className='text-800 text-lg'>{review && review.text}</div>
       </Dialog>
       {/* Добавить отзыв */}
-      <Dialog visible={addDialog} className='w-11 lg:w-7' footer={<></>} onHide={() => {if (!addDialog) return; setAddDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, content: {className: 'pb-1'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
+      <Dialog visible={addDialog} className='w-11 lg:w-6' footer={<></>} onHide={() => {if (!addDialog) return; setAddDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, content: {className: 'pb-1'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
         <form onSubmit={sendReview}>
           <div className='grid gap-4 w-full pl-2 pt-4 pb-0'>
             <div className='w-full flex flex-column lg:flex-row gap-2 lg:gap-3 align-items-center'>
@@ -180,7 +180,7 @@ export const Reviewz = () => {
               </div>
             </div>
             <FloatLabel className='w-full'>
-              <InputTextarea id='text' name='text' variant='filled' className='w-full p-inputtext-lg border-round-2xl' value={review.text} onChange={(e) => handleChange(e)} rows={5} cols={30} required />
+              <InputTextarea id='text' name='text' variant='filled' className='w-full p-inputtext-lg border-round-2xl' value={review.text} onChange={(e) => handleChange(e)} rows={3} cols={30} required />
               <label htmlFor='text'>Текст отзыва</label>
             </FloatLabel>
             <Button label='Отправить' type='submit' pt={{ root: {className: 'border-round-xl px-5', style: {backgroundColor: '#FF8400', borderColor: '#FF8400'}} }} raised />

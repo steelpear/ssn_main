@@ -21,15 +21,15 @@ export default function Home() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800'>
+        <main className='fadein animation-duration-800 w-full'>
           <div className='text-xl text-800 font-normal my-4 px-4 lg:px-7'>На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений.  Используйте удобный поиск по направлениям, датам и бюджету.  Узнайте о горящих турах и специальных предложениях!</div>
           <ToursPanel />
           <PopularDirections />
-          <section className='px-7'>
+          <section className='px-4 lg:px-7'>
             <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
-            <div className='pt-4 mb-3 ml-2 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
+            <div className='pt-4 mb-3 ml-0 lg:ml-2 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
           </section>
-          <ActionFormSection px={7} />
+          <ActionFormSection />
           <Reviewz />
         </main>
       </MainLayout>
