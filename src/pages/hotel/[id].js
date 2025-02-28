@@ -57,7 +57,7 @@ export default function Hotel() {
       else {return {label: 'Курорты Абхазии', url: '/popular-abkhazia'}}
     }
     getHotel()
-  },[id])
+  },[id, p])
 
   const itemTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 

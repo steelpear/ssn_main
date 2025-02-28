@@ -22,7 +22,7 @@ export const Top3 = ({...params}) => {
       setHotels(response.slice(0,3))
     }
     getHotels()
-  },[])
+  },[params])
 
   if (hotels && hotels.length >= 3) {
     return (
