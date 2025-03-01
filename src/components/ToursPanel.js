@@ -50,7 +50,7 @@ export const ToursPanel = () => {
   const itemTemplate = item => (
       <div className='pt-2'>
         <div className='relative pop-direction-item'>
-          <div className='mx-2 shadow-2 cursor-pointer border-round-2xl'   onClick={() => router.push(`${item.tours.length}` > 1 ? `/group/${item.slug}` : `/tour/${item.tours[0]._id}`)}>
+          <div className='mx-2 shadow-2 cursor-pointer border-round-2xl'   onClick={() => router.push(`${item.tours.length}` > 1 ? `/group/${item.slug}` : `/tour/${item.tours[0].slug}`)}>
             <img src={item.img} alt={item.name} className='w-full' style={{borderRadius:'1rem 1rem 0 0'}} />
             <div className={`${Montserrat.className} text-sm font-medium border-top-1 border-pink-300 text-white p-3 -mt-1`} style={{borderRadius:'0 0 1rem 1rem', background: 'rgba(214,51,132,1)'}}>{item.description}</div>
           </div>

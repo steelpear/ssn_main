@@ -167,19 +167,38 @@ export default function Tours() {
 
   const editorHeader = renderEditorHeader()
 
-  const addTour = async () => {
-    setLoading(true)
-    const res = await fetch('/api/tours/addtour', {
+  const checkSlug = async () => {
+    const res = await fetch('/api/tours/checkslug', {
       method: 'POST',
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      body: JSON.stringify(tour)
+      body: JSON.stringify(tour.slug)
     })
     const response = await res.json()
-    if (response) {toast.current.show({severity:'success', detail:'Тур добавлен', life: 2000})}
-    else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
-    setLoading(false)
-    setAddDialog(false)
-    await mutate('/api/tours/getalltours', fetcher('/api/tours/getalltours', {revalidate: false}))
+    if (response.state) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const addTour = async () => {
+    const check = await checkSlug()
+    if (check) {
+      toast.current.show({severity:'info', summary:'Название не уникальное!', life: 2000})
+    } else {
+      setLoading(true)
+      const res = await fetch('/api/tours/addtour', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(tour)
+      })
+      const response = await res.json()
+      if (response) {toast.current.show({severity:'success', detail:'Тур добавлен', life: 2000})}
+      else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
+      setLoading(false)
+      setAddDialog(false)
+      await mutate('/api/tours/getalltours', fetcher('/api/tours/getalltours', {revalidate: false}))
+    }
   }
 
   const deleteTour = async (id) => {

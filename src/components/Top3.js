@@ -52,7 +52,7 @@ export const Top3 = ({...params}) => {
                       <div className='text-sm font-medium'>от {item.price} ₽</div>
                       <div className='text-xs'>{item.dprice}</div>
                     </div>
-                    <p className='text-sm text-blue-600 font-medium cursor-pointer underline' onClick={() => router.push(`/hotel/${item._id}?p=${params.best}`)}>Подробнее</p>
+                    <p className='text-sm text-blue-600 font-medium cursor-pointer underline' onClick={() => router.push(`/hotel/${item.slug}?p=${params.best}`)}>Подробнее</p>
                   </div>
                 </div>
               </div>

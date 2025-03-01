@@ -10,10 +10,9 @@ import { ScrollPanel } from 'primereact/scrollpanel'
 
 export default function Tour() {
   const router = useRouter()
-  const { id, p } = router.query
+  const { slug } = router.query
   const [tour, setTour] = useState({})
   const [images, setImages] = useState(null)
-  const [crumbs, setCrumbs] = useState([])
   const responsiveOptions = [
     {
         breakpoint: '1024px',
@@ -32,21 +31,20 @@ export default function Tour() {
         numVisible: 1
     }
   ]
-  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
   useEffect(() => {
     const getTour = async () => {
-      const res = await fetch('/api/tours/gettour', {
+      const res = await fetch('/api/tours/getbyslug', {
         method: 'POST',
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
-        body: JSON.stringify({id})
+        body: JSON.stringify({slug})
       })
       const response = await res.json()
-      setImages(response ? response.img : [])
-      setTour(response ? response : [])
+      setImages(response ? response[0].img : [])
+      setTour(response ? response[0] : [])
     }
     getTour()
-  },[id])
+  },[slug])
 
   const itemTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 

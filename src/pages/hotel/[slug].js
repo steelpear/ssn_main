@@ -13,7 +13,7 @@ import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Hotel() {
   const router = useRouter()
-  const { id, p } = router.query
+  const { slug, p } = router.query
   const [hotel, setHotel] = useState({})
   const [images, setImages] = useState(null)
   const [crumbs, setCrumbs] = useState([])
@@ -39,15 +39,15 @@ export default function Hotel() {
 
   useEffect(() => {
     const getHotel = async () => {
-      const res = await fetch('/api/hotels/gethotel', {
+      const res = await fetch('/api/hotels/getbyslug', {
         method: 'POST',
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
-        body: JSON.stringify({id})
+        body: JSON.stringify({slug})
       })
       const response = await res.json()
-      setImages(response ? response.img : [])
-      setHotel(response ? response : [])
-      setCrumbs(response ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response.simple_name ? response.simple_name : response.name }] : [])
+      setImages(response[0] ? response[0].img : [])
+      setHotel(response[0] ? response[0] : [])
+      setCrumbs(response[0] ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response.simple_name ? response.simple_name : response.name }] : [])
     }
     const page = () => {
       if (p === 'so') {return {label: 'Отдых в Сочи', url: '/popular-sochi'}}
@@ -57,7 +57,7 @@ export default function Hotel() {
       else {return {label: 'Курорты Абхазии', url: '/popular-abkhazia'}}
     }
     getHotel()
-  },[id, p])
+  },[slug, p])
 
   const itemTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 

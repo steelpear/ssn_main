@@ -32,8 +32,8 @@ export default function Group() {
 
   const itemTemplate = (item) => (
     <div key={item._id} className='col-11 lg:col-5 p-2' style={{alignSelf: 'center'}}>
-      <img src={item.img[0]} alt={item.name} className='w-full shadow-4 cursor-pointer' style={{borderRadius:'1rem'}} onClick={() => router.push(`/tour/${item._id}`)}/>
-      <div className='text-center text-xl font-medium cursor-pointer my-3 text-blue-800' onClick={() => router.push(`/tour/${item._id}`)}>{item.name}</div>
+      <img src={item.img[0]} alt={item.name} className='w-full shadow-4 cursor-pointer' style={{borderRadius:'1rem'}} onClick={() => router.push(`/tour/${item.slug}`)}/>
+      <div className='text-center text-xl font-medium cursor-pointer my-3 text-blue-800' onClick={() => router.push(`/tour/${item.slug}`)}>{item.name}</div>
     </div>)
 
   return (

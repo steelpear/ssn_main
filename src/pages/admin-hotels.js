@@ -180,19 +180,38 @@ export default function Hotels() {
 
   const editorHeader = renderEditorHeader()
 
-  const addHotel = async () => {
-    setLoading(true)
-    const res = await fetch('/api/hotels/addhotel', {
+  const checkSlug = async () => {
+    const res = await fetch('/api/hotels/checkslug', {
       method: 'POST',
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      body: JSON.stringify(hotel)
+      body: JSON.stringify(hotel.slug)
     })
     const response = await res.json()
-    if (response) {toast.current.show({severity:'success', detail:'Отель добавлен', life: 2000})}
-    else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
-    setLoading(false)
-    setAddDialog(false)
-    await mutate('/api/hotels/getallhotels', fetcher('/api/hotels/getallhotels', {revalidate: false}))
+    if (response.state) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const addHotel = async () => {
+    const check = await checkSlug()
+    if (check) {
+      toast.current.show({severity:'info', summary:'Название не уникальное!', life: 2000})
+    } else {
+      setLoading(true)
+      const res = await fetch('/api/hotels/addhotel', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(hotel)
+      })
+      const response = await res.json()
+      if (response) {toast.current.show({severity:'success', detail:'Отель добавлен', life: 2000})}
+      else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
+      setLoading(false)
+      setAddDialog(false)
+      await mutate('/api/hotels/getallhotels', fetcher('/api/hotels/getallhotels', {revalidate: false}))
+    }
   }
 
   const deleteHotel = async (id) => {

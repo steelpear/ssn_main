@@ -174,27 +174,46 @@ export default function SetOfTours() {
     })
   }
 
-  const addSet = async () => {
-    setLoading(true)
-    const res = await fetch('/api/setoftours/addset', {
+  const checkSlug = async () => {
+    const res = await fetch('/api/setoftours/checkslug', {
       method: 'POST',
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      body: JSON.stringify(set)
+      body: JSON.stringify(set.slug)
     })
     const response = await res.json()
-    if (response) {toast.current.show({severity:'success', detail:'Группа добавлена', life: 2000})}
-    else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
-    setLoading(false)
-    setAddDialog(false)
-    setSet({
-      img: '',
-      name: '',
-      slug: '',
-      description: '',
-      tours: [],
-      public: true
-    })
-    await mutate('/api/setoftours/getallsets', fetcher('/api/setoftours/getallsets', {revalidate: false}))
+    if (response.state) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const addSet = async () => {
+    const check = await checkSlug()
+    if (check) {
+      toast.current.show({severity:'info', summary:'Название не уникальное!', life: 2000})
+    } else {
+      setLoading(true)
+      const res = await fetch('/api/setoftours/addset', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(set)
+      })
+      const response = await res.json()
+      if (response) {toast.current.show({severity:'success', detail:'Группа добавлена', life: 2000})}
+      else {toast.current.show({severity:'danger', detail:'Что-то пошло не так', life: 2000})}
+      setLoading(false)
+      setAddDialog(false)
+      setSet({
+        img: '',
+        name: '',
+        slug: '',
+        description: '',
+        tours: [],
+        public: true
+      })
+      await mutate('/api/setoftours/getallsets', fetcher('/api/setoftours/getallsets', {revalidate: false}))
+    }
   }
 
   const uploadImage = async () => {
