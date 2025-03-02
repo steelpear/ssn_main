@@ -47,7 +47,7 @@ export default function Hotel() {
       const response = await res.json()
       setImages(response[0] ? response[0].img : [])
       setHotel(response[0] ? response[0] : [])
-      setCrumbs(response[0] ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response.simple_name ? response.simple_name : response.name }] : [])
+      setCrumbs(response[0] ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response[0].simple_name ? response[0].simple_name : response[0].name }] : [])
     }
     const page = () => {
       if (p === 'so') {return {label: 'Отдых в Сочи', url: '/popular-sochi'}}

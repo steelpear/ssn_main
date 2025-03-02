@@ -28,9 +28,12 @@ export const Header = () => {
     },
     { 
       label: 'Сборы и корпоративные туры',
-      command: () => { window.open('https://sport-sbor-tour.ru/', '_blank') } 
+      command: () => { window.open('https://sport-sbor-tour.ru/', '_self') } 
     },
-    // { label: 'Круизы' },
+    {
+      label: 'Круизы',
+      command: () => { router.push('/cruises') } 
+    },
     { 
       label: 'Как оплатить',
       command: () => { router.push('/payment') } 
@@ -72,13 +75,26 @@ export const Header = () => {
   return (
     <main className='w-full'>
       <div className='flex flex-column md:flex-row justify-content-center md:justify-content-between align-items-center px-6 pt-3'>
-        <div className='col flex align-items-center justify-content-center md:justify-content-start mb-2 md:mb-0'>
-          <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' className='w-2' />
-          <div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div></Link>
+        <div className='col'>
+          <div className='flex align-items-center justify-content-center md:justify-content-start mb-2 md:mb-0'>
+            <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' width={70} />          </Link>
+            <div className='line-height-1'>
+              <Link href='/' style={{display: 'contents'}}><div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div></Link>
+              <div className={`${Montserrat.className} text-800 font-medium text-xs md:text-sm ml-2 line-height-1`}>Сайт туристической компании<br/>ПРО100-ТУР (<a href='https://tourism.gov.ru/agents/subject/d3f3352b-2b29-4e6c-bab1-3c0ed9ac71bc/' target='_blank' style={{display: 'contents'}} className='text-blue-700'>РТА 0038394</a>)</div>
+            </div>
+          </div>
         </div>
         <div className='col text-center mb-2 md:mb-0'>
-          <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
-          <a className='no-underline text-700 text-lg font-semibold' href='tel:+79886698337'><span className={Montserrat.className}>+7 (988) 669-83-37</span></a>
+          <div className='flex flex-column md:flex-row gap-2 md:no-gutter align-items-center justify-content-center'>
+            <div>
+              <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
+              <a className='no-underline text-700 text-lg font-semibold' href='tel:+79886698337'><span className={Montserrat.className}>+7 (988) 669-83-37</span></a>
+            </div>
+            <div className='ml-0 md:ml-3'>
+              <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
+              <a className='no-underline text-700 text-lg font-semibold' href='tel:+74951270565'><span className={Montserrat.className}>+7 (495) 127-05-65</span></a>
+            </div>
+          </div>
         </div>
         <div className='col'>
           <div className='flex gap-2 align-items-center justify-content-end'>
@@ -96,7 +112,8 @@ export const Header = () => {
               <img src='/feedback-icon.svg' alt='call' style={{width:36}} />
             </Button>
             <Link href='https://wa.me/79886698337' target='_blank'><img src='/whatsapp.svg' alt='whatsapp' style={{width:46}} /></Link>
-            <Link href='https://t.me/+iADdW6tHtm4wNTNi' target='_blank'><img src='/telegram.svg' alt='telegram' style={{width:46}} /></Link>
+            <Link href='https://t.me/sanatoriiRU' target='_blank'><img src='/telegram.svg' alt='telegram' style={{width:46}} /></Link>
+            <Link href='https://vk.com/pro100turr' target='_blank'><img src='/vk.png' alt='vk' style={{width:43}} /></Link>
           </div>
         </div>
       </div>

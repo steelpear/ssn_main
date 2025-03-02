@@ -7,12 +7,15 @@ import { ActionFormSection } from '../../components/ActionFormSection'
 import { Galleria } from 'primereact/galleria'
 import { Accordion, AccordionTab } from 'primereact/accordion'
 import { ScrollPanel } from 'primereact/scrollpanel'
+import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Tour() {
   const router = useRouter()
   const { slug } = router.query
   const [tour, setTour] = useState({})
   const [images, setImages] = useState(null)
+  const [crumbs, setCrumbs] = useState(null)
+
   const responsiveOptions = [
     {
         breakpoint: '1024px',
@@ -31,6 +34,8 @@ export default function Tour() {
         numVisible: 1
     }
   ]
+  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+
 
   useEffect(() => {
     const getTour = async () => {
@@ -42,6 +47,7 @@ export default function Tour() {
       const response = await res.json()
       setImages(response ? response[0].img : [])
       setTour(response ? response[0] : [])
+      setCrumbs([{ label: response[0].name }])
     }
     getTour()
   },[slug])
@@ -62,6 +68,7 @@ export default function Tour() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 w-full'>
+          <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none px-3 lg:px-7'}}} />
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-7'>{tour.name}</div>
           <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-7'>
             <div className='col'>

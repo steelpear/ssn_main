@@ -18,7 +18,7 @@ export const ActionFormSection = () => {
                 <div>
                   <div className='flex flex-column md:flex-row align-items-center gap-3'>
                     <Button label="WhatsApp" icon="pi pi-whatsapp" raised className='w-full border-round-lg border-none' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
-                    <Button label="Telegram" icon="pi pi-send" raised className='w-full border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
+                    <Button label="Telegram" icon="pi pi-send" raised className='w-full border-round-lg' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/sanatoriiRU', '_blank')} />
                   </div>
                   <Image src="/arrow.svg" alt="arrow" width={55} height={150} className='hidden lg:block absolute -ml-7 -mt-5' />
                   <div className='relative flex align-items-center gap-3 mt-2'>

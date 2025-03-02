@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/env": "^15.2.0",
     "@pbe/react-yandex-maps": "^1.2.5",
     "bcryptjs": "^3.0.2",
     "js-cookie": "^3.0.5",

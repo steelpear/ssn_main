@@ -22,6 +22,14 @@
 
 .pop-direction-item:hover {transform: translateY(-6px);}
 
+.finderHome .finderHome-menuItem {
+  background-color: orange !important;
+}
+
+.btn-danger {
+  background: orange !important;
+}
+
 @media (min-width: 1349px) {
   .action-form-bg {
     background: url(/call.png) 52% 62%/150px 150px no-repeat, linear-gradient(90deg, #004470 0, #0072bc 20%, #0072bc 80%, #004470) !important;

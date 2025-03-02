@@ -26,10 +26,15 @@ export default function Contacts() {
             <div className='text-800 text-3xl font-semibold my-5'>Контакты</div>
             <div>Туристическая компания «ПРО100-ТУР»</div>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
+            <p><i className='pi pi-phone mr-2' /><a className='no-underline' href='tel:+74951270565'>+7 (495) 127-05-65</a></p>
             <p><i className='pi pi-at mr-2' /><a className='no-underline' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
-            <div className='flex align-items-center gap-3 my-2'>
+            <div className='flex flex-column md:flex-row align-items-start md:align-items-center gap-3 my-2'>
               <Button label="WhatsApp" icon="pi pi-whatsapp" raised className='border-round-lg px-4' style={{background: '#25D366', borderColor: '#25D366'}} onClick={() =>  window.open('https://wa.me/79886698337', '_blank')} />
               <Button label="Telegram" icon="pi pi-send" raised className='border-round-lg px-4' style={{background: '#24A1DE', borderColor: '#24A1DE'}} onClick={() =>  window.open('https://t.me/+iADdW6tHtm4wNTNi', '_blank')} />
+              <Button raised className='border-round-lg px-4' style={{background: '#0078FF', borderColor: '#0078FF'}} onClick={() =>  window.open('https://vk.com/pro100turr', '_blank')}>
+                <img src='/vk-white.svg' alt='vk' style={{height:22}} />
+                <div className='ml-2'>ВКонтакте</div>
+              </Button>
             </div>
             <p><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
           </div>

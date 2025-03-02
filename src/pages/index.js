@@ -8,7 +8,7 @@ import { ToursPanel } from '../components/ToursPanel'
 
 export default function Home() {
 
-  useScript('static/partner.fire.js')
+  useScript(process.env.NEXT_PUBLIC_SCRIPT_URL)
 
   return (
     <>

@@ -1,13 +1,18 @@
 import {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import Head from "next/head" 
 import { MainLayout } from '../../components/MainLayout'
+import { BreadCrumb } from 'primereact/breadcrumb'
 
 export default function Group() {
   const router = useRouter()
   const { slug } = router.query
   const [group, setGroup] = useState({})
   const [tours, setTours] = useState(null)
+  const [crumbs, setCrumbs] = useState(null)
+
+  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
   useEffect(() => {
     const getData = async () => {
@@ -26,6 +31,7 @@ export default function Group() {
       })
       const respons = await resp.json()
       setTours(respons)
+      setCrumbs([{ label: response[0] ? response[0].name : [] }])
     }
     getData()
   },[slug])
@@ -48,6 +54,7 @@ export default function Group() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 px-4 lg:px-7 pb-5'>
+          <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-center text-3xl font-semibold text-800 mr-2 my-6'>{group && group.name}</div>
           <div className='flex flex-column lg:flex-row gap-2 lg:gap-4 justify-content-center'>
             {tours && tours.map(item => itemTemplate(item))}
