@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export const config = {
-  matcher: ['/admin', '/admin-popular', '/admin-reviews']
+  matcher: ['/admin', '/admin-popular', '/admin-reviews', '/admin-hotels', '/admin-setoftours', '/admin-tours']
 }
 
 export default function middleware(req){
