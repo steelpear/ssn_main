@@ -24,6 +24,7 @@ export const Header = () => {
   const menuItems = [
     {
       label: 'Туры по России',
+      className: `${router.route === '/tours' && 'p-menuitem-active'}`,
       command: () => { router.push('/tours') }
     },
     { 
@@ -32,21 +33,26 @@ export const Header = () => {
     },
     {
       label: 'Круизы',
+      className: `${router.route === '/cruises' && 'p-menuitem-active'}`,
       command: () => { router.push('/cruises') } 
     },
     { 
       label: 'Как оплатить',
+      className: `${router.route === '/payment' && 'p-menuitem-active'}`,
       command: () => { router.push('/payment') } 
     },
     { 
       label: 'Отзывы',
+      className: `${router.route === '/reviews' && 'p-menuitem-active'}`,
       command: () => { router.push('/reviews') } 
     },
     { 
       label: 'О нас',
+      className: `${router.route === '/about' && 'p-menuitem-active'}`,
       command: () => { router.push('/about') } },
     {
       label: 'Контакты',
+      className: `${router.route === '/contacts' && 'p-menuitem-active'}`,
       command: () => { router.push('/contacts') }
     }
   ]
@@ -120,7 +126,7 @@ export const Header = () => {
       <Menubar
         model={menuItems}
         pt={{ 
-          root: { className: 'flex justify-content-center py-1 m-0 border-noround border-transparent'},
+          root: { className: 'flex justify-content-center p-0 m-0 border-noround border-transparent'},
           label: {className: `${Roboto.className} text-lg font-medium`},
           content: { className: 'border-noround' }
         }}
