@@ -23,7 +23,11 @@
 .pop-direction-item:hover {transform: translateY(-6px);}
 
 .p-menuitem.p-menuitem-active {
-  background-color: #eaeaea;
+  background-color: #FE7E25 !important;
+}
+
+.p-menuitem-content:hover {
+  background-color: #FD9741 !important;
 }
 
 @media (min-width: 1349px) {
@@ -35,5 +39,8 @@
 @media (max-width: 1280px) {
   .action-form-bg {
     background: linear-gradient(90deg, #004470 0, #0072bc 20%, #0072bc 80%, #004470) !important;
+  }
+  .p-menuitem.p-menuitem-active {
+    background-color: #E5E7EB !important;
   }
 }

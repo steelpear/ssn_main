@@ -58,7 +58,7 @@ export default function Reviews() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='px-4 md:px-5 lg:px-7'>
+        <main className='mt-2 px-4 md:px-5 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none ml-7'}}} />
           <div className='text-center text-3xl text-700 font-medium mt-4 mb-6'>Отзывы наших клиентов</div>
           <div className='flex flex-column lg:flex-row flex-wrap gap-4 justify-content-center'>

@@ -80,7 +80,7 @@ export const Header = () => {
 
   return (
     <main className='w-full'>
-      <div className='flex flex-column md:flex-row justify-content-center md:justify-content-between align-items-center px-6 pt-3'>
+      <div className='flex flex-column md:flex-row justify-content-center md:justify-content-between align-items-center px-6 pt-3 pb-2'>
         <div className='col'>
           <div className='flex align-items-center justify-content-center md:justify-content-start mb-2 md:mb-0'>
             <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' width={70} /></Link>
@@ -126,9 +126,10 @@ export const Header = () => {
       <Menubar
         model={menuItems}
         pt={{ 
-          root: { className: 'flex justify-content-center p-0 m-0 border-noround border-transparent'},
-          label: {className: `${Roboto.className} text-lg font-medium`},
-          content: { className: 'border-noround' }
+          root: { className: 'flex justify-content-start md:justify-content-center pl-3 md:pl-0 p-0 m-0 border-noround border-none bg-blue-600 shadow-3'},
+          label: {className: `${Roboto.className} text-lg font-normal text-800 md:text-white border-none`},
+          content: { className: 'border-noround bg-transparent' },
+          button: {className: 'text-white bg-transparent'}
         }}
       />
       {router.route === '/' && <div className='relative hidden md:block'>
