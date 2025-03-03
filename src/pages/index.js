@@ -28,6 +28,7 @@ export default function Home() {
           <section className='px-4 lg:px-7'>
             <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
             <div className='pt-4 mb-3 ml-0 lg:ml-2 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
+            {/* <div className="s-partnership" data-site-id="13372" data-integration-type="finder_hotels" data-param-person-reserve="pseudo" data-param-touragency-reserve="none" data-param-show-finder="1" data-param-show-video="1" data-param-show-commission="0" style={{display:'none'}}></div> */}
           </section>
           <ActionFormSection />
           <Reviewz />

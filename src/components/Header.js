@@ -77,7 +77,7 @@ export const Header = () => {
       <div className='flex flex-column md:flex-row justify-content-center md:justify-content-between align-items-center px-6 pt-3'>
         <div className='col'>
           <div className='flex align-items-center justify-content-center md:justify-content-start mb-2 md:mb-0'>
-            <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' width={70} />          </Link>
+            <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' width={70} /></Link>
             <div className='line-height-1'>
               <Link href='/' style={{display: 'contents'}}><div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div></Link>
               <div className={`${Montserrat.className} text-800 font-medium text-xs md:text-sm ml-2 line-height-1`}>Сайт туристической компании<br/>ПРО100-ТУР (<a href='https://tourism.gov.ru/agents/subject/d3f3352b-2b29-4e6c-bab1-3c0ed9ac71bc/' target='_blank' style={{display: 'contents'}} className='text-blue-700'>РТА 0038394</a>)</div>
