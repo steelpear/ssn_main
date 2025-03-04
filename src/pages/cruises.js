@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import useCruScript from '../useCruScript'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { MainLayout } from '../components/MainLayout'
 
 export default function Payment() {
   const items = [{ label: 'Круизы' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+
+  useCruScript('static/runner.js')
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function Payment() {
         <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-800 text-lg mb-5'>
-            Круизы
+            <div id="awidget"></div>
           </div>
         </main>
       </MainLayout>

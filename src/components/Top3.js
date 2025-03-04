@@ -27,10 +27,10 @@ export const Top3 = ({...params}) => {
   if (hotels && hotels.length >= 3) {
     return (
       <main>
-        <Card title='ТОП-3 лучших' className='w-full my-5'>
+        <Card title='ТОП-3 лучших' className='w-full my-5 shadow-none'>
           <div className='grid gap-2'>
             {hotels && hotels.map(item => (
-              <div className='col border-1 border-200 border-round-md px-0 pt-0' key={item._id}>
+              <div className='col border-1 border-200 border-round-md px-0 pt-0 shadow-1' key={item._id}>
                 <div className='relative'>
                   <Image src={item.img[0]} alt='Image' width='100%' height='100%' pt={{ image: {className: 'border-round-top-md'}}} />
                   <div className='absolute top-0 left-0 mt-2 ml-2 bg-red-500 text-white text-xs px-2 py-1 border-round-xl'>{item.label}</div>
