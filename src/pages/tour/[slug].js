@@ -67,7 +67,7 @@ export default function Tour() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 w-full'>
+        <main className='fadein animation-duration-800 w-full mt-2'>
           <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none px-3 lg:px-7'}}} />
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-7'>{tour.name}</div>
           <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-7'>
