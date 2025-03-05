@@ -9,10 +9,7 @@ export const CruisBanner = () => {
     '/cru-slider/4.jpg'
   ]
 
-  const itemTemplate = item => (
-    <div className='pt-2'>
-      <img src={item} alt='Image' className='w-full' />
-    </div>)
+  const itemTemplate = item => <img src={item} alt='Image' className='w-full' />
 
     return (
       <main className='my-6 w-full'>
