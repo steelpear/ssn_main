@@ -1,22 +1,20 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
-import useScript from '../useScript'
+import useCruScript from '../useCruScript'
 import { BreadCrumb } from 'primereact/breadcrumb'
-import { CruisBanner } from '../components/CruisBanner'
 import { MainLayout } from '../components/MainLayout'
 
-export default function Cruises() {
-  const router = useRouter()
-  const items = [{ label: 'Круизы' }]
+export default function Special() {
+  const items = [{template: () => <Link className='no-underline' href='/cruises'>Круизы</Link>} , { label: 'Специальные предложения' }]
+
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
-  useScript('static/infoflot.js')
+  useCruScript('static/runner.js')
 
   return (
     <>
       <Head>
-        <title>Туристическая компания «ПРО100-ТУР» / Круизы</title>
+        <title>Туристическая компания «ПРО100-ТУР» / Круизы. Специальные предложения</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
         <meta name="description" content="Предлагаем услуги по бронированию путевок на лечение и отдых в санатории, курортные отели, пансионаты, базы отдыха, морские и речные круизы, а также детские лагеря, спортивные и творческие групповые сборы." />
         <meta property="og:title" content="Туристическая компания «ПРО100-ТУР»" />
@@ -26,11 +24,9 @@ export default function Cruises() {
       <MainLayout>
         <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center mt-4 mb-3'>Круизы: морские и речные приключения</div>
-          <div className='text-2xl text-blue-700 font-medium text-center cursor-pointer' onClick={() => router.push('/special')}>специальные предложения</div>
-          <CruisBanner />
+          <div className='text-3xl text-700 font-medium text-center my-4'>Круизы. Специальные предложения</div>
           <div className='text-800 text-lg mb-5'>
-            <div className="infoflotWidget" data-id='YTo0OntzOjI6IklEIjtzOjQ6IjM4MTgiO3M6NDoiVVNFUiI7czoyODoiT0RrNE9EWXlNREE1TnpCQWJXRnBiQzV5ZFE9PSI7czo2OiJSQU5ET00iO3M6ODoibGV0Z25yNmUiO3M6MTU6IklORk9GTE9ULUFQSUtFWSI7czo0MDoiMmQxNGUzZTIzNmMzZmJlZDRkZTQ0YWVhZGUzZDdlMTRjOWU5ZGVlMCI7fQ==" data-index="1'></div>
+            <div id='awidget'></div>
           </div>
         </main>
       </MainLayout>

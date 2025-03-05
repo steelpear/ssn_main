@@ -6,7 +6,6 @@ import { Montserrat } from '../styles/fonts'
 export const ToursPanel = () => {
   const router = useRouter()
   const [sets, setSets] = useState([])
-  const [itemClass, setItemClass] = useState('')
   const responsiveOptions = [
     {
         breakpoint: '1400px',
@@ -40,9 +39,6 @@ export const ToursPanel = () => {
       const res = await fetch('/api/setoftours/getsets')
       const response = await res.json()
       setSets(response)
-      if (response.length == 1) {setItemClass('w-28rem')}
-      else if (response.length == 2) {setItemClass('w-8')}
-      else {setItemClass('w-full')}
     }
     getSets()
   },[])
@@ -80,7 +76,6 @@ export const ToursPanel = () => {
             width: '50px',
             height: '50px'
           }},
-          // container: {className: itemClass}
         }} />
       </main> : <></>)
   }
