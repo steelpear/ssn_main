@@ -24,7 +24,7 @@ export default function Special() {
       <MainLayout>
         <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-7'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center my-4'>Круизы. Специальные предложения</div>
+          <div className='text-3xl text-700 font-medium text-center my-4'>Специальные предложения</div>
           <div className='text-800 text-lg mb-5'>
             <div id='awidget'></div>
           </div>
