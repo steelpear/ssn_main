@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer'
 export function MainLayout({ children }) {
 
   return (
-    <div  className='w-full'>
+    <div className='w-full'>
       <Script src='https://script.click-chat.ru/chat.js?wid=ae9850ec-f277-4ead-b094-4be22b38ea2b' />
       <Header />
       <main className={Roboto.className}>

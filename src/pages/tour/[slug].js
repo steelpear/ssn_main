@@ -18,16 +18,16 @@ export default function Tour() {
 
   const responsiveOptions = [
     {
-        breakpoint: '1024px',
+        breakpoint: '1500px',
         numVisible: 5
     },
     {
-        breakpoint: '960px',
-        numVisible: 4
+        breakpoint: '1024px',
+        numVisible: 3
     },
     {
         breakpoint: '768px',
-        numVisible: 3
+        numVisible: 2
     },
     {
         breakpoint: '560px',
@@ -45,16 +45,16 @@ export default function Tour() {
         body: JSON.stringify({slug})
       })
       const response = await res.json()
-      setImages(response ? response[0].img : [])
-      setTour(response ? response[0] : [])
-      setCrumbs([{ label: response[0].name }])
+      setImages(response[0] ? response[0].img : [])
+      setTour(response[0] ? response[0] : [])
+      setCrumbs([{ label: response[0] && response[0].name }])
     }
     getTour()
   },[slug])
 
   const itemTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
 
-  const thumbnailTemplate = item => <img src={item} alt='Image' style={{ width: '100%', display: 'block' }} />
+  const thumbnailTemplate = item => <img src={item} alt='Image' style={{ width: '99%', display: 'block' }} />
 
   return (
     <>
@@ -72,7 +72,7 @@ export default function Tour() {
           <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-7'>{tour.name}</div>
           <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-7'>
             <div className='col'>
-              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }} circular showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
+              <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={3} circular showItemNavigators item={itemTemplate} thumbnail={thumbnailTemplate} className='shadow-4' />
             </div>
             <div className='col'>
               <ScrollPanel style={{ width: '100%', height: '440px' }}>

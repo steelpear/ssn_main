@@ -61,7 +61,7 @@ export const ToursPanel = () => {
     return (sets && sets.length > 0 ? 
       <main className='my-6 px-2 lg:px-7'>
         <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные туры</div>
-        <Carousel value={sets} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} page={0} circular pt={{ 
+        <Carousel value={sets} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} page={0} circular pt={{ 
           previousButton: {style: {
             background: 'rgb(255, 132, 0)',
             color: 'white',
