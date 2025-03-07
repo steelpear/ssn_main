@@ -5,7 +5,7 @@ import { Oswald, Pacifico, Prosto } from '../styles/fonts'
         
 export const ActionFormSection = () => {
   return (
-    <main className='px-4 md:px-5 lg:px-7'>
+    <main className='px-4 md:px-5 lg:px-7 z-0'>
       <div className='relative w-full bg-left-bottom bg-cover bg-no-repeat px-3 md:px-5 py-4 md:py-6 my-4 border-round-2xl shadow-4 action-form-bg'>
         <div className='grid grid-nogutter w-full flex justify-content-center'>
           <div className="col-12 sm:col-12 md:col-5 lg:col-5 xl:col-5">

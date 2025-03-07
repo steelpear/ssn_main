@@ -1,8 +1,6 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
-import useScript from '../useScript'
-import { Button } from 'primereact/button'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { CruisBanner } from '../components/CruisBanner'
 import { CruisesButtonsGroup } from '../components/CruisesButtonsGroup'
@@ -10,11 +8,24 @@ import { CruisesFAQ } from '../components/CruisesFAQ'
 import { MainLayout } from '../components/MainLayout'
 
 export default function Cruises() {
-  const router = useRouter()
   const items = [{ label: 'Круизы' }]
-  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+  const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
 
-  useScript('static/infoflot.js')
+  useEffect(() => {
+    {window.awidgetInfo = {
+      host: '//cruisenavigator.ru',
+      agentId: '0367b872-2e94-4b94-b40f-b1e6dd9cde14',
+      background: '#ffffff'
+      }}
+    const script = document.createElement('script')
+    script.src = 'static/runner.js'
+    script.async = true
+    script.crossOrigin = 'anonymous'
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     <>
@@ -31,13 +42,11 @@ export default function Cruises() {
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center mt-4 mb-3'>Круизы: морские и речные приключения</div>
           <CruisBanner />
-          <div className='flex justify-content-center'>
-            <Button label='Специальные предложения' outlined raised size='large' className='text-700 mx-3' onClick={() => router.push('/special')} />
-          </div>
-          <div className='text-800 text-lg my-5'>
-            <div className="infoflotWidget" data-id='YTo0OntzOjI6IklEIjtzOjQ6IjM4MTgiO3M6NDoiVVNFUiI7czoyODoiT0RrNE9EWXlNREE1TnpCQWJXRnBiQzV5ZFE9PSI7czo2OiJSQU5ET00iO3M6ODoibGV0Z25yNmUiO3M6MTU6IklORk9GTE9ULUFQSUtFWSI7czo0MDoiMmQxNGUzZTIzNmMzZmJlZDRkZTQ0YWVhZGUzZDdlMTRjOWU5ZGVlMCI7fQ==" data-index="1'></div>
-          </div>
           <CruisesButtonsGroup />
+          <div className='text-2xl text-700 font-medium text-center mt-6 mb-3'>Специальные предложения</div>
+          <div className='flex justify-content-center'>
+          </div>
+          <div id='awidget'></div>
           <CruisesFAQ />
         </main>
       </MainLayout>

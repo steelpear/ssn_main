@@ -23,6 +23,11 @@ export const Header = () => {
   const emailToast = useRef(null)
   const menuItems = [
     {
+      label: 'Главная',
+      className: `${router.route === '/' && 'p-menuitem-active'}`,
+      command: () => { router.push('/') }
+    },
+    {
       label: 'Туры по России',
       className: `${router.route === '/tours' && 'p-menuitem-active'}`,
       command: () => { router.push('/tours') }
