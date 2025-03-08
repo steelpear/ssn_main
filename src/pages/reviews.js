@@ -33,18 +33,18 @@ export default function Reviews() {
   }
 
   const footerContent = (<div className='text-left pt-3'>
-  <div className='text-600'>{review && review.name}</div>
-  <div className='text-600'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-</div>)
+    <div className='text-sm text-800'>{review && review.name}</div>
+    <div className='text-base font-semibold'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+  </div>)
 
   const reviewTemplate = (review) => (
     <div key={review._id} className='col lg:col-5 p-3 border-round-2xl shadow-3 bg-white'>
-      <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '250px' }}>
-        <div className='mb-2 text-lg font-medium'>{review.name}</div>
-        <div className='text-sm mb-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-        <div className='text-lg font-light'>{review.text}</div>
+      <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '273px' }}>
+      <div className='mb-0 text-base font-medium text-800'>{review.name}</div>
+      <div className='text-base text-800 font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+      <div className='text-base font-normal text-800'>{review.text}</div>
       </div>
-      <div className='text-center text-lg font-medium cursor-pointer mt-3 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
+      <div className='text-sm text-center uppercase font-semibold cursor-pointer mt-4 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
     </div>)
 
   return (
@@ -65,13 +65,13 @@ export default function Reviews() {
             {reviews && reviews.map(review => reviewTemplate(review))}
           </div>
           <div className='text-center text-3xl text-700 font-medium my-4'>Оставить отзыв</div>
-          <Dialog visible={moreDialog} dismissableMask={true} className='w-11 lg:w-6' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
+          <Dialog visible={moreDialog} className='w-11 lg:w-6' footer={footerContent} onHide={() => {if (!moreDialog) return; setMoreDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>
             <Divider />
             <div className='flex align-items-center justify-content-between my-3 px-2'>
               <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />
               <img src='/quote.svg' alt='Quote' width='25px' height='40px' />
             </div>
-            <div className='text-800 text-lg'>{review && review.text}</div>
+            <div className='text-800 text-base'>{review && review.text}</div>
           </Dialog>
         </main>
         <ReviewzBar />

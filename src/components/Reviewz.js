@@ -117,18 +117,18 @@ export const Reviewz = () => {
   }
 
   const footerContent = (<div className='text-left pt-3'>
-    <div className='text-600'>{review && review.name}</div>
-    <div className='text-600'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+    <div className='text-sm text-800'>{review && review.name}</div>
+    <div className='text-base font-semibold'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
   </div>)
 
   const reviewTemplate = (review) => (
       <div className='m-2 px-3 lg:px-4 py-3 border-round-2xl shadow-3 bg-white'>
-        <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '250px' }}>
-          <div className='mb-2 text-base font-medium'>{review.name}</div>
-          <div className='text-sm mb-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-          <div className='text-base font-light'>{review.text}</div>
+        <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '258px' }}>
+          <div className='mb-1 text-sm font-medium text-800'>{review.name}</div>
+          <div className='text-sm font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+          <div className='text-sm font-normal font-italic text-800'>{review.text}</div>
         </div>
-        <div className='text-center cursor-pointer mt-3 text-blue-700' onClick={() => openMoreDialog(review)}>Читать полностью</div>
+        <div className='text-xs text-center uppercase font-semibold cursor-pointer mt-3 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
       </div>)
 
   return (
@@ -148,7 +148,7 @@ export const Reviewz = () => {
           <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />
           <img src='/quote.svg' alt='Quote' width='25px' height='40px' />
         </div>
-        <div className='text-800 text-lg'>{review && review.text}</div>
+        <div className='text-800 text-base'>{review && review.text}</div>
       </Dialog>
       {/* Добавить отзыв */}
       <Dialog visible={addDialog} className='w-11 lg:w-6' footer={<></>} onHide={() => {if (!addDialog) return; setAddDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, content: {className: 'pb-1'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>

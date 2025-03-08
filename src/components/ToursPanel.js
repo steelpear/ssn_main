@@ -6,33 +6,6 @@ import { Montserrat } from '../styles/fonts'
 export const ToursPanel = () => {
   const router = useRouter()
   const [sets, setSets] = useState([])
-  const responsiveOptions = [
-    {
-        breakpoint: '1400px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '1199px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-      breakpoint: '320px',
-      numVisible: 1,
-      numScroll: 1
-    }
-  ]
 
   useEffect(() => {
     const getSets = async () => {
@@ -55,9 +28,9 @@ export const ToursPanel = () => {
       </div>)
 
     return (sets && sets.length > 0 ? 
-      <main className='my-6 px-2 lg:px-7'>
-        <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные туры</div>
-        <Carousel value={sets} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} page={0} circular pt={{ 
+      <main>
+        <div className='text-2xl text-700 font-medium ml-5 my-3'>Популярные туры</div>
+        <Carousel value={sets} numVisible={1} numScroll={1} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} pt={{ 
           previousButton: {style: {
             background: 'rgb(255, 132, 0)',
             color: 'white',

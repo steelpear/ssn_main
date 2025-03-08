@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 import useScript from '../useScript'
+import { Button } from 'primereact/button'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { MainLayout } from '../components/MainLayout'
 
 export default function Sea() {
+  const router = useRouter()
   const items = [{template: () => <Link className='no-underline' href='/cruises'>Круизы</Link>} , { label: 'Морские круизы' }]
 
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
@@ -40,7 +43,10 @@ export default function Sea() {
             <p className='my-1'><span className='font-semibold'>Исключительное обслуживание:</span> Внимательный и профессиональный персонал позаботится о вашем комфорте на протяжении всего путешествия.</p>
             <p className='my-1'>Выберите свой идеальный морской круиз и отправьтесь в незабываемое приключение!  Свяжитесь с нами, чтобы получить подробную информацию о маршрутах, датах и ценах.  Мы поможем вам подобрать круиз, который идеально подходит именно вам.</p>
           </div>
-          <div class="infoflotWidget" data-id="YTo0OntzOjI6IklEIjtpOjM4MzI7czo0OiJVU0VSIjtzOjI4OiJPRGs0T0RZeU1EQTVOekJBYldGcGJDNXlkUT09IjtzOjY6IlJBTkRPTSI7czo4OiJwdHFyaG5ndSI7czoxNToiSU5GT0ZMT1QtQVBJS0VZIjtzOjQwOiIyZDE0ZTNlMjM2YzNmYmVkNGRlNDRhZWFkZTNkN2UxNGM5ZTlkZWUwIjt9" data-index="1"></div>
+          <div className="infoflotWidget" data-id="YTo0OntzOjI6IklEIjtpOjM4MzI7czo0OiJVU0VSIjtzOjI4OiJPRGs0T0RZeU1EQTVOekJBYldGcGJDNXlkUT09IjtzOjY6IlJBTkRPTSI7czo4OiJwdHFyaG5ndSI7czoxNToiSU5GT0ZMT1QtQVBJS0VZIjtzOjQwOiIyZDE0ZTNlMjM2YzNmYmVkNGRlNDRhZWFkZTNkN2UxNGM5ZTlkZWUwIjt9" data-index="1"></div>
+          <div className='flex justify-content-center'>
+            <Button label='Речные круизы' outlined raised size='large' className='text-700 mx-3 border-orange-400 border-3' onClick={() => router.push('/river-cruises')} />
+          </div>
         </main>
       </MainLayout>
     </>

@@ -48,6 +48,7 @@ export default function Cruises() {
           </div>
           <div id='awidget'></div>
           <CruisesFAQ />
+          <CruisesButtonsGroup />
         </main>
       </MainLayout>
     </>

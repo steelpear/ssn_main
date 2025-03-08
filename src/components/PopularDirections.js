@@ -5,33 +5,6 @@ import { Montserrat } from '../styles/fonts'
 
 export const PopularDirections = () => {
   const router = useRouter()
-  const responsiveOptions = [
-    {
-        breakpoint: '1400px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '1199px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-      breakpoint: '320px',
-      numVisible: 1,
-      numScroll: 1
-    }
-  ]
 
 const itemTemplate = item => (
   <div className='pt-2'>
@@ -45,9 +18,9 @@ const itemTemplate = item => (
   </div>)
 
   return (
-    <main className='my-6 px-2 lg:px-7'>
-      <div className='text-3xl text-700 font-medium ml-5 my-4'>Популярные направления</div>
-      <Carousel value={directions} responsiveOptions={responsiveOptions} itemTemplate={itemTemplate} showIndicators={false} page={0} circular pt={{ 
+    <main>
+      <div className='text-2xl text-700 font-medium ml-5 my-3'>Популярные направления</div>
+      <Carousel value={directions} numVisible={1} numScroll={1} itemTemplate={itemTemplate} showIndicators={false} pt={{ 
         previousButton: {style: {
           background: 'rgb(255, 132, 0)',
           color: 'white',

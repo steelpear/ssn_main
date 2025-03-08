@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 import useScript from '../useScript'
+import { Button } from 'primereact/button'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { Divider } from 'primereact/divider'
 import { MainLayout } from '../components/MainLayout'
 
 export default function River() {
+  const router = useRouter()
   const items = [{template: () => <Link className='no-underline' href='/cruises'>Круизы</Link>} , { label: 'Речные круизы' }]
 
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
@@ -46,7 +49,10 @@ export default function River() {
             <p className='my-1'><span className='font-semibold'>Экономия времени:</span> Все необходимое – проживание, питание, развлечения – собраны в одном месте, что экономит время на планировании и организации поездки.</p>
             <p className='my-1'>Речные круизы – это идеальный выбор для тех, кто ценит комфорт, спокойствие и уникальные впечатления от путешествий.  Выберите свой речной маршрут и откройте для себя мир заново!</p>
           </div>
-          <div class="infoflotWidget" data-id="YTo0OntzOjI6IklEIjtpOjM4MzM7czo0OiJVU0VSIjtzOjI4OiJPRGs0T0RZeU1EQTVOekJBYldGcGJDNXlkUT09IjtzOjY6IlJBTkRPTSI7czo4OiIwYjh2NHNqMyI7czoxNToiSU5GT0ZMT1QtQVBJS0VZIjtzOjQwOiIyZDE0ZTNlMjM2YzNmYmVkNGRlNDRhZWFkZTNkN2UxNGM5ZTlkZWUwIjt9" data-index="1"></div>
+          <div className="infoflotWidget" data-id="YTo0OntzOjI6IklEIjtpOjM4MzM7czo0OiJVU0VSIjtzOjI4OiJPRGs0T0RZeU1EQTVOekJBYldGcGJDNXlkUT09IjtzOjY6IlJBTkRPTSI7czo4OiIwYjh2NHNqMyI7czoxNToiSU5GT0ZMT1QtQVBJS0VZIjtzOjQwOiIyZDE0ZTNlMjM2YzNmYmVkNGRlNDRhZWFkZTNkN2UxNGM5ZTlkZWUwIjt9" data-index="1"></div>
+          <div className='flex justify-content-center'>
+            <Button label='Морские круизы' outlined raised size='large' className='text-700 mx-3 border-orange-400 border-3' onClick={() => router.push('/sea-cruises')} />
+          </div>
         </main>
       </MainLayout>
     </>
