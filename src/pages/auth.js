@@ -2,6 +2,7 @@ import {useState, useEffect, useRef} from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Cookies from 'js-cookie'
+import bcrypt from 'bcryptjs'
 import { InputText } from 'primereact/inputtext'
 import { IconField } from 'primereact/iconfield'
 import { InputIcon } from 'primereact/inputicon'
@@ -20,10 +21,11 @@ export default function Auth() {
   useEffect(() => {setHeight(window.innerHeight - 30)}, [])
 
   const checkLogin = async () => {
+    const hash = await bcrypt.hash(password, 10)
     const res = await fetch('/api/checkuser', {
       method: 'POST',
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      body: JSON.stringify({login, password})
+      body: JSON.stringify({login, hash})
     })
     const response = await res.json()
     if (response) {
