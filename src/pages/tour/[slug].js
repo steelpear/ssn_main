@@ -68,9 +68,9 @@ export default function Tour() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 w-full mt-2'>
-          <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none px-3 lg:px-7'}}} />
-          <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-7'>{tour.name}</div>
-          <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-7'>
+          <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none px-3 lg:px-8'}}} />
+          <div className='text-center text-2xl font-semibold text-800 mr-2 my-6 px-3 lg:px-8'>{tour.name}</div>
+          <div className='flex flex-column lg:flex-row gap-2 px-3 lg:px-8'>
             <div className='col'>
               <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={3} circular showItemNavigators item={itemTemplate} thumbnail={thumbnailTemplate} className='shadow-4' />
             </div>
@@ -80,7 +80,7 @@ export default function Tour() {
               </ScrollPanel>
             </div>
           </div>
-          <Accordion multiple className='mt-4 px-3 lg:px-7'>
+          <Accordion multiple className='mt-4 px-3 lg:px-8'>
             {tour.program && <AccordionTab header='Программа тура'>
                 <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.program }} />
               </AccordionTab>}

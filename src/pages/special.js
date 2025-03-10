@@ -22,7 +22,7 @@ export default function Special() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-7'>
+        <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center my-4'>Специальные предложения</div>
           <div className='text-800 text-lg mb-5'>

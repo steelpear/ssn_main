@@ -53,7 +53,7 @@ export default function Group() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 px-4 lg:px-7 pb-5 mt-2'>
+        <main className='fadein animation-duration-800 px-4 lg:px-8 pb-5 mt-2'>
           <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-center text-3xl font-semibold text-800 mr-2 my-6'>{group && group.name}</div>
           <div className='flex flex-column lg:flex-row gap-2 lg:gap-4 justify-content-center'>

@@ -75,7 +75,7 @@ export default function Hotel() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 w-full mt-2'>
-          <div className='px-3 lg:px-7'>
+          <div className='px-3 lg:px-8'>
             <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}} />
             <div className='flex flex-column lg:flex-row align-items-center justify-content-center mt-3'>
               <div className='text-center text-2xl font-semibold text-800 mr-2'>{hotel.name}</div>

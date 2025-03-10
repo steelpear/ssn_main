@@ -26,7 +26,7 @@ export default function River() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-7'>
+        <main className='fadein animation-duration-800 mt-2 pb-4 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center mt-4 mb-5'>Речные круизы</div>
           <div className='text-base'>

@@ -132,7 +132,7 @@ export const Reviewz = () => {
       </div>)
 
   return (
-    <main className='mt-6 px-4 lg:px-7 pt-5 pb-7 w-full' style={{backgroundColor: '#F5F6F9'}}>
+    <main className='mt-6 px-4 lg:px-8 pt-5 pb-7 w-full' style={{backgroundColor: '#F5F6F9'}}>
       <div className='text-3xl text-700 font-medium ml-3 my-4 flex align-items-center justify-content-between'>
         <div className='text-xl lg:text-3xl'>Отзывы наших клиентов</div>
         <div className='grid gap-3 mr-3'>
