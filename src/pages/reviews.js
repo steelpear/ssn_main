@@ -40,7 +40,7 @@ export default function Reviews() {
   const reviewTemplate = (review) => (
     <div key={review._id} className='col lg:col-5 p-3 border-round-2xl shadow-3 bg-white'>
       <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '273px' }}>
-      <div className='mb-0 text-base font-medium text-800'>{review.name}</div>
+      <div className='mb-1 text-base font-medium text-800 line-height-1'>{review.name}</div>
       <div className='text-base text-800 font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
       <div className='text-base font-normal text-800'>{review.text}</div>
       </div>

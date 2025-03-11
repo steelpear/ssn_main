@@ -43,7 +43,7 @@ export const Footer = () => {
   return (
     <div className={`${Roboto.className} h-auto p-6 text-white footer-wrap`}>
       <div className='grid grid-nogutter w-full'>
-        <div className='col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4'>
+        <div className='col-12 md:col-6 lg:col-4'>
           <div className='text-lg line-height-1'>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+74951270565'>+7 (495) 127-05-65</a></p>
@@ -51,10 +51,10 @@ export const Footer = () => {
             <p><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
           </div>
         </div>
-        <div className='hidden lg:block col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4 lg:text-center'>
-          <Link href='/'><img src='/bird-white.png' alt='logo' className='w-5 py-2' /></Link>
+        <div className='hidden lg:block col-12 lg:col-4 lg:text-center'>
+          <Link href='/'><img src='/bird-white.png' alt='logo' className='w-4 py-3' /></Link>
         </div>
-        <div className='col-12 sm:col-12 md:col-4 lg:col-4 xl:col-4 pl-0 md:pl-8'>
+        <div className='col-12 md:col-6 lg:col-4 pl-0 md:pl-8'>
           <div className='text-lg'>
             <div className='mb-3'>
               <a className='no-underline text-white' href='https://pro100tur.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>

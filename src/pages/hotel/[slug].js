@@ -89,7 +89,7 @@ export default function Hotel() {
               <div className='col pt-0'>
                 <div className='surface-100 border-1 border-200 border-round-md py-1 px-2 inline-flex align-items-center'><i className='pi pi-tag' style={{ fontSize: '1.3rem' }} />&nbsp;{hotel.dprice}&ensp;<span className='text-xl font-medium'>{hotel.price}</span><span>&nbsp;₽</span></div>
                 <div className='mt-2'>{hotel.utp && hotel.utp.map((e, i) => (<Chip key={i} label={e} pt={{ label: {className: 'text-xs p-0 m-1'}, root: {style: {background: '#DDD6FE', margin: '5px 5px 5px 0', padding: '0 6px'} }}} />))}</div>
-                <ScrollPanel style={{ width: '100%', height: '400px' }}>
+                <ScrollPanel style={{ width: '100%', height: '349px' }}>
                   <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: hotel.description }} />
                 </ScrollPanel>
               </div>

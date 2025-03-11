@@ -124,9 +124,9 @@ export const Reviewz = () => {
   const reviewTemplate = (review) => (
       <div className='m-2 px-3 lg:px-4 py-3 border-round-2xl shadow-3 bg-white'>
         <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '258px' }}>
-          <div className='mb-1 text-sm font-medium text-800'>{review.name}</div>
+          <div className='mb-1 text-sm font-medium text-800 line-height-1'>{review.name}</div>
           <div className='text-sm font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-          <div className='text-sm font-normal font-italic text-800'>{review.text}</div>
+          <div className='text-sm font-normal text-800'>{review.text}</div>
         </div>
         <div className='text-xs text-center uppercase font-semibold cursor-pointer mt-3 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
       </div>)

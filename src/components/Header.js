@@ -91,17 +91,17 @@ export const Header = () => {
             <Link href='/' style={{display: 'contents'}}><img src='/bird.svg' alt='logo' width={70} /></Link>
             <div className='line-height-1'>
               <Link href='/' style={{display: 'contents'}}><div className={`${Montserrat.className} font-semibold text-2xl text-700 ml-2`}>ПРО100-ТУР</div></Link>
-              <div className={`${Montserrat.className} text-800 font-medium text-xs md:text-sm ml-2 line-height-1`}>Сайт туристической компании<br/>ПРО100-ТУР (<a href='https://tourism.gov.ru/agents/subject/d3f3352b-2b29-4e6c-bab1-3c0ed9ac71bc/' target='_blank' style={{display: 'contents'}} className='text-blue-700'>РТА 0038394</a>)</div>
+              <div className={`${Montserrat.className} text-800 font-medium text-xs lg:text-sm ml-2 line-height-1`}>Сайт туристической компании<br/>ПРО100-ТУР (<a href='https://tourism.gov.ru/agents/subject/d3f3352b-2b29-4e6c-bab1-3c0ed9ac71bc/' target='_blank' style={{display: 'contents'}} className='text-blue-700'>РТА 0038394</a>)</div>
             </div>
           </div>
         </div>
-        <div className='col text-center mb-2 md:mb-0'>
-          <div className='flex flex-column md:flex-row gap-2 md:no-gutter align-items-center justify-content-center'>
+        <div className='col text-center mb-2 xl:mb-0'>
+          <div className='flex flex-column xl:flex-row gap-2 xl:no-gutter align-items-center justify-content-center'>
             <div>
               <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
               <a className='no-underline text-700 text-lg font-semibold' href='tel:+79886698337'><span className={Montserrat.className}>+7 (988) 669-83-37</span></a>
             </div>
-            <div className='ml-0 md:ml-3'>
+            <div className='ml-0 xl:ml-3'>
               <i className='pi pi-phone mr-2' style={{fontSize:'1.1rem'}} />
               <a className='no-underline text-700 text-lg font-semibold' href='tel:+74951270565'><span className={Montserrat.className}>+7 (495) 127-05-65</span></a>
             </div>
@@ -109,7 +109,7 @@ export const Header = () => {
         </div>
         <div className='col'>
           <div className='flex gap-2 align-items-center justify-content-end'>
-            <div className={`${Montserrat.className} font-medium text-md hidden lg:block`}>Заказать звонок</div>
+            <div className={`${Montserrat.className} font-medium text-md hidden xl:block`}>Заказать звонок</div>
             <Button
               rounded
               text
@@ -131,8 +131,8 @@ export const Header = () => {
       <Menubar
         model={menuItems}
         pt={{ 
-          root: { className: 'flex justify-content-start md:justify-content-center pl-3 md:pl-0 p-2 md:p-0 m-0 border-noround border-none bg-blue-600 shadow-3'},
-          label: {className: `${Roboto.className} text-lg font-normal text-800 md:text-white border-none`},
+          root: { className: 'flex justify-content-start lg:justify-content-center pl-3 lg:pl-0 p-2 lg:p-0 m-0 border-noround border-none bg-blue-600 shadow-3'},
+          label: {className: `${Roboto.className} text-lg font-normal text-800 lg:text-white border-none`},
           content: { className: 'border-noround bg-transparent py-1' },
           button: {className: 'text-white bg-transparent'}
         }}

@@ -21,7 +21,7 @@ export const ToursPanel = () => {
         <div className='relative pop-direction-item'>
           <div className='mx-2 cursor-pointer border-transparent' onClick={() => router.push(`${item.tours.length}` > 1 ? `/group/${item.slug}` : `/tour/${item.tours[0].slug}`)}>
             <img src={item.img} alt={item.name} className='w-full border-round-2xl shadow-2' />
-            <div className={`${Montserrat.className} absolute bottom-0 left-0 mx-2 text-sm font-medium border-top-1 border-orange-300 text-white p-3 mb-1 descr`} style={{borderRadius:'0 0 1rem 1rem', background: 'rgb(255, 132, 0, .9)'}}>{item.description}</div>
+            <div className={`${Montserrat.className} absolute bottom-0 left-0 mx-2 text-sm font-medium border-top-1 border-orange-300 text-white p-3 mb-1 descr hidden lg:block`} style={{borderRadius:'0 0 1rem 1rem', background: 'rgb(255, 132, 0, .9)'}}>{item.description}</div>
           </div>
           <div className={`${Montserrat.className} absolute top-0 left-0 mt-3 mx-3 text-white text-base font-medium px-3 py-2 border-round-2xl`} style={{background: 'rgb(255, 132, 0)'}}>{item.name}</div>
         </div>
