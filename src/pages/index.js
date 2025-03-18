@@ -21,7 +21,11 @@ export default function Home() {
       </Head>
       <MainLayout>
         <main className='fadein animation-duration-800 w-full'>
-          <div className='text-xl text-800 font-normal my-4 px-4 lg:px-8'>На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений.  Используйте удобный поиск по направлениям, датам и бюджету.  Узнайте о горящих турах и специальных предложениях!</div>
+          <div className='text-xl line-height-1 text-800 font-medium py-5 px-4 lg:px-8' style={{backgroundColor: '#F5F6F9'}}>
+            <div className='my-2'><i className='pi pi-check font-bold mr-2' style={{ color: '#FF8400', fontSize: '1.5rem' }} />На нашем сайте вы найдете огромный выбор туров по всему миру: от пляжного отдыха до экстремальных приключений!</div>
+            <div className='my-2'><i className='pi pi-check font-bold mr-2' style={{ color: '#FF8400', fontSize: '1.5rem' }} />Используйте удобный поиск по направлениям, датам и бюджету.</div>
+            <div className='my-2'><i className='pi pi-check font-bold mr-2' style={{ color: '#FF8400', fontSize: '1.5rem' }} />Узнайте о горящих турах и специальных предложениях!</div>
+          </div>
           <PopularBar />
           <section className='px-4 lg:px-8'>
             <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>

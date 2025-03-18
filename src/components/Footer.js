@@ -1,4 +1,5 @@
 import { useState, useRef} from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Dialog } from 'primereact/dialog'
 import { Card } from 'primereact/card'
@@ -11,6 +12,7 @@ import { Button } from 'primereact/button'
 import { Roboto } from '../styles/fonts'
 
 export const Footer = () => {
+  const router = useRouter()
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [comment, setComment] = useState('')
@@ -41,10 +43,10 @@ export const Footer = () => {
   }
 
   return (
-    <div className={`${Roboto.className} h-auto p-6 text-white footer-wrap`}>
+    <div className={`${Roboto.className} h-auto px-6 py-5 text-white footer-wrap`}>
       <div className='grid grid-nogutter w-full'>
         <div className='col-12 md:col-6 lg:col-4'>
-          <div className='text-lg line-height-1'>
+          <div className='text-base'>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
             <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+74951270565'>+7 (495) 127-05-65</a></p>
             <p><i className='pi pi-at mr-2' /><a className='no-underline text-white' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
@@ -55,18 +57,21 @@ export const Footer = () => {
           <Link href='/'><img src='/bird-white.png' alt='logo' className='w-4 py-3' /></Link>
         </div>
         <div className='col-12 md:col-6 lg:col-4 pl-0 md:pl-8'>
-          <div className='text-lg'>
-            <div className='mb-3'>
+          <div className='text-base'>
+            <div className='mb-1'>
               <a className='no-underline text-white' href='https://pro100tur.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>
             </div>
-            <div className='cursor-pointer text-white my-2' onClick={() => setFeedbackDialog(true)}><i className='pi pi-bell mr-2' />Заказать обратный звонок</div>
-            <div className='flex align-items-center mt-3 mb-2'>
-              <Link href='https://wa.me/79886698337' target='_blank'><img src='/whatsapp.svg' alt='whatsapp' className='w-3rem mr-3' /></Link>
-              <Link href='https://t.me/sanatoriiRU' target='_blank'><img src='/telegram.svg' alt='telegram' className='w-3rem mr-3' /></Link>
-              <Link href='https://vk.com/pro100turr' target='_blank'><img src='/vk.png' alt='vk' className='w-3rem' /></Link>
+            <div className='cursor-pointer text-white' onClick={() => router.push('/payment')}>Как оплатить</div>
+            <div className='cursor-pointer text-white' onClick={() => router.push('/reviews')}>Отзывы</div>
+            <div className='cursor-pointer text-white' onClick={() => router.push('/about')}>О нас</div>
+            <div className='cursor-pointer text-white' onClick={() => setFeedbackDialog(true)}>Заказать обратный звонок</div>
+            <div className='flex align-items-center mt-2 mb-1'>
+              <Link href='https://wa.me/79886698337' target='_blank'><img src='/whatsapp.svg' alt='whatsapp' className='mr-3' style={{width: 35}} /></Link>
+              <Link href='https://t.me/sanatoriiRU' target='_blank'><img src='/telegram.svg' alt='telegram' className='mr-3' style={{width: 38}} /></Link>
+              <Link href='https://vk.com/pro100turr' target='_blank'><img src='/vk.png' alt='vk' style={{width: 35}} /></Link>
             </div>
             <Link href='/policy'>
-              <p className='no-underline text-white-alpha-80 font-light text-xs line-height-1'>Политика конфиденциальности<br />и пользовательское соглашение</p>
+              <div className='no-underline text-white-alpha-80 font-light text-xs line-height-1'>Политика конфиденциальности<br />и пользовательское соглашение</div>
             </Link>
           </div>
         </div>

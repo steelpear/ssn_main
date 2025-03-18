@@ -6,7 +6,7 @@ const Pacifico = localFont({ src: './PacificoRegular.ttf' })
 const Prosto = localFont({ src: './ProstoRegular.ttf' })
 const Oswald = localFont({ src: './OswaldRegular.ttf' })
 const Montserrat = localFont({ src: './MontserratRegular.ttf' })
-
+const Manrope = localFont({ src: './Manrope.ttf' })
 const Art = localFont({ src: './Art.otf' })
  
-export { Roboto, RobotoCondensed, Oswald, Art, Pacifico, Prosto, Montserrat }
+export { Roboto, RobotoCondensed, Oswald, Art, Pacifico, Prosto, Montserrat, Manrope }

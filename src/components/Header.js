@@ -41,20 +41,25 @@ export const Header = () => {
       className: `${router.route === '/cruises' && 'p-menuitem-active'}`,
       command: () => { router.push('/cruises') } 
     },
-    { 
-      label: 'Как оплатить',
-      className: `${router.route === '/payment' && 'p-menuitem-active'}`,
-      command: () => { router.push('/payment') } 
-    },
-    { 
-      label: 'Отзывы',
-      className: `${router.route === '/reviews' && 'p-menuitem-active'}`,
-      command: () => { router.push('/reviews') } 
-    },
-    { 
-      label: 'О нас',
-      className: `${router.route === '/about' && 'p-menuitem-active'}`,
-      command: () => { router.push('/about') } },
+    // {
+    //   label: 'Билеты',
+    //   className: `${router.route === '/tickets' && 'p-menuitem-active'}`,
+    //   command: () => { router.push('/tickets') } 
+    // },
+    // { 
+    //   label: 'Как оплатить',
+    //   className: `${router.route === '/payment' && 'p-menuitem-active'}`,
+    //   command: () => { router.push('/payment') } 
+    // },
+    // { 
+    //   label: 'Отзывы',
+    //   className: `${router.route === '/reviews' && 'p-menuitem-active'}`,
+    //   command: () => { router.push('/reviews') } 
+    // },
+    // { 
+    //   label: 'О нас',
+    //   className: `${router.route === '/about' && 'p-menuitem-active'}`,
+    //   command: () => { router.push('/about') } },
     {
       label: 'Контакты',
       className: `${router.route === '/contacts' && 'p-menuitem-active'}`,

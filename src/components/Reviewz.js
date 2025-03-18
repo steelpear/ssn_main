@@ -10,6 +10,7 @@ import { Toast } from 'primereact/toast'
 import { InputText } from 'primereact/inputtext'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { FloatLabel } from 'primereact/floatlabel'
+import { Manrope } from '../styles/fonts'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -116,25 +117,25 @@ export const Reviewz = () => {
     })
   }
 
-  const footerContent = (<div className='text-left pt-3'>
+  const footerContent = (<div className={`${Manrope.className} text-left pt-3`}>
     <div className='text-sm text-800'>{review && review.name}</div>
     <div className='text-base font-semibold'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
   </div>)
 
   const reviewTemplate = (review) => (
-      <div className='m-2 px-3 lg:px-4 py-3 border-round-2xl shadow-3 bg-white'>
-        <div className='text-base overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '258px' }}>
+      <div className={`${Manrope.className} m-2 px-3 lg:px-4 py-3 border-round-2xl shadow-3 bg-white`}>
+        <div className='overflow-hidden white-space-normal' style={{ width: '100%', height: '255px' }}>
           <div className='mb-1 text-sm font-medium text-800 line-height-1'>{review.name}</div>
-          <div className='text-sm font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-          <div className='text-sm font-normal text-800'>{review.text}</div>
+          <div className='text-sm font-semibold mb-2 line-height-2'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+          <div className='text-sm font-medium text-800 surface-overlay white-space-normal overflow-hidden text-overflow-clip'>{review.text}</div>
         </div>
         <div className='text-xs text-center uppercase font-semibold cursor-pointer mt-3 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
       </div>)
 
   return (
     <main className='mt-6 px-4 lg:px-8 pt-5 pb-7 w-full' style={{backgroundColor: '#F5F6F9'}}>
-      <div className='text-3xl text-700 font-medium ml-3 my-4 flex align-items-center justify-content-between'>
-        <div className='text-xl lg:text-3xl'>Отзывы наших клиентов</div>
+      <div className='ml-3 my-4 flex align-items-center justify-content-between'>
+        <div className='text-xl lg:text-3xl font-medium text-800'>Отзывы наших клиентов</div>
         <div className='grid gap-3 mr-3'>
           <Button label='Все отзывы' severity='secondary' outlined pt={{ root: {className: 'border-round-xl px-4'}, label: {className: 'text-800'} }} onClick={() => router.push('/reviews')} />
           <Button label='Оставить отзыв' pt={{ root: {className: 'border-round-xl px-4', style: {backgroundColor: '#FF8400', borderColor: '#FF8400'}} }} onClick={() => openAddDialog()} />
@@ -148,7 +149,7 @@ export const Reviewz = () => {
           <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />
           <img src='/quote.svg' alt='Quote' width='25px' height='40px' />
         </div>
-        <div className='text-800 text-base'>{review && review.text}</div>
+        <div className={`${Manrope.className} text-800 text-base`}>{review && review.text}</div>
       </Dialog>
       {/* Добавить отзыв */}
       <Dialog visible={addDialog} className='w-11 lg:w-6' footer={<></>} onHide={() => {if (!addDialog) return; setAddDialog(false);}} pt={{ headerTitle: {className: 'text-lg'}, content: {className: 'pb-1'}, header: {className: 'pt-3 pb-0 px-3 border-round-top-3xl'}, footer: {className: ' border-round-bottom-3xl'}, closeButton: {className: 'bg-orange-500 border-none text-white'} }}>

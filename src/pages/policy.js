@@ -183,8 +183,8 @@ export default function Policy() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
         <main className='fadein animation-duration-800 mt-2 px-4 lg:px-8'>
+          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </main>
       </MainLayout>

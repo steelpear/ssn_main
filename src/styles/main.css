@@ -22,14 +22,14 @@
 
 .pop-direction-item:hover {transform: translateY(-6px);}
 
-.descr {
+/* .descr {
   transition: opacity .6s ease-in-out;
   transition-delay: .3s;
 }
 
 .pop-direction-item:hover .descr {
   opacity: 0;
-}
+} */
 
 .p-menuitem.p-menuitem-active {
   background-color: #FE7E25 !important;

@@ -8,6 +8,7 @@ import { BreadCrumb } from 'primereact/breadcrumb'
 import { Dialog } from 'primereact/dialog'
 import { Divider } from 'primereact/divider'
 import { Rating } from 'primereact/rating'
+import { Manrope } from '../styles/fonts'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -32,17 +33,17 @@ export default function Reviews() {
     setMoreDialog(true)
   }
 
-  const footerContent = (<div className='text-left pt-3'>
+  const footerContent = (<div className={`${Manrope.className} text-left pt-3`}>
     <div className='text-sm text-800'>{review && review.name}</div>
     <div className='text-base font-semibold'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
   </div>)
 
   const reviewTemplate = (review) => (
-    <div key={review._id} className='col lg:col-5 p-3 border-round-2xl shadow-3 bg-white'>
+    <div key={review._id} className={`${Manrope.className} col lg:col-5 p-3 border-round-2xl shadow-3 bg-white`}>
       <div className='overflow-hidden text-overflow-ellipsis' style={{ width: '100%', height: '273px' }}>
-      <div className='mb-1 text-base font-medium text-800 line-height-1'>{review.name}</div>
-      <div className='text-base text-800 font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
-      <div className='text-base font-normal text-800'>{review.text}</div>
+        <div className='mb-1 text-base font-medium text-800 line-height-1'>{review.name}</div>
+        <div className='text-base text-800 font-semibold mb-3'>{review && review.city}{(review && review.date) && <span>&ensp;&bull;&ensp;{review && review.date}</span>}</div>
+        <div className='text-base font-normal text-800'>{review.text}</div>
       </div>
       <div className='text-sm text-center uppercase font-semibold cursor-pointer mt-4 text-blue-800' onClick={() => openMoreDialog(review)}>Читать полностью</div>
     </div>)
@@ -71,7 +72,7 @@ export default function Reviews() {
               <Rating value={review && review.rating} stars={review && review.rating} readOnly cancel={false} onIcon={<img src='/star.svg' alt='Star' width='28px' height='28px' />} />
               <img src='/quote.svg' alt='Quote' width='25px' height='40px' />
             </div>
-            <div className='text-800 text-base'>{review && review.text}</div>
+            <div className={`${Manrope.className} text-800 text-base`}>{review && review.text}</div>
           </Dialog>
         </main>
         <ReviewzBar />
