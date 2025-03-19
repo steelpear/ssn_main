@@ -19,7 +19,8 @@ export const Top3 = ({...params}) => {
         body: JSON.stringify({public: true, best: params.best})
       })
       const response = await res.json()
-      setHotels(response.slice(0,3))
+      // setHotels(response.slice(0,3))
+      setHotels(response)
     }
     getHotels()
   },[params])
@@ -27,7 +28,7 @@ export const Top3 = ({...params}) => {
   if (hotels && hotels.length >= 3) {
     return (
       <main>
-        <Card title='ТОП-3 лучших' className='w-full my-5 shadow-none'>
+        <Card title='ТОП лучших' className='w-full my-5 shadow-none'>
           <div className='grid gap-2'>
             {hotels && hotels.map(item => (
               <div className='col border-1 border-200 border-round-md px-0 pt-0 shadow-1' key={item._id}>

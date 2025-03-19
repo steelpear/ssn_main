@@ -59,6 +59,7 @@ export default function Group() {
           <div className='flex flex-column lg:flex-row gap-2 lg:gap-4 justify-content-center'>
             {tours && tours.map(item => itemTemplate(item))}
           </div>
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

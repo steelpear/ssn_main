@@ -54,6 +54,7 @@ export default function Hotel() {
       else if (p === 'an') {return {label: 'Семейный отдых в Анапе', url: '/popular-anapa'}}
       else if (p === 'ge') {return {label: 'Курорт Геленджик', url: '/popular-gelendzhik'}}
       else if (p === 'cr') {return {label: 'Курорты Крыма', url: '/popular-crimea'}}
+      else if (p === 'no') {return {label: 'Отдых в Новороссийске', url: '/popular-novorossiysk'}}
       else {return {label: 'Курорты Абхазии', url: '/popular-abkhazia'}}
     }
     getHotel()
@@ -100,6 +101,7 @@ export default function Hotel() {
             </div>
           </div>
           <ActionFormSection />
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

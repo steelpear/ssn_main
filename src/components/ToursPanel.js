@@ -29,7 +29,7 @@ export const ToursPanel = () => {
 
     return (sets && sets.length > 0 ? 
       <main>
-        <div className='text-2xl text-700 font-medium ml-5 my-3'>Популярные туры</div>
+        <div className='text-2xl text-700 font-medium ml-5 my-1 cursor-pointer text-blue-600 hover:underline inline-block' onClick={() => router.push('/popular-tours')}>Популярные туры</div>
         <Carousel value={sets} numVisible={1} numScroll={1} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} pt={{ 
           previousButton: {style: {
             background: 'rgb(255, 132, 0)',

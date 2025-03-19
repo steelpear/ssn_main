@@ -9,7 +9,10 @@ export default function Sochi() {
 
   useScript('static/partner.fire.js')
 
-  const items = [{ label: 'Отдых в Сочи' }]
+  const items = [
+    { template: () => <Link href='/popular-directions' className='no-underline'>Популярные направления</Link> },
+    { label: 'Отдых в Сочи' }
+  ]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
   return (
@@ -32,6 +35,7 @@ export default function Sochi() {
           </div>
           <Top3 best='so' />
           <div className='s-partnership mb-4' style={{display:'none'}}>Yxn4iWwUgh0rRKKsmDb%2BGVaEaMDJEIm6Imgnk22e5qA%3D</div>
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

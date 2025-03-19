@@ -41,11 +41,16 @@ export const Header = () => {
       className: `${router.route === '/cruises' && 'p-menuitem-active'}`,
       command: () => { router.push('/cruises') } 
     },
-    // {
-    //   label: 'Билеты',
-    //   className: `${router.route === '/tickets' && 'p-menuitem-active'}`,
-    //   command: () => { router.push('/tickets') } 
-    // },
+    {
+      label: 'Популярные объекты',
+      className: `${router.route === '/popular-objects' && 'p-menuitem-active'}`,
+      command: () => { router.push('/popular-objects') } 
+    },
+    {
+      label: 'Билеты',
+      className: `${router.route === '/tickets' && 'p-menuitem-active'}`,
+      command: () => { router.push('/tickets') } 
+    },
     // { 
     //   label: 'Как оплатить',
     //   className: `${router.route === '/payment' && 'p-menuitem-active'}`,

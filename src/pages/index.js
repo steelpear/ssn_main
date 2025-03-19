@@ -1,4 +1,5 @@
-import Head from "next/head" 
+import Head from 'next/head'
+import Link from 'next/link'
 import { MainLayout } from '../components/MainLayout'
 import { Reviewz } from '../components/Reviewz'
 import useScript from '../useScript'
@@ -33,6 +34,7 @@ export default function Home() {
           </section>
           <ActionFormSection />
           <Reviewz />
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

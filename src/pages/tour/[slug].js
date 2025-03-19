@@ -34,7 +34,7 @@ export default function Tour() {
         numVisible: 1
     }
   ]
-  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+  const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
 
 
   useEffect(() => {
@@ -47,7 +47,10 @@ export default function Tour() {
       const response = await res.json()
       setImages(response[0] ? response[0].img : [])
       setTour(response[0] ? response[0] : [])
-      setCrumbs([{ label: response[0] && response[0].name }])
+      setCrumbs([
+        { template: () => <Link href='/popular-tours' className='no-underline'>Популярные туры</Link>},
+        { label: response[0] && response[0].name }
+      ])
     }
     getTour()
   },[slug])
@@ -95,6 +98,7 @@ export default function Tour() {
               </AccordionTab>}
             </Accordion>
           <ActionFormSection />
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

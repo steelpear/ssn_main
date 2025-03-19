@@ -14,7 +14,8 @@ export const CruisBanner = () => {
     return (
       <main className='mt-6 mb-4 w-full'>
         <Carousel value={items} itemTemplate={itemTemplate} showIndicators={false} showNavigators={true} circular />
-        <div className={`${Montserrat.className} text-base md:text-lg text-700 font-semibold my-2 px-6`}>Откройте для себя мир с нами! Выберите свой идеальный круиз - морской или речной – и отправляйтесь в незабываемое путешествие.</div>
+        <div className='text-center text-3xl mt-2 font-semibold text-orange-500'>Откройте для себя мир с нами!</div>
+        <div className={`${Montserrat.className} text-base md:text-xl text-center text-800 font-semibold my-2 px-6`}> Выберите свой идеальный круиз - морской или речной – и отправляйтесь в незабываемое путешествие.</div>
       </main>
     )
   }

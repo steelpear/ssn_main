@@ -1,4 +1,7 @@
-.footer-wrap {background-color:#054C89;}
+.footer-wrap {
+  position: relative;
+  background-color:#054C89;
+}
 
 .p-button:focus.fdbtn, .p-button:focus.clrbtn {
   box-shadow: unset;

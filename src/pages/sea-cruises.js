@@ -45,8 +45,9 @@ export default function Sea() {
           </div>
           <div className="infoflotWidget" data-id="YTo0OntzOjI6IklEIjtpOjM4MzI7czo0OiJVU0VSIjtzOjI4OiJPRGs0T0RZeU1EQTVOekJBYldGcGJDNXlkUT09IjtzOjY6IlJBTkRPTSI7czo4OiJwdHFyaG5ndSI7czoxNToiSU5GT0ZMT1QtQVBJS0VZIjtzOjQwOiIyZDE0ZTNlMjM2YzNmYmVkNGRlNDRhZWFkZTNkN2UxNGM5ZTlkZWUwIjt9" data-index="1"></div>
           <div className='flex justify-content-center'>
-            <Button label='Речные круизы' outlined raised size='large' className='text-700 mx-3 border-orange-400 border-3' onClick={() => router.push('/river-cruises')} />
+            <Button label='Речные круизы' outlined raised size='large' className='text-700 mx-3 mb-2 border-orange-400 border-3' onClick={() => router.push('/river-cruises')} />
           </div>
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

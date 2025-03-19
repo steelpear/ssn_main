@@ -9,7 +9,10 @@ export default function Gelendzhik() {
 
   useScript('static/partner.fire.js')
 
-  const items = [{ label: 'Курорт Геленджик' }]
+  const items = [
+    { template: () => <Link href='/popular-directions' className='no-underline'>Популярные направления</Link> },
+    { label: 'Курорт Геленджик' }
+  ]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
   return (
@@ -32,6 +35,7 @@ export default function Gelendzhik() {
           </div>
           <Top3 best='ge' />
           <div className='s-partnership mb-4' style={{display:'none'}}>zZpLcIi4fsDChvptL2VtMKBeTZf9aGKdzWaPmlykFNw%3D</div>
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

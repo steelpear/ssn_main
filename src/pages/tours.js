@@ -22,11 +22,14 @@ export default function Tours() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='mt-2 px-4 lg:px-8'>
-          <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center mt-4'>Поиск туров</div>
-          <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>P%2BUxRaBwF3WUU%2FeLE%2F3iB%2B5jYRBw6pHFmfbeLwHkFlo%3D</div>
-          <ActionFormSection px={0} />
+        <main className='mt-2 w-full'>
+          <div className='px-3 lg:px-8'>
+            <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
+            <div className='text-3xl text-700 font-medium text-center my-3'>Поиск туров</div>
+            <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>P%2BUxRaBwF3WUU%2FeLE%2F3iB%2B5jYRBw6pHFmfbeLwHkFlo%3D</div>
+          </div>
+          <ActionFormSection />
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

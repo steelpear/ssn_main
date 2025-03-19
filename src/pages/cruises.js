@@ -49,6 +49,7 @@ export default function Cruises() {
           <div id='awidget'></div>
           <CruisesFAQ />
           <CruisesButtonsGroup />
+          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

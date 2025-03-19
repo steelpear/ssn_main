@@ -43,14 +43,17 @@ export const Footer = () => {
   }
 
   return (
-    <div className={`${Roboto.className} h-auto px-6 py-5 text-white footer-wrap`}>
+    <div className={`${Roboto.className} px-6 py-5 text-white footer-wrap`}>
       <div className='grid grid-nogutter w-full'>
         <div className='col-12 md:col-6 lg:col-4'>
+          <div className='mb-2'>
+            <a className='no-underline text-white' href='https://pro100tur.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>
+          </div>
           <div className='text-base'>
-            <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
-            <p><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+74951270565'>+7 (495) 127-05-65</a></p>
-            <p><i className='pi pi-at mr-2' /><a className='no-underline text-white' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
-            <p><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
+            <p className='my-0'><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+79886698337'>+7 (988) 669-83-37</a></p>
+            <p className='my-2'><i className='pi pi-phone mr-2' /><a className='no-underline text-white' href='tel:+74951270565'>+7 (495) 127-05-65</a></p>
+            <p className='my-0'><i className='pi pi-at mr-2' /><a className='no-underline text-white' href='mailto:89886200970@mail.ru'>89886200970@mail.ru</a></p>
+            <p className='mt-2'><i className='pi pi-map-marker mr-2' />353920, РФ, Краснодарский край,<br />г. Новороссийск, просп. Дзержинского, 183 (этаж 2, офис 10)</p>
           </div>
         </div>
         <div className='hidden lg:block col-12 lg:col-4 lg:text-center'>
@@ -58,12 +61,10 @@ export const Footer = () => {
         </div>
         <div className='col-12 md:col-6 lg:col-4 pl-0 md:pl-8'>
           <div className='text-base'>
-            <div className='mb-1'>
-              <a className='no-underline text-white' href='https://pro100tur.ru'>&copy; pro100tur.ru&ensp; 2016 - {new Date().getFullYear()}</a>
-            </div>
             <div className='cursor-pointer text-white' onClick={() => router.push('/payment')}>Как оплатить</div>
             <div className='cursor-pointer text-white' onClick={() => router.push('/reviews')}>Отзывы</div>
             <div className='cursor-pointer text-white' onClick={() => router.push('/about')}>О нас</div>
+            <div className='cursor-pointer text-white' onClick={() => router.push('/tickets')}>Билеты</div>
             <div className='cursor-pointer text-white' onClick={() => setFeedbackDialog(true)}>Заказать обратный звонок</div>
             <div className='flex align-items-center mt-2 mb-1'>
               <Link href='https://wa.me/79886698337' target='_blank'><img src='/whatsapp.svg' alt='whatsapp' className='mr-3' style={{width: 35}} /></Link>

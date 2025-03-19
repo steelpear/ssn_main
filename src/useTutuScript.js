@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 
-const useScript = (url, async = true, crossOrigin = 'anonymous') => {
+const useTutuScript = (url, async = true, crossOrigin = 'anonymous') => {
 
   useEffect(() => {
     const script = document.createElement('script')
+    script.id = 'widScrParams'
     script.src = url
     script.async = async
     // script.defer = true
@@ -15,4 +16,4 @@ const useScript = (url, async = true, crossOrigin = 'anonymous') => {
   }, [url, async, crossOrigin])
 }
 
-export default useScript
+export default useTutuScript

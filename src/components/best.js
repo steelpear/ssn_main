@@ -4,6 +4,7 @@ export const best = [
   { name: 'Анапа', value: 'an' },
   { name: 'Геленджик', value: 'ge' },
   { name: 'Крым', value: 'cr' },
-  { name: 'Абхазия', value: 'ab' }
+  { name: 'Абхазия', value: 'ab' },
+  { name: 'Новороссийск', value: 'no' }
 ]
   

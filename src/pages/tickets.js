@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-// import useScript from '../useScript'
+import useTutuScript from '../useTutuScript'
 import { MainLayout } from '../components/MainLayout'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
@@ -8,7 +8,7 @@ export default function Tickets() {
   const items = [{ label: 'Билеты' }]
   const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
 
-  // useScript('/static/tickets.js')
+  useTutuScript('https://static.advcake.com/js/widgets/tutu/bundle.js?showLogo=true&showLogoTab=true&openNewTab=true&locale=ru&colorTheme=basic_white&utmLabels=https%3A%2F%2Fgo.2038.pro%2Fd8fe2294e2de1031%3Ferid%3DLdtCKAcNs%26dl%3D&formTabs=[0,1,2]&tabDef=0&avia=[,,,,,]&train=[,,,,,]&bus=[,,,,,]')
 
   return (
     <>
@@ -21,10 +21,10 @@ export default function Tickets() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='mt-2 px-4 lg:px-8'>
+        <main className='mt-2 px-4 pb-6 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center mt-4'>Билеты</div>
-          <wl-embedded-portal partnerId="pro100tur_wl"></wl-embedded-portal>
+          <div className='text-3xl text-700 font-medium text-center my-6'>Билеты</div>
+          <div id='widget-container'></div>
         </main>
       </MainLayout>
     </>
