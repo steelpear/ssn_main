@@ -4,6 +4,7 @@ import { MainLayout } from '../components/MainLayout'
 import { Reviewz } from '../components/Reviewz'
 import useScript from '../useScript'
 import { PopularBar } from '../components/PopularBar'
+import { Trust } from '../components/Trust'
 import { ActionFormSection } from '../components/ActionFormSection'
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
             <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>1lfkWbUBGRHAhwNX11e1EPDYRc%2FZim6IqCdP12kmWCE%3D</div>
           </section>
           <ActionFormSection />
+          <Trust />
           <Reviewz />
           <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>

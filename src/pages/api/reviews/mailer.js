@@ -14,7 +14,7 @@ const mailer = async (req, res) => {
       }
     })
     const mailOptions = {
-      from: 'Новый отзыв на сайте pro100tur.ru <steelpear@yandex.ru>',
+      from: 'Отзыв pro100tur.ru <steelpear@yandex.ru>',
       to: mailConfig.to,
       subject: 'Требуется модерация отзыва',
       text: req.body.text

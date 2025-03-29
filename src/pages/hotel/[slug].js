@@ -45,7 +45,7 @@ export default function Hotel() {
         body: JSON.stringify({slug})
       })
       const response = await res.json()
-      setImages(response[0] ? response[0].img : [])
+      setImages((response[0] && response[0].img.length > 0) ? response[0].img : ['/nophoto.jpg'])
       setHotel(response[0] ? response[0] : [])
       setCrumbs(response[0] ? [{template: () => <Link className='no-underline' href={page().url}>{page().label}</Link>} , { label: response[0].simple_name ? response[0].simple_name : response[0].name }] : [])
     }
@@ -85,7 +85,7 @@ export default function Hotel() {
             <div className='mb-6 mt-1 text-center text-sm'>{hotel.address}</div>
             <div className='flex flex-column lg:flex-row gap-2'>
               <div className='col'>
-                <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }} circular showItemNavigators showItemNavigatorsOnHover item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
+                <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }} circular showItemNavigators showItemNavigatorsOnHover showThumbnails={(images && images[0] !== '/nophoto.jpg') ? true : false} item={itemTemplate} thumbnail={thumbnailTemplate} className='w-full shadow-4' />
               </div>
               <div className='col pt-0'>
                 <div className='surface-100 border-1 border-200 border-round-md py-1 px-2 inline-flex align-items-center'><i className='pi pi-tag' style={{ fontSize: '1.3rem' }} />&nbsp;{hotel.dprice}&ensp;<span className='text-xl font-medium'>{hotel.price}</span><span>&nbsp;₽</span></div>

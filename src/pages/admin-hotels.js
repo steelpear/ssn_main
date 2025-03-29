@@ -138,7 +138,7 @@ export default function Hotels() {
       <button className='ql-underline' aria-label='Underline' />
       <button className='ql-strike' aria-label='Strike' />
       <button className='ql-blockquote' aria-label='Blockquote' />
-      <select class='ql-background'>
+      <select className='ql-background'>
         <option value=''></option>
         <option value='red'></option>
         <option value='blue'></option>
@@ -147,7 +147,7 @@ export default function Hotels() {
         <option value='orange'></option>
         <option value='green'></option>
       </select>
-      <select class='ql-color'>
+      <select className='ql-color'>
         <option value=''></option>
         <option value='red'></option>
         <option value='blue'></option>
@@ -156,7 +156,7 @@ export default function Hotels() {
         <option value='orange'></option>
         <option value='green'></option>
       </select>
-      <select class='ql-header'>
+      <select className='ql-header'>
         <option value=''></option>
         <option value='1'></option>
         <option value='2'></option>
@@ -170,7 +170,7 @@ export default function Hotels() {
       <button className='ql-link' aria-label='Link' />
       <button className='ql-list' value='ordered' aria-label='List' />
       <button className='ql-list' value='bullet' aria-label='List' />
-      <select class='ql-align'>
+      <select className='ql-align'>
         <option value=''></option>
         <option value='center'></option>
         <option value='right'></option>
@@ -273,7 +273,6 @@ export default function Hotels() {
   }
 
   const deleteImage = async path => {
-    console.log(path)
     const res = await fetch('/api/delete', {
       method: 'POST',
       body: JSON.stringify(path)
@@ -281,14 +280,14 @@ export default function Hotels() {
     const response = await res.json()
     if (response.state) {
       setHotel({...hotel, img: images.filter(item => item !== path)})
-      setImages(hotel.img)
+      setImages(images.filter(item => item !== path))
     } else {toast.current.show({severity:'danger', detail:'Что-то пошло не так!', life: 2000})}
   }
 
   const renderImagesList = () => (<div className='grid gap-2'>
-    {[...images].map((item, i) => (<div className='relative' key={i}>
-      <Image src={item} alt="Image" width="150" preview />
-      <i className='pi pi-times cursor-pointer absolute right-0 top-0 mr-1 mt-1' style={{fontSize:'.8rem', color:'white'}} onClick={() => deleteImage(item)} />
+    {images.map((item, i) => (<div className='relative' key={i}>
+      <Image src={item} alt='Image' width='150' preview />
+      <i className='pi pi-times cursor-pointer absolute right-0 top-0 mr-1 mt-1 p-1' style={{fontSize:'.8rem', color:'white'}} onClick={() => deleteImage(item)} />
     </div>
   ))}</div>)
 

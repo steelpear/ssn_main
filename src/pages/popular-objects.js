@@ -17,7 +17,7 @@ export default function PopularObjects() {
 
   const objectTemplate = (object) => (
     <div key={object._id} className='flex flex-column md:flex-row align-items-start my-3'>
-      <img src={object.img[0]} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer' style={{width: 250, height: 148}} onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
+      <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer' style={{width: 250, height: 148}} onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
       <div>
         <div className='pt-2 md:pt-0 text-xl text-blue-700 font-semibold cursor-pointer line-height-1 mb-2' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>
         {object.stars && <Rating value={object.stars} stars={object.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '1rem' }}}} />}
