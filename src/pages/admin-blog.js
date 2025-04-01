@@ -330,6 +330,11 @@ export default function Blog() {
 
   const clearImagesList = () => {
     event.preventDefault()
+    {images.map(async img => {
+      await fetch('/api/delete', {
+        method: 'POST',
+        body: JSON.stringify(img)
+      })})}
     setImages([])
     setArticle({...article, gallery: []})
   }
@@ -377,21 +382,24 @@ export default function Blog() {
                   </FloatLabel>
                 </div>
                 <Editor value={article.text} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Текст статьи' />
-                <div className='flex align-items-center mb-3 mt-2'>
-                  <FileUpload
-                    ref={gallery}
-                    name='gallery'
-                    accept='image/*'
-                    customUpload={true}
-                    uploadHandler={uploadImage}
-                    mode='basic'
-                    auto={true}
-                    chooseLabel='Галерея'
-                  />
-                  <div className='flex align-items-center ml-3'>
-                    <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
-                    <label htmlFor='public' className='ml-2'>Опубликована</label>
+                <div className='flex align-items-center justify-content-between mb-3 mt-2'>
+                  <div className='flex align-items-center'>
+                    <FileUpload
+                      ref={gallery}
+                      name='gallery'
+                      accept='image/*'
+                      customUpload={true}
+                      uploadHandler={uploadImage}
+                      mode='basic'
+                      auto={true}
+                      chooseLabel='Галерея'
+                    />
+                    <div className='flex align-items-center ml-3'>
+                      <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
+                      <label htmlFor='public' className='ml-2'>Опубликована</label>
+                    </div>
                   </div>
+                  <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-3' onClick={() => clearImagesList()} />
                 </div>
                 {renderImagesList()}
               </div>
@@ -437,21 +445,24 @@ export default function Blog() {
                   </FloatLabel>
                 </div>
                 <Editor value={article.text} onTextChange={(e) => handleEditorChange(e.htmlValue)} headerTemplate={editorHeader} style={{ height: '200px' }} placeholder='Текст статьи' />
-                <div className='flex align-items-center mb-3 mt-2'>
-                  <FileUpload
-                    ref={gallery}
-                    name='gallery'
-                    accept='image/*'
-                    customUpload={true}
-                    uploadHandler={uploadImage}
-                    mode='basic'
-                    auto={true}
-                    chooseLabel='Галерея'
-                  />
-                  <div className='flex align-items-center ml-3'>
-                    <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
-                    <label htmlFor='public' className='ml-2'>Опубликована</label>
+                <div className='flex align-items-center justify-content-between mb-3 mt-2'>
+                  <div className='flex align-items-center'>
+                    <FileUpload
+                      ref={gallery}
+                      name='gallery'
+                      accept='image/*'
+                      customUpload={true}
+                      uploadHandler={uploadImage}
+                      mode='basic'
+                      auto={true}
+                      chooseLabel='Галерея'
+                    />
+                    <div className='flex align-items-center ml-3'>
+                      <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
+                      <label htmlFor='public' className='ml-2'>Опубликована</label>
+                    </div>
                   </div>
+                  <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-3' onClick={() => clearImagesList()} />
                 </div>
                 {renderImagesList()}
               </div>
