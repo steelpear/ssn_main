@@ -9,7 +9,7 @@ const Article = new Schema({
   text: String,
   gallery: Array,
   tags: Array,
-  date: String,
+  date: Date,
   html_title: String,
   meta_description: String,
   public: Boolean

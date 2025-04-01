@@ -220,8 +220,12 @@ export default function Blog() {
     await mutate('/api/blog/getallarticles', fetcher('/api/blog/getallarticles', {revalidate: false}))
   }
 
-  const openEditDialog = (article) => {
+  const openEditDialog = article => {
     setArticle(article)
+    setArticle(prevState => ({
+      ...prevState,
+      'date': new Date(article.date)
+    }))
     setImages(article.gallery)
     setEditDialog(true)
   }
@@ -372,7 +376,7 @@ export default function Blog() {
                     <div className='text-xs ml-1 mt-1 h-1rem'>{article.slug}</div>
                   </div>
                   <InputText name='short_title' type='text' variant='filled' className='w-6 p-inputtext-sm' placeholder='Короткий заголовок' value={article.short_title} onChange={(e) => handleChange(e)} />
-                  <Calendar value={article.date} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='en' selectOtherMonths={true} placeholder='Дата' className='p-inputtext-sm'/>
+                  <Calendar value={article.date} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='en' placeholder='Дата' className='p-inputtext-sm'/>
                 </div>
                 <div className='flex align-items-center mb-2'>
                   <InputTextarea name='announce' className='w-full p-inputtext-sm' placeholder='Анонс статьи' value={article.announce} onChange={(e) => handleChange(e)} rows={2} cols={30} />
