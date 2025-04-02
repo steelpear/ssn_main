@@ -21,8 +21,20 @@ import { Editor } from 'primereact/editor'
 import { Calendar } from 'primereact/calendar'
 import { FileUpload } from 'primereact/fileupload'
 import { FloatLabel } from 'primereact/floatlabel'
+import { addLocale } from 'primereact/api'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+addLocale('ru', {
+  firstDayOfWeek: 1,
+  dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+  dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+  monthNamesShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+  today: 'Сегодня',
+  clear: 'Очистить'
+})
 
 export default function Blog() {
   const toast = useRef(null)
@@ -376,7 +388,7 @@ export default function Blog() {
                     <div className='text-xs ml-1 mt-1 h-1rem'>{article.slug}</div>
                   </div>
                   <InputText name='short_title' type='text' variant='filled' className='w-6 p-inputtext-sm' placeholder='Короткий заголовок' value={article.short_title} onChange={(e) => handleChange(e)} />
-                  <Calendar value={article.date} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='en' placeholder='Дата' className='p-inputtext-sm'/>
+                  <Calendar value={article.date} maxDate={new Date()} selectOtherMonths={true} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='ru' placeholder='Дата' className='p-inputtext-sm'/>
                 </div>
                 <div className='flex align-items-center mb-2'>
                   <InputTextarea name='announce' className='w-full p-inputtext-sm' placeholder='Анонс статьи' value={article.announce} onChange={(e) => handleChange(e)} rows={2} cols={30} />
@@ -439,7 +451,7 @@ export default function Blog() {
                     <div className='text-xs ml-1 mt-1 h-1rem'>{article.slug}</div>
                   </div>
                   <InputText name='short_title' type='text' variant='filled' className='w-6 p-inputtext-sm' placeholder='Короткий заголовок' value={article.short_title} onChange={(e) => handleChange(e)} />
-                  <Calendar value={article.date} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='en' selectOtherMonths={true} placeholder='Дата' className='p-inputtext-sm'/>
+                  <Calendar value={article.date} maxDate={new Date()} selectOtherMonths={true} onChange={(e) => handleDateChange(e.value)} dateFormat='dd.mm.yy' locale='ru' placeholder='Дата' className='p-inputtext-sm'/>
                 </div>
                 <div className='flex align-items-center mb-2'>
                   <InputTextarea name='announce' className='w-full p-inputtext-sm' placeholder='Анонс статьи' value={article.announce} onChange={(e) => handleChange(e)} rows={2} cols={30} />
