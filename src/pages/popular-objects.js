@@ -16,15 +16,24 @@ export default function PopularObjects() {
   const { data: objects } = useSWR('/api/hotels/getpublichotels', fetcher, { revalidateOnFocus: false })
 
   const objectTemplate = (object) => (
-    <div key={object._id} className='flex flex-column md:flex-row align-items-start my-3'>
-      <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer' style={{width: 250, height: 148}} onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
-      <div>
-        <div className='pt-2 md:pt-0 text-xl text-blue-700 font-semibold cursor-pointer line-height-1 mb-2' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>
-        {object.stars && <Rating value={object.stars} stars={object.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '1rem' }}}} />}
-        <div className='text-base mt-1'>{object.city}</div>
-        <div className='surface-200 border-round-md px-3 py-1 mt-2 inline-block'>
-          <div className='text-sm font-medium'>от {object.price} ₽</div>
-          <div className='text-xs'>{object.dprice}</div>
+    <div key={object._id} className='col-12 md:col-5 surface-100 border-round-lg shadow-2'>
+      <div className='grid grid-nogutter w-full pt-1'>
+        <div className='col-12 xl:col-6'>
+          <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer w-full max-h-full xl:max-h-9rem' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
+        </div>
+        <div className='col-12 xl:col-6 pl-3'>
+          <div className='pt-2 md:pt-0 text-lg text-blue-700 font-semibold cursor-pointer line-height-1 mb-2' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>
+          {object.stars && <Rating value={object.stars} stars={object.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '1rem' }}}} />}
+          <div className='text-sm mt-1'>{object.city}</div>
+          <div className='inline-block'>
+            <div className='flex align-items-center surface-0 border-round-md px-2 inline-block py-1 mt-2 shadow-1'>
+              <i className='pi pi-wallet mr-2' style={{ fontSize: '1.2rem', color: 'slateblue' }} />
+              <div className='line-height-1'>
+                <div className='text-sm font-medium'>от {object.price} ₽</div>
+                <div className='text-xs'>{object.dprice}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>)
@@ -44,11 +53,11 @@ export default function PopularObjects() {
       <MainLayout>
         <main className='mt-2 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center mt-4 mb-6'>Популярные объекты</div>
-          <div className='flex flex-column flex-wrap gap-2 justify-content-start my-6'>
+          <div className='text-3xl text-700 font-medium text-center mt-4 mb-5'>Популярные объекты</div>
+          <div className='grid gap-4 flex justify-content-center py-4'>
             {objects && objects.map(object => objectTemplate(object))}
           </div>
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <Link href='/tickets' className='block text-center my-4'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
       </MainLayout>
     </>

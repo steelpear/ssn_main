@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Divider } from 'primereact/divider'
 import { Partners } from '../components/Partners'
 import { TransportLogos } from '../components/TransportLogos'
 
@@ -6,7 +7,9 @@ export const Trust = () => {
 
   return (
     <main className='mt-6 px-4 lg:px-8 py-5 w-full'>
-      <div className='text-xl lg:text-3xl font-medium text-800 mb-4'>Почему нам доверяют</div>
+      <Divider align="left" className="inline-flex align-items-center mb-4">
+        <div className='text-xl lg:text-3xl font-medium text-800'>Почему нам доверяют</div>
+      </Divider>
       <div className='grid no-gutter'>
         <div className='col-12 md:col-4'>
           <div className='p-2 text-xl font-semibold text-900'><i className='pi pi-calendar-clock mr-2' style={{ fontSize: '1.2rem' }} />Многолетний опыт</div>
