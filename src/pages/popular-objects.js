@@ -6,6 +6,7 @@ import { MainLayout } from '../components/MainLayout'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { Rating } from 'primereact/rating'
 import { Loader } from '../components/Loader'
+import { Manrope } from '../styles/fonts'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -21,12 +22,12 @@ export default function PopularObjects() {
         <div className='col-12 xl:col-6'>
           <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer w-full max-h-full xl:max-h-9rem' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
         </div>
-        <div className='col-12 xl:col-6 pl-3'>
-          <div className='pt-2 md:pt-0 text-lg text-blue-700 font-semibold cursor-pointer line-height-1 mb-2' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>
-          {object.stars && <Rating value={object.stars} stars={object.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '1rem' }}}} />}
-          <div className='text-sm mt-1'>{object.city}</div>
+        <div className='col-12 xl:col-6 pl-3 relative'>
+          <div className={`${Manrope.className} pt-2 md:pt-0 text-base text-blue-700 font-semibold cursor-pointer line-height-1 mb-2`} onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>
+          {object.stars && <Rating value={object.stars} stars={object.stars} readOnly cancel={false} pt={{ onIcon: {style: {color: 'gold', width: '.9rem' }}}} />}
+          <div className='text-sm'>{object.city}</div>
           <div className='inline-block'>
-            <div className='flex align-items-center surface-0 border-round-md px-2 inline-block py-1 mt-2 shadow-1'>
+            <div className='flex align-items-center surface-0 border-round-md px-2 inline-block py-2 mt-2 shadow-1'>
               <i className='pi pi-wallet mr-2' style={{ fontSize: '1.2rem', color: 'slateblue' }} />
               <div className='line-height-1'>
                 <div className='text-sm font-medium'>от {object.price} ₽</div>

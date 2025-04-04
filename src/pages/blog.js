@@ -11,7 +11,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function Blog() {
   const router = useRouter()
   const items = [{ label: 'Блог' }]
-  const home = { template: () => <Link href="/"><i className='pi pi-home' /></Link> }
+  const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
   const { data: articles } = useSWR('/api/blog/getarticles', fetcher, { revalidateOnFocus: false })
 
   const articleTemplate = (article) => (
@@ -36,7 +36,7 @@ export default function Blog() {
         <meta property="og:type" content="website" />
       </Head>
       <MainLayout>
-        <main className='mt-2 px-4 lg:px-8'>
+        <main className='fadein animation-duration-800 pb-4 mt-2 mb-4 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='text-3xl text-700 font-medium text-center mt-4 mb-6'>Блог</div>
           <div className='flex flex-column flex-wrap gap-4 justify-content-start my-6'>

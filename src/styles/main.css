@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Manrope';
+	src: url('../styles/Manrope.ttf');
+}
+
 .footer-wrap {
   position: relative;
   background-color:#054C89;
@@ -40,6 +45,21 @@
 
 .p-menuitem-content:hover {
   background-color: #FD9741 !important;
+}
+
+.article p {
+  font-size: large;
+  font-family: 'Manrope';
+  font-weight: 400;
+  margin: 4px 0;
+}
+
+.article .ql-align-center {
+  text-align: center;
+}
+
+.article .ql-align-right {
+  text-align: right;
 }
 
 @media (min-width: 1349px) {
