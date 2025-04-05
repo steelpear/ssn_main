@@ -58,6 +58,7 @@ export default function Blog() {
     date: '',
     html_title: '',
     meta_description: '',
+    main_page: false,
     public: true
   })
 
@@ -93,34 +94,40 @@ export default function Blog() {
   const handleChange = e => {
     const { name, value } = e.target
     setArticle(prevState => ({
-        ...prevState,
-        [name]: value
+      ...prevState,
+      [name]: value
     }))}
 
   const handleEditorChange = value => {
     setArticle(prevState => ({
-        ...prevState,
-        'text': value
+      ...prevState,
+      'text': value
     }))}
 
   const handlePublicChange = value => {
     setArticle(prevState => ({
-        ...prevState,
-        'public': value
+      ...prevState,
+      'public': value
     }))}
 
-    const handleDateChange = value => {
-      setArticle(prevState => ({
-          ...prevState,
-          'date': value
-      }))}
+  const handleMainChange = value => {
+    setArticle(prevState => ({
+      ...prevState,
+      'main_page': value
+    }))}
+
+  const handleDateChange = value => {
+    setArticle(prevState => ({
+      ...prevState,
+      'date': value
+    }))}
 
   const handleTitleChange = e => {
     const { value } = e.target
     setArticle(prevState => ({
-        ...prevState,
-        'title': value,
-        'slug': slug(value)
+      ...prevState,
+      'title': value,
+      'slug': slug(value)
     }))}
 
   const footerContent = (
@@ -369,7 +376,7 @@ export default function Blog() {
           <div className="mt-3">
             <DataTable value={articles} loading={isLoading} size='small' dataKey='_id' stripedRows removableSort paginator responsiveLayout='scroll' paginatorTemplate='CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown' currentPageReportTemplate='Строки {first} - {last} из {totalRecords}' rows={20} rowsPerPageOptions={[20,50,articles ? articles.length : 0]} filters={filters} globalFilterFields={['title']} header={headerTemplate} emptyMessage='Статей нет' style={{fontSize:14}} tableStyle={{ minWidth: '50rem' }}>
               <Column header='#' body={(data, options) => <div>{options.rowIndex + 1}</div>} />
-              <Column header='Заголовок' field='title' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{data.title}</div>} />
+              <Column header='Заголовок' field='title' sortable body={data => <div className={`${!data.public && 'line-through'} ${data.main_page && 'text-primary'}`}>{data.title}</div>} />
               <Column header='Дата' field='date' sortable body={data => <div className={`${!data.public && 'line-through'}`}>{new Date(data.date).toLocaleDateString()}</div>} />
               <Column body={(data, options) => (
                 <div className='flex align-items-center justify-content-end'>
@@ -413,6 +420,10 @@ export default function Blog() {
                     <div className='flex align-items-center ml-3'>
                       <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
                       <label htmlFor='public' className='ml-2'>Опубликована</label>
+                    </div>
+                    <div className='flex align-items-center ml-3'>
+                      <Checkbox inputId='main_page' name='main_page' onChange={e => handleMainChange(e.checked)} checked={article.main_page} />
+                      <label htmlFor='main_page' className='ml-2'>На главную</label>
                     </div>
                   </div>
                   <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-3' onClick={() => clearImagesList()} />
@@ -476,6 +487,10 @@ export default function Blog() {
                     <div className='flex align-items-center ml-3'>
                       <Checkbox inputId='public' name='public' onChange={e => handlePublicChange(e.checked)} checked={article.public} />
                       <label htmlFor='public' className='ml-2'>Опубликована</label>
+                    </div>
+                    <div className='flex align-items-center ml-3'>
+                      <Checkbox inputId='main_page' name='main_page' onChange={e => handleMainChange(e.checked)} checked={article.main_page} />
+                      <label htmlFor='main_page' className='ml-2'>На главную</label>
                     </div>
                   </div>
                   <Button icon='pi pi-trash' severity='secondary' rounded disabled={!images.length} text size="large" className='ml-3' onClick={() => clearImagesList()} />

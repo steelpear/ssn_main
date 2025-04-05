@@ -20,7 +20,7 @@ export default function PopularObjects() {
     <div key={object._id} className='col-12 md:col-5 surface-100 border-round-lg shadow-2'>
       <div className='grid grid-nogutter w-full pt-1'>
         <div className='col-12 xl:col-6'>
-          <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer w-full max-h-full xl:max-h-9rem' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} />
+          <img src={(object.img && object.img.length > 0) ? object.img[0] : '/nophoto.jpg'} alt={object.name} className='mr-4 border-round-lg shadow-2 cursor-pointer w-full max-h-full xl:max-h-9rem' onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)} style={{objectFit: 'cover'}} />
         </div>
         <div className='col-12 xl:col-6 pl-3 relative'>
           <div className={`${Manrope.className} pt-2 md:pt-0 text-base text-blue-700 font-semibold cursor-pointer line-height-1 mb-2`} onClick={() => router.push(`/hotel/${object.slug}?p=${object.best}`)}>{object.name}</div>

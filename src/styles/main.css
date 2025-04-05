@@ -72,7 +72,7 @@
   width: 1.6em;
 } */
 
-.article ul, .article ol {
+.article ul:not(.carousel), .article ol:not(.carousel) {
   list-style-type: circle;
 }
 

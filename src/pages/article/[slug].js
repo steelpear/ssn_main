@@ -6,6 +6,8 @@ import { MainLayout } from '../../components/MainLayout'
 import { Share } from '../../components/Share'
 import { Loader } from '../../components/Loader'
 import { BreadCrumb } from 'primereact/breadcrumb'
+import { Carousel } from 'primereact/carousel'
+import { Image } from 'primereact/image'
 import { Manrope } from '../../styles/fonts'
 
 export default function Article() {
@@ -13,7 +15,30 @@ export default function Article() {
   const { slug } = router.query
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({})
+  const [gallery, setGallery] = useState(null)
   const [crumbs, setCrumbs] = useState(null)
+  const responsiveOptions = [
+    {
+        breakpoint: '1400px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+    }
+  ]
 
   const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
 
@@ -30,6 +55,7 @@ export default function Article() {
       })
       const response = await res.json()
       setArticle(response[0])
+      {response[0] && setGallery(response[0].gallery)}
       setCrumbs([
         { template: () => <Link href='/blog' className='no-underline'>Блог</Link>},
         { label: response[0] && response[0].title }
@@ -38,6 +64,18 @@ export default function Article() {
     }
     getData()
   },[slug])
+
+  const readingTime = () => {
+    if (article.text) {
+      const text = article.text
+      const wpm = 225
+      const words = text.trim().split(/\s+/).length
+      const time = Math.ceil(words / wpm)
+      return time
+    } else return ''
+  }
+
+  const itemTemplate = item => (<Image src={item} alt='Image' width='98%' preview imageStyle={{objectFit: 'cover'}}/>)
 
   if (loading) return <Loader />
 
@@ -58,7 +96,10 @@ export default function Article() {
             {article ? <div className='article w-9'>
               <div className={`${Manrope.className} text-3xl text-800 font-medium mt-4 mb-6`}>{article.title}</div>
               <div className='flex align-items-center justify-content-between mb-1'>
-                <div className='ml-1'>{new Date(article.date).toLocaleDateString()}</div>
+                <div className='flex align-items-center'>
+                  <div className='mx-1'>{new Date(article.date).toLocaleDateString()}</div>
+                  <div>| Время на прочтение - {readingTime()} мин.</div>
+                </div>
                 <div className='flex align-items-center'>
                   <div className='flex align-items-center mr-3'>
                     {article.tags && article.tags.map(tag => <div className='ml-1 text-blue-800 cursor-pointer'>#{tag}</div>)}
@@ -68,6 +109,36 @@ export default function Article() {
               </div>
               <img src={article.img} alt={article.title} className='w-full shadow-4 mb-3' style={{borderRadius:'1rem'}} />
               <div dangerouslySetInnerHTML={{ __html: article.text }} />
+              {(gallery && gallery.length > 0) && <Carousel
+                value={gallery}
+                numVisible={3}
+                numScroll={1}
+                circular
+                showIndicators={false}
+                responsiveOptions={responsiveOptions}
+                itemTemplate={itemTemplate}
+                className='mt-5'
+                pt={{ 
+                  previousButton: {style: {
+                    background: 'rgb(255, 132, 0)',
+                    color: 'white',
+                    marginRight: '-1.37rem',
+                    zIndex: 1,
+                    border: 'solid 5px white',
+                    width: '45px',
+                    height: '45px'
+                  }},
+                  nextButton: {style: {
+                    background: 'rgb(255, 132, 0)',
+                    color: 'white',
+                    marginLeft: '-1.6rem',
+                    zIndex: 1,
+                    border: 'solid 5px white',
+                    width: '45px',
+                    height: '45px'
+                  }}
+                }}
+              />}
             </div> : <></>}
           </div>
           <Link href='/tickets' className='block text-center mb-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>

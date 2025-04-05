@@ -12,6 +12,7 @@ const Article = new Schema({
   date: Date,
   html_title: String,
   meta_description: String,
+  main_page: Boolean,
   public: Boolean
 }, { collection: 'blog' })
 

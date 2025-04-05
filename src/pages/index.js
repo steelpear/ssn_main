@@ -5,6 +5,7 @@ import { Reviewz } from '../components/Reviewz'
 import useScript from '../useScript'
 import { PopularBar } from '../components/PopularBar'
 import { Trust } from '../components/Trust'
+import { Blog } from '../components/Blog'
 import { ActionFormSection } from '../components/ActionFormSection'
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
           </section>
           <ActionFormSection />
           <Trust />
+          <Blog />
           <Reviewz />
           <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
         </main>
