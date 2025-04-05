@@ -79,22 +79,22 @@ export default function Tour() {
             </div>
             <div className='col'>
               <ScrollPanel style={{ width: '100%', height: '440px' }}>
-                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.description }} />
+                <div className='article pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.description }} />
               </ScrollPanel>
             </div>
           </div>
           <Accordion multiple className='mt-4 px-3 lg:px-8'>
             {tour.program && <AccordionTab header='Программа тура'>
-                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.program }} />
+                <div className='article pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.program }} />
               </AccordionTab>}
             {tour.placement && <AccordionTab header='Размещение'>
-                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.placement }} />
+                <div className='article pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.placement }} />
               </AccordionTab>}
             {tour.important && <AccordionTab header='Важно знать'>
-                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.important }} />
+                <div className='article pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.important }} />
               </AccordionTab>}
             {tour.booking && <AccordionTab header='Условия бронирования'>
-                <div className='desc pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.booking }} />
+                <div className='article pt-0 text-sm' dangerouslySetInnerHTML={{ __html: tour.booking }} />
               </AccordionTab>}
             </Accordion>
           <ActionFormSection />
