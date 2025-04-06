@@ -36,7 +36,7 @@ export default function Blog() {
     op.current.toggle(e)
   }
 
-  const articleTemplate = item => (<div className='col-4 max-h-16rem'>
+  const articleTemplate = item => (<div className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
     <img src={item.img} className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='flex align-items-center justify-content-between m-1'>
       <div className='text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>
@@ -60,8 +60,11 @@ export default function Blog() {
       <MainLayout>
         <main className='fadein animation-duration-800 pb-4 mt-2 mb-4 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
-          <div className='text-3xl text-700 font-medium text-center mt-4 mb-6'>Блог</div>
-          <div className='grid h-20rem'>
+          <div className='mb-2'>
+            <div className='text-xl text-center lg:text-3xl font-medium text-800 mb-3'>Наш блог</div>
+            <div className='text-lg text-600 text-center lg:text-left'>Полезные статьи для туристов. Рекомендации тревел-экспертов.</div>
+          </div>
+          <div className='grid h-full lg:h-20rem'>
             {articles && articles.map(article => articleTemplate(article))}
           </div>
           <div className='text-center pt-7'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>

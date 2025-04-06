@@ -64,7 +64,8 @@ export const Footer = () => {
             <div className='cursor-pointer text-white' onClick={() => router.push('/payment')}>Как оплатить</div>
             <div className='cursor-pointer text-white' onClick={() => router.push('/reviews')}>Отзывы</div>
             <div className='cursor-pointer text-white' onClick={() => router.push('/about')}>О нас</div>
-            <div className='cursor-pointer text-white' onClick={() => router.push('/tickets')}>Билеты</div>
+            {/* <div className='cursor-pointer text-white' onClick={() => router.push('/tickets')}>Билеты</div> */}
+            <div className='cursor-pointer text-white' onClick={() => router.push('/popular-objects')}>Популярные объекты</div>
             <div className='cursor-pointer text-white' onClick={() => setFeedbackDialog(true)}>Заказать обратный звонок</div>
             <div className='flex align-items-center mt-2 mb-1'>
               <Link href='https://wa.me/79886698337' target='_blank'><img src='/whatsapp.svg' alt='whatsapp' className='mr-3' style={{width: 35}} /></Link>

@@ -4,6 +4,7 @@ import 'primereact/resources/primereact.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import '@/styles/main.css'
+import '@/styles/tourtrans.css'
 
 export default function App({ Component, pageProps }) {
   const value = {

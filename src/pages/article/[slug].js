@@ -25,18 +25,23 @@ export default function Article() {
     },
     {
         breakpoint: '1199px',
-        numVisible: 3,
+        numVisible: 2,
         numScroll: 1
     },
     {
         breakpoint: '767px',
-        numVisible: 2,
+        numVisible: 1,
         numScroll: 1
     },
     {
         breakpoint: '575px',
         numVisible: 1,
         numScroll: 1
+    },
+    {
+      breakpoint: '320px',
+      numVisible: 1,
+      numScroll: 1
     }
   ]
 
@@ -72,7 +77,7 @@ export default function Article() {
     } else return ''
   }
 
-  const itemTemplate = item => (<Image src={item} alt='Image' width='98%' preview imageStyle={{objectFit: 'cover'}}/>)
+  const itemTemplate = item => (<div><Image src={item} alt='Image' width='98%' preview className='hidden xl:block' imageStyle={{objectFit: 'cover'}} /><img src={item} alt='Image' className='block xl:hidden w-full px-1' imageStyle={{objectFit: 'cover'}} /></div>)
 
   if (loading) return <Loader />
 
@@ -90,15 +95,15 @@ export default function Article() {
         <main className='fadein animation-duration-800 mt-2 mb-4 px-4 lg:px-8'>
           <BreadCrumb model={crumbs} home={home} pt={{ root: {className: 'border-none'}}}/>
           <div className='flex justify-content-center mb-5'>
-            {article ? <div className='article w-9'>
-              <div className={`${Manrope.className} text-3xl text-800 font-medium mt-4 mb-6`}>{article.title}</div>
-              <div className='flex align-items-center justify-content-between mb-1'>
-                <div className='flex align-items-center'>
-                  <div className='mx-1'>{new Date(article.date).toLocaleDateString()}</div>
+            {article ? <div className='article w-full xl:w-9'>
+              <div className={`${Manrope.className} text-3xl text-center xl:text-left text-800 font-medium mt-4 mb-6`}>{article.title}</div>
+              <div className='flex flex-column xl:flex-row align-items-center justify-content-between mb-1'>
+                <div className='flex flex-column md:flex-row align-items-center'>
+                  <div className='mx-0 md:mx-1'>{new Date(article.date).toLocaleDateString()}</div>
                   <div>| Время на прочтение - {readingTime()} мин.</div>
                 </div>
-                <div className='flex align-items-center'>
-                  <div className='flex align-items-center mr-3'>
+                <div className='flex flex-column xl:flex-row align-items-center'>
+                  <div className='flex align-items-center mr-3 mb-3 xl:mb-0'>
                     {article.tags && article.tags.map(tag => <div className='ml-1 text-blue-800 cursor-pointer'>#{tag}</div>)}
                   </div>
                   <Share title={article.title} />

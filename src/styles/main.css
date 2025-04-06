@@ -89,6 +89,9 @@
   .action-form-bg {
     background: linear-gradient(90deg, #004470 0, #0072bc 20%, #0072bc 80%, #004470) !important;
   }
+  .article img {
+    width: -webkit-fill-available;
+  }
 }
 
 @media (max-width: 932px) {
