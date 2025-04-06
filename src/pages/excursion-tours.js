@@ -4,7 +4,7 @@ import useScript from '../useScript'
 import { MainLayout } from '../components/MainLayout'
 import { BreadCrumb } from 'primereact/breadcrumb'
 
-export default function excursionTours() {
+export default function ExcursionTours() {
   const items = [{ label: 'Экскурсионные туры' }]
   const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
 

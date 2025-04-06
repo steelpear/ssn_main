@@ -44,7 +44,7 @@ export const Blog = () => {
   }
 
   const itemTemplate = item => (<div className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
-    <img src={item.img} className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
+    <img src={item.img} alt='Image' className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='flex align-items-center justify-content-between m-1'>
       <div className='text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>
       <i className='pi pi-share-alt cursor-pointer' style={{ fontSize: '1rem', color: '#708090' }} onClick={(e) => share(e, item)} />
