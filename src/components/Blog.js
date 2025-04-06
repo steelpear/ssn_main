@@ -27,15 +27,15 @@ export const Blog = () => {
   },[filter])
 
   const itemTemplate = item => (<div className='col-4 max-h-16rem'>
-    <img src={item.img} className='w-full h-full border-round-xl' style={{objectFit: 'cover'}} />
+    <img src={item.img} className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='mx-1 text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>
-    <div className='text-lg cursor-pointer line-height-2' onClick={() => router.push(`/article/${item.slug}`)}>{item.title}</div>
+    <div className='text-lg cursor-pointer line-height-2 hover:text-blue-700' onClick={() => router.push(`/article/${item.slug}`)}>{item.title}</div>
   </div>)
 
   if (articles && articles.length >= 3) {
     return (
-      <main className='mt-6 px-4 lg:px-8 pt-5 pb-7 w-full'>
-        <div className='my-4 flex align-items-center justify-content-between'>
+      <main className='px-4 lg:px-8 pt-5 pb-7 w-full'>
+        <div className='mb-4 flex align-items-center justify-content-between'>
           <div>
             <div className='text-xl lg:text-3xl font-medium text-800'>Блог</div>
             <div className='text-600'>Полезные статьи для туристов. Рекомендации тревел-экспертов.</div>

@@ -35,7 +35,7 @@ export default function Sochi() {
           </div>
           <Top3 best='so' />
           <div className='s-partnership mb-4' style={{display:'none'}}>Yxn4iWwUgh0rRKKsmDb%2BGVaEaMDJEIm6Imgnk22e5qA%3D</div>
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>

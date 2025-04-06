@@ -14,7 +14,7 @@ export default function Article() {
   const router = useRouter()
   const { slug } = router.query
   const [loading, setLoading] = useState(false)
-  const [article, setArticle] = useState({})
+  const [article, setArticle] = useState(null)
   const [gallery, setGallery] = useState(null)
   const [crumbs, setCrumbs] = useState(null)
   const responsiveOptions = [
@@ -41,9 +41,6 @@ export default function Article() {
   ]
 
   const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
-
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
-  const title = typeof document !== 'undefined' ? document.title : 'Ознакомьтесь с этим интересным контентом!'
 
   useEffect(() => {
     const getData = async () => {
@@ -82,9 +79,9 @@ export default function Article() {
   return (
     <>
       <Head>
-        <title>Туристическая компания «ПРО100-ТУР»</title>
+        <title>ПРО100-ТУР / {(article && article.title) && article.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-        <meta name="description" content="Предлагаем услуги по бронированию путевок на лечение и отдых в санатории, курортные отели, пансионаты, базы отдыха, морские и речные круизы, а также детские лагеря, спортивные и творческие групповые сборы." />
+        <meta name="description" content={article ? article.meta_description : "Предлагаем услуги по бронированию путевок на лечение и отдых в санатории, курортные отели, пансионаты, базы отдыха, морские и речные круизы, а также детские лагеря, спортивные и творческие групповые сборы."} />
         <meta property="og:title" content="Туристическая компания «ПРО100-ТУР»" />
         <meta property="og:description" content="Предлагаем услуги по бронированию путевок на лечение и отдых в санатории, курортные отели, пансионаты, базы отдыха, морские и речные круизы, а также детские лагеря, спортивные и творческие групповые сборы." />
         <meta property="og:type" content="website" />
@@ -104,7 +101,7 @@ export default function Article() {
                   <div className='flex align-items-center mr-3'>
                     {article.tags && article.tags.map(tag => <div className='ml-1 text-blue-800 cursor-pointer'>#{tag}</div>)}
                   </div>
-                  <Share />
+                  <Share title={article.title} />
                 </div>
               </div>
               <img src={article.img} alt={article.title} className='w-full shadow-4 mb-3' style={{borderRadius:'1rem'}} />

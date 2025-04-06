@@ -6,8 +6,8 @@ import { TransportLogos } from '../components/TransportLogos'
 export const Trust = () => {
 
   return (
-    <main className='mt-6 px-4 lg:px-8 py-5 w-full'>
-      <Divider align="left" className="inline-flex align-items-center mb-4">
+    <main className='mt-6 px-4 lg:px-8 pt-5 pb-4 w-full'>
+      <Divider align="left" className="inline-flex align-items-center mb-5">
         <div className='text-xl lg:text-3xl font-medium text-800'>Почему нам доверяют</div>
       </Divider>
       <div className='grid no-gutter'>
@@ -56,6 +56,7 @@ export const Trust = () => {
       <div className='text-xl mt-3'><span className='font-semibold'>Гарантия качества:</span> Мы заботимся о комфорте и безопасности наших клиентов на всех этапах путешествия (<Link className='no-underline' href='/reviews'>отзывы наших клиентов</Link>).</div>
       <TransportLogos />
       <Partners />
+      <Divider className='mt-7'/>
     </main>
   )
 }

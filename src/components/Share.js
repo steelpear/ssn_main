@@ -9,9 +9,10 @@ import {
   VKIcon
 } from 'react-share'
 
-export const Share = () => {
+export const Share = ({...params}) => {
   const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
-  const title = typeof document !== 'undefined' ? document.title : 'Ознакомьтесь с этим интересным контентом!'
+  // const title = typeof document !== 'undefined' ? document.title : 'Ознакомьтесь с этим интересным контентом!'
+  const title = params.title
   const size = 28
 
   return (

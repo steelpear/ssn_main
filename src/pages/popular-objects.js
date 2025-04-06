@@ -58,7 +58,7 @@ export default function PopularObjects() {
           <div className='grid gap-4 flex justify-content-center py-4'>
             {objects && objects.map(object => objectTemplate(object))}
           </div>
-          <Link href='/tickets' className='block text-center my-4'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>

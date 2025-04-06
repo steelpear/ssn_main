@@ -42,7 +42,7 @@ export default function PopularTours() {
           <div className='flex flex-column flex-wrap gap-4 justify-content-start my-6'>
             {tours && tours.map(tour => tourTemplate(tour))}
           </div>
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>

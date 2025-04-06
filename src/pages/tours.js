@@ -29,7 +29,7 @@ export default function Tours() {
             <div className='pt-4 mb-3 s-partnership w-full flex justify-content-center' style={{display:'none'}}>P%2BUxRaBwF3WUU%2FeLE%2F3iB%2B5jYRBw6pHFmfbeLwHkFlo%3D</div>
           </div>
           <ActionFormSection />
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>

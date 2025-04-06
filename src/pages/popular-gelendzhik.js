@@ -35,7 +35,7 @@ export default function Gelendzhik() {
           </div>
           <Top3 best='ge' />
           <div className='s-partnership mb-4' style={{display:'none'}}>zZpLcIi4fsDChvptL2VtMKBeTZf9aGKdzWaPmlykFNw%3D</div>
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>

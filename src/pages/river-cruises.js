@@ -53,7 +53,7 @@ export default function River() {
           <div className='flex justify-content-center'>
             <Button label='Морские круизы' outlined raised size='large' className='text-700 mx-3 mb-2 border-orange-400 border-3' onClick={() => router.push('/sea-cruises')} />
           </div>
-          <Link href='/tickets' className='block text-center py-3'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link>
+          <div className='text-center pb-3 pt-6'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>
         </main>
       </MainLayout>
     </>
