@@ -77,7 +77,7 @@ export default function Article() {
     } else return ''
   }
 
-  const itemTemplate = item => (<div><Image src={item} alt='Image' width='98%' preview className='hidden xl:block' imageStyle={{objectFit: 'cover'}} /><img src={item} alt='Image' className='block xl:hidden w-full px-1' imageStyle={{objectFit: 'cover'}} /></div>)
+  const itemTemplate = item => (<div><Image src={item} alt='Image' width='98%' preview className='hidden xl:block' imageStyle={{objectFit: 'cover'}} /><img src={item} alt='Image' className='block xl:hidden w-full px-1' style={{objectFit: 'cover'}} /></div>)
 
   if (loading) return <Loader />
 

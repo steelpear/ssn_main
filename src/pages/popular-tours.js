@@ -16,10 +16,11 @@ export default function PopularTours() {
 
   const tourTemplate = (tour) => (
     <div key={tour._id} className='flex align-items-center my-3'>
-      <img src={tour.img[0]} alt={tour.name} className='w-2 mr-4 border-round-lg shadow-2 cursor-pointer' onClick={() => router.push(`/tour/${tour.slug}`)} />
+      <img src={tour.img[0]} alt={tour.name} className='w-3 mr-4 border-round-lg shadow-2 cursor-pointer' onClick={() => router.push(`/tour/${tour.slug}`)} />
       <div>
-        <div className='text-xl text-blue-700 font-semibold cursor-pointer line-height-1' onClick={() => router.push(`/tour/${tour.slug}`)}>{tour.name}</div>
-        <div className='hidden lg:block surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis' style={{width:500}}>{tour.description.replace(/(<([^>]+)>)/ig, '')}</div>
+        <div className='text-xl text-blue-700 font-semibold cursor-pointer line-height-1 mb-1' onClick={() => router.push(`/tour/${tour.slug}`)}>{tour.name}</div>
+        <div className='hidden lg:block surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis' style={{width:600}}>{tour.description.replace(/(<([^>]+)>)/ig, '')}</div>
+        <div className='text-base text-blue-700 cursor-pointer mt-2' onClick={() => router.push(`/tour/${tour.slug}`)}>Подробнее...</div>
       </div>
     </div>)
 

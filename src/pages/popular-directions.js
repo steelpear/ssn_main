@@ -12,10 +12,11 @@ export default function PopularDirections() {
 
   const directionTemplate = (direction, index) => (
     <div key={index} className='flex align-items-center my-3'>
-      <img src={direction.img} alt={direction.name} className='w-2 mr-4 border-round-lg shadow-2 cursor-pointer' onClick={() => router.push(direction.path)} />
+      <img src={direction.img} alt={direction.name} className='w-3 mr-4 border-round-lg shadow-2 cursor-pointer' onClick={() => router.push(direction.path)} />
       <div>
-        <div className='text-xl text-blue-700 font-semibold cursor-pointer line-height-1' onClick={() => router.push(direction.path)}>{direction.name}</div>
-        <div className='hidden lg:block surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis' style={{width:500}}>{direction.description.replace(/(<([^>]+)>)/ig, '')}</div>
+        <div className='text-xl text-blue-700 font-semibold cursor-pointer line-height-1 mb-1' onClick={() => router.push(direction.path)}>{direction.name}</div>
+        <div className='hidden lg:block surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis' style={{width:600}}>{direction.description.replace(/(<([^>]+)>)/ig, '')}</div>
+        <div className='text-base text-blue-700 cursor-pointer mt-2' onClick={() => router.push(direction.path)}>Подробнее...</div>
       </div>
     </div>)
 
