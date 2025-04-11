@@ -7,7 +7,6 @@ const useTutuScript = (url, async = true, crossOrigin = 'anonymous') => {
     script.id = 'widScrParams'
     script.src = url
     script.async = async
-    // script.defer = true
     script.crossOrigin = crossOrigin
     document.body.appendChild(script)
     return () => {

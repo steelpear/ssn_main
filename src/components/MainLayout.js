@@ -9,16 +9,14 @@ const analyticsEnabled = !!(process.env.NODE_ENV === 'production')
 export function MainLayout({ children }) {
 
   return (
-    <>
-      <div className='w-full'>
-        <Script src='https://script.click-chat.ru/chat.js?wid=ae9850ec-f277-4ead-b094-4be22b38ea2b' />
-        <Header />
-        <main className={Roboto.className}>
-          {children}
-        </main>
-        <Footer />
-      </div>
+    <div className='w-full'>
+      <Script src='https://script.click-chat.ru/chat.js?wid=affd5ad6-be0f-4d91-810b-a3f580a82fa1' />
+      <Header />
+      <main className={Roboto.className}>
+        {children}
+      </main>
+      <Footer />
       <YandexMetrikaContainer enabled={analyticsEnabled} />
-    </>
+    </div>
   )
 }

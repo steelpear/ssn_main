@@ -43,7 +43,7 @@ export const Blog = () => {
     op.current.toggle(e)
   }
 
-  const itemTemplate = item => (<div className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
+  const itemTemplate = item => (<div key={item._id} className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
     <img src={item.img} alt='Image' className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='flex align-items-center justify-content-between m-1'>
       <div className='text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>

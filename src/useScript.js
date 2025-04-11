@@ -6,7 +6,6 @@ const useScript = (url, async = true, crossOrigin = 'anonymous') => {
     const script = document.createElement('script')
     script.src = url
     script.async = async
-    // script.defer = true
     script.crossOrigin = crossOrigin
     document.body.appendChild(script)
     return () => {

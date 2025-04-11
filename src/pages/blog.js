@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Head from 'next/head'
 import Link from 'next/link'
-import useSWR from 'swr'
 import { MainLayout } from '../components/MainLayout'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { OverlayPanel } from 'primereact/overlaypanel'
@@ -18,8 +17,6 @@ import {
   VKIcon
 } from 'react-share'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export default function Blog() {
   const op = useRef(null)
   const router = useRouter()
@@ -28,7 +25,37 @@ export default function Blog() {
   const size = 30
   const items = [{ label: 'Блог' }]
   const home = { template: () => <Link href='/'><i className='pi pi-home' /></Link> }
-  const { data: articles } = useSWR('/api/blog/getarticles', fetcher, { revalidateOnFocus: false })
+  const [articles, setArticles] = useState(null)
+  const [tags, setTags] = useState([])
+  const [currentTag, setCurrentTag] = useState('все')
+  const [filter, setFilter] = useState({
+    public: true
+  })
+
+  useEffect(() => {
+    const getTags = async () => {
+      const array = []
+      const res = await fetch('/api/blog/gettags')
+      const response = await res.json()
+      response.map(tag => array.push(tag.tags))
+      const tags = array.flat(1)
+      setTags([... new Set(tags)])
+    }
+    getTags()
+  },[])
+
+  useEffect(() => {
+    const getArticles = async () => {
+      const res = await fetch('/api/blog/getblog', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(filter)
+      })
+      const response = await res.json()
+      setArticles(response)
+    }
+    getArticles()
+  },[filter])
 
   const share = (e, article) => {
     setShareUrl(`https://pro100tur.ru/article/${article.slug}`)
@@ -36,7 +63,12 @@ export default function Blog() {
     op.current.toggle(e)
   }
 
-  const articleTemplate = item => (<div className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
+  const filterByTag = (tag) => {
+    setCurrentTag(tag)
+    setFilter(tag !== 'все' ? {public:true, tags:{$in: tag}} : {public:true})
+  }
+
+  const articleTemplate = item => (<div key={item._id} className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
     <img src={item.img} alt='Image' className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='flex align-items-center justify-content-between m-1'>
       <div className='text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>
@@ -62,7 +94,11 @@ export default function Blog() {
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='mb-2'>
             <div className='text-xl text-center lg:text-3xl font-medium text-800 mb-3'>Наш блог</div>
-            <div className='text-lg text-600 text-center lg:text-left'>Полезные статьи для туристов. Рекомендации тревел-экспертов.</div>
+            <div className='text-lg text-600 font-medium text-center lg:text-left'>Полезные статьи для туристов. Рекомендации тревел-экспертов.</div>
+          </div>
+          <div className='grid gap-2 lg:gap-3 my-4 px-2 text-base'>
+            <div className={`${currentTag === 'все' && 'text-orange-500'} text-blue-800 cursor-pointer`} onClick={() => filterByTag('все')}>#все</div>
+            {tags.map((tag, index) => <div key={index} className={`${currentTag === tag && 'text-orange-500'} text-blue-800 cursor-pointer`} onClick={() => filterByTag(tag)}>#{tag}</div>)}
           </div>
           <div className='grid h-full lg:h-20rem'>
             {articles && articles.map(article => articleTemplate(article))}

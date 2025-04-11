@@ -104,7 +104,7 @@ export default function Article() {
                 </div>
                 <div className='flex flex-column xl:flex-row align-items-center'>
                   <div className='flex align-items-center mr-3 mb-3 xl:mb-0'>
-                    {article.tags && article.tags.map((tag, index) => <div key={index} className='ml-1 text-blue-800 cursor-pointer'>#{tag}</div>)}
+                    {article.tags && article.tags.map((tag, index) => <div key={index} className='ml-1 text-blue-800'>#{tag}</div>)}
                   </div>
                   <Share title={article.title} />
                 </div>
