@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { MainLayout } from '../components/MainLayout'
 import { BreadCrumb } from 'primereact/breadcrumb'
 import { OverlayPanel } from 'primereact/overlaypanel'
+import { Tag } from 'primereact/tag'
 import { Loader } from '../components/Loader'
 import { 
   MailruShareButton,
@@ -93,12 +94,12 @@ export default function Blog() {
         <main className='fadein animation-duration-800 pb-4 mt-2 mb-4 px-4 lg:px-8'>
           <BreadCrumb model={items} home={home} pt={{ root: {className: 'border-none'}}} />
           <div className='mb-2'>
-            <div className='text-xl text-center lg:text-3xl font-medium text-800 mb-3'>Наш блог</div>
+            <div className='text-xl text-center lg:text-3xl font-medium text-800 mb-5'>Наш блог</div>
             <div className='text-lg text-600 font-medium text-center lg:text-left'>Полезные статьи для туристов. Рекомендации тревел-экспертов.</div>
           </div>
-          <div className='grid gap-2 lg:gap-3 my-4 px-2 text-base'>
-            <div className={`${currentTag === 'все' && 'text-orange-500'} text-blue-800 cursor-pointer`} onClick={() => filterByTag('все')}>#все</div>
-            {tags.map((tag, index) => <div key={index} className={`${currentTag === tag && 'text-orange-500'} text-blue-800 cursor-pointer`} onClick={() => filterByTag(tag)}>#{tag}</div>)}
+          <div className='grid gap-2 my-4 px-2 text-base'>
+            <Tag value='#все' onClick={() => filterByTag('все')} className='cursor-pointer text-xs font-medium' style={{backgroundColor: currentTag === 'все' ? '#FE7E25' : '#326FD1'}} />
+            {tags.map((tag, index) => <Tag key={index} value={`#${tag}`} onClick={() => filterByTag(tag)} className='cursor-pointer text-xs font-medium' style={{backgroundColor: currentTag === tag ? '#FE7E25' : '#326FD1'}} />)}
           </div>
           <div className='grid h-full lg:h-20rem'>
             {articles && articles.map(article => articleTemplate(article))}
