@@ -346,7 +346,7 @@ export default function Blog() {
 
   const renderImagesList = () => (<div className='grid gap-2'>
     {[...images].map((item, i) => (<div className='relative' key={i}>
-      <Image src={item} alt="Image" width="150" preview />
+      <Image src={item} key={item} alt='Image' width='150' preview />
       <i className='pi pi-times cursor-pointer absolute right-0 top-0 mr-1 mt-1' style={{fontSize:'.8rem', color:'white'}} onClick={() => deleteImage(item)} />
     </div>
   ))}</div>)
