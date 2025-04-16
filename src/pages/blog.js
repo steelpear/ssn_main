@@ -69,8 +69,8 @@ export default function Blog() {
     setFilter(tag !== 'все' ? {public:true, tags:{$in: tag}} : {public:true})
   }
 
-  const articleTemplate = item => (<div key={item._id} className='col-12 md:col-6 lg:col-4 h-full lg:max-h-16rem'>
-    <img src={item.img} alt='Image' className='w-full h-full border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
+  const articleTemplate = item => (<div key={item._id} className='col-12 md:col-6 lg:col-4 mb-2'>
+    <img src={item.img} alt='Image' className='w-full h-16rem border-round-xl cursor-pointer' style={{objectFit: 'cover'}} onClick={() => router.push(`/article/${item.slug}`)} />
     <div className='flex align-items-center justify-content-between m-1'>
       <div className='text-sm text-600'>{new Date(item.date).toLocaleDateString()}</div>
       <i className='pi pi-share-alt cursor-pointer' style={{ fontSize: '1rem', color: '#708090' }} onClick={(e) => share(e, item)} />
@@ -101,7 +101,7 @@ export default function Blog() {
             <Tag value='#все' onClick={() => filterByTag('все')} className='cursor-pointer text-xs font-medium' style={{backgroundColor: currentTag === 'все' ? '#FE7E25' : '#326FD1'}} />
             {tags.map((tag, index) => <Tag key={index} value={`#${tag}`} onClick={() => filterByTag(tag)} className='cursor-pointer text-xs font-medium' style={{backgroundColor: currentTag === tag ? '#FE7E25' : '#326FD1'}} />)}
           </div>
-          <div className='grid h-full lg:h-20rem'>
+          <div className='grid'>
             {articles && articles.map(article => articleTemplate(article))}
           </div>
           <div className='text-center pt-7'><Link href='/tickets' className='inline-block'><img src='/tutu.jpg' alt='Билеты' className='w-11 md:w-auto shadow-2'/></Link></div>

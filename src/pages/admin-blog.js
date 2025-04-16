@@ -269,22 +269,6 @@ export default function Blog() {
     if (response.state) {
       toast.current.show({severity:'success', detail:'Изменения сохранены', life: 2000})
       await mutate('/api/blog/getallarticles', fetcher('/api/blog/getallarticles'))
-      setArticle({
-        img: '',
-        title: '',
-        slug: '',
-        short_title: '',
-        announce: '',
-        text: '',
-        gallery: [],
-        tags: [],
-        date: '',
-        html_title: '',
-        meta_description: '',
-        public: true
-      })
-      setImages([])
-      setEditDialog(false)
     } else {toast.current.show({severity:'danger', detail:'Что-то пошло не так!', life: 2000})}
   }
 
@@ -346,7 +330,7 @@ export default function Blog() {
 
   const renderImagesList = () => (<div className='grid gap-2'>
     {[...images].map((item, i) => (<div className='relative' key={i}>
-      <Image src={item} key={item} alt='Image' width='150' preview />
+      <Image src={item} alt='Image' width='150' preview loading='eager' />
       <i className='pi pi-times cursor-pointer absolute right-0 top-0 mr-1 mt-1' style={{fontSize:'.8rem', color:'white'}} onClick={() => deleteImage(item)} />
     </div>
   ))}</div>)
